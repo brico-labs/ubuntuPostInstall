@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+xmlstarlet val --err --xsd /usr/share/xml/docbook/schema/xsd/5.0/docbook.xsd src/ubuntuPostInstall.xml
+
+
+xsltproc -stringparam paper.type A4 /usr/share/xml/docbook/stylesheet/docbook-xsl-ns/fo/docbook.xsl src/ubuntuPostInstall.xml > out/ubuntuPostInstall.fo
+
+fop -fo out/ubuntuPostInstall.fo -pdf out/ubuntuPostIntall.pdf

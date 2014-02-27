@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="utf-8"?>  <!-- -*- nxml -*- -->
+<!DOCTYPE article [
+<!ENTITY version "5.0">
+<!--
+<!ENTITY yes "<phrase role='unicode yes'>✔</phrase>">
+<!ENTITY no "<phrase role='unicode no'>✘</phrase>">
+-->
+<!ENTITY yes "<phrase role='unicode yes'>YES</phrase>">
+<!ENTITY no "<phrase role='unicode no'>NO</phrase>">
+]>
+
+<article xmlns="http://docbook.org/ns/docbook"
+	 xmlns:xl="http://www.w3.org/1999/xlink"
+	 version="5.0" xml:lang="es">
+  <info>
+    <title>Ubuntu 13.10 Postinstallation</title>
+    <subtitle>Un Quick Hacking para Bricolabs</subtitle>
+
+    <author>
+      <personname>Sergio Alvariño (salvari)</personname>
+      <email>salvari@gmail.com</email>
+      <affiliation>
+        <org><orgname>BricoLabs</orgname>
+        <uri>www.bricolabs.cc</uri>
+        </org>
+      </affiliation>
+    </author>
+
+    <pubdate>2014-01-27</pubdate>
+  </info>
+
+
+  <para>Notas de la post-instalación de Ubuntu 13.10</para>
+
+  <section xml:id="intro">
+    <title>Introducción</title>
+
+    <para>Este documento es una descripción de las operaciones de post
+    instalación para Ubuntu 13.10 Saucy Salamander.</para>
+
+    <para>La instalación de Ubuntu se hizo en mi portátil, un
+    ordenador Acer 5755G con las siguientes características:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>Core i5 2430M 2.4GHz</para>
+      </listitem>
+      <listitem>
+        <para>NVIDIA Geforce GT 540M</para>
+      </listitem>
+      <listitem>
+        <para>8Gb RAM</para>
+      </listitem>
+      <listitem>
+        <para>750Gb HD</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>La instalación de Ubuntu realizada es una instalación
+    personalizada para permitir editar la tabla de particiones. Las
+    particiones en mi portátil son muy simples 70Gb para / y el resto
+    en una partición montada en /store.</para>
+
+    <para>Ciertos directorios de trabajo (p.ej. /var) los convierto
+    más tarde (a mano) en symlinks a /store para que no ocupen espacio
+    en la partición root.</para>
+
+    <para>Lo mismo hago con ciertos directorios de mi home, por
+    ejemplo el directorio de música, el de imágenes, el de descargas y
+    la biblioteca de Calibre los tengo en /store con enlaces
+    simbólicos a los mismo en home</para>
+
+  </section>
+
+  <section>
+    <title>Primeros ajustes</title>
+
+    <para>Nada más terminar la instalación me apareció un problema
+    bastante molesto de parpadeo del cursor. Se soluciona fácilmente
+    desactivando el monitor secundario que creó la instalación.</para>
+
+    <para>System Settings::Displays: Desactivar el Unknow Monitor</para>
+  </section>
+
+  <section>
+    <title>Ajustes estéticos</title>
+
+    <section>
+      <title>Activar espacios de trabajo</title>
+
+      <para>
+        <orderedlist>
+          <listitem>
+            <para>En el Dash
+            (<keycombo><keysym>Super-A</keysym><keysym>A</keysym></keycombo>)
+            buscamos Appearance (Apariencia)</para>
+          </listitem>
+          <listitem>
+            <para>En la pestaña Behavior activamos la opción de Workspaces</para>
+          </listitem>
+        </orderedlist>
+      </para>
+    </section>
+
+    <section>
+      <title>Modificar formato de fecha</title>
+
+      <para>Cambio el formato del reloj para poder ver el dia del mes
+      y de la semana</para>
+    </section>
+
+    <section>
+      <title>Cairo Dock</title>
+
+      <para>Cuando Canonical decidió brindar una nueva experiencia de
+      usuario, adoptando Unity, superé el trauma instalando Cairo
+      Dock.</para>
+
+      <para>Tengo que admitir que hoy en dia estoy bastante cómodo con
+      Unity pero "le he cogido cariño" al dock y lo mantengo en mi
+      portátil aunque ya no arranca por defecto al inicio</para>
+
+      <screen>
+        $ sudo add-apt-repository ppa:cairo-dock-team/ppa
+        $ sudo add-apt-repository ppa:xubuntu-dev/xfce-4.10
+        $ sudo apt-get install cairo-dock
+      </screen>
+
+      <para>Para todos los que necesiten tener un menú de aplicaciones
+      pero no quieran el Dock les recomiendo que prueben el
+      appindicator Classic Menú. Así que...</para>
+    </section>
+
+    <section>
+      <title>Instalación de Classic Menú</title>
+      <screen>
+        $ sudo add-apt-repository ppa:diesch/testing
+        $ sudo apt-get update
+        $ sudo apt-get install classicmenu-indicator
+      </screen>
+    </section>
+
+  </section>
+  <!-- ***** End of section: Ajustes estéticos ***** -->
+
+  <section>
+    <title>Gestión de paquetes</title>
+
+    <section>
+      <title>Instalación de Synaptic</title>
+
+      <para>Generalmente</para>
+
+      <screen>$ sudo apt-get install synaptic</screen>
+    </section>
+
+    <section>
+      <title>Instalación de Aptitude</title>
+
+      <screen>$ sudo apt-get install aptitude</screen>
+
+      <para>Una vez instalado Aptitude, lo configuro para que no
+      instale los paquetes recomendados, arrancamos con <command>sudo
+      aptitude</command> y en el menú <guimenu>Options</guimenu>
+      seleccionamos <guisubmenu>Dependency Handling</guisubmenu> y
+      desactivamos la opción <guimenuitem>Install Recommended Packages
+      Automatically</guimenuitem></para>
+
+      <para>Aptitude es uno de mis vicios de mis tiempos Debianitas,
+      cuando los hombres eran hombres y usaban la linea de comandos
+      para casi todo, yo era uno de los que usaba un interfaz pseudo
+      gráfico para la gestión de paquetes</para>
+    </section>
+
+
+  </section>
+  <!-- ***** End of section: Gestión de paquetes ***** -->
+
+  <section>
+    <title>Herramientas de configuración de sistema</title>
+
+    <section>
+      <title>Instalación de CCSM</title>
+
+      <screen>
+        $ sudo apt-get install compizconfig-settings-manager
+        $ sudo apt-get install compiz-plugins-extra
+      </screen>
+    </section>
+
+    <section>
+      <title>Instalar Unity Tweak y Gnome Tweak</title>
+      <screen>$ sudo apt-get install unity-tweak-tool gnome-tweak-tool</screen>
+    </section>
+
+
+    <section>
+      <title>TLP</title>
+
+      <para><screen>$ sudo add-apt-repository ppa:linrunner/tlpsudo
+      $ apt-get updatesudo
+      $ apt-get install tlp tlp-rdw
+      $ sudo tlp start
+      $ suod tlp stat</screen></para>
+
+
+
+    </section>
+
+  </section>
+  <!-- ***** End of section: Configuración del sistema ***** -->
+
+  <section>
+    <title>Utilidades</title>
+
+    <section>
+      <title>Herramientas de compresión</title>
+      <para><screen>$ sudo apt-get install p7zip-rar p7zip-full unace unrar zip unzip \
+      sharutils rar uudeview mpack arj cabextract file-roller</screen></para>
+    </section>
+
+    <section>
+      <title>Instalación de  restricted extras</title>
+      <para><screen>$ sudo apt-get install ubuntu-restricted-extras</screen></para>
+    </section>
+
+    <section>
+      <title>Codecs</title>
+      <para><screen>$ sudo apt-get install gstreamer0.10-plugins-ugly \
+      gstreamer0.10-ffmpeg libxine1-ffmpeg gxine mencoder libdvdread4 \
+      totem-mozilla icedax tagtool easytag id3tool lame \
+      nautilus-script-audio-convert libmad0 mpg321
+      $ sudo /usr/share/doc/libdvdread4/install-css.sh
+      </screen></para>
+    </section>
+  </section>
+  <!-- ***** End of section: Utilidades y herramientas ***** -->
+
+  <section>
+    <title>Seguridad y privacidad</title>
+
+    <section>
+      <title>Ejecución de fixubuntu</title>
+
+      <para>Información reciente disponible en htpps://fixubuntu.com</para>
+
+      <para>Lo que yo hice fue copiar esto a un terminal y ejecutar</para>
+
+      <programlisting>
+V=`/usr/bin/lsb_release -rs`; if [ $V \&lt; 12.10 ]; then echo "Good news! Your version of Ubuntu doesn't invade your privacy."; else gsettings set com.canonical.Unity.Lenses remote-content-search none; if [ $V \&lt; 13.10 ]; then sudo apt-get remove -y unity-lens-shopping; else gsettings set com.canonical.Unity.Lenses disabled-scopes "['more_suggestions-amazon.scope', 'more_suggestions-u1ms.scope', 'more_suggestions-populartracks.scope', 'music-musicstore.scope', 'more_suggestions-ebay.scope', 'more_suggestions-ubuntushop.scope', 'more_suggestions-skimlinks.scope']"; fi; if ! grep -q productsearch.ubuntu.com /etc/hosts; then echo -e "\n127.0.0.1 productsearch.ubuntu.com" | sudo tee -a /etc/hosts >/dev/null; fi; echo "All done. Enjoy your privacy."; fi
+      </programlisting>
+
+    </section>
+
+
+    <section>
+      <title>Desactivado el reporte automático de errores</title>
+
+      <para>
+        <screen>$ sudo gedit /etc/default/apport
+        $ sudo restart apport</screen>
+      </para>
+    </section>
+    <section>
+      <title>Desactivación de remote login y guest login</title>
+
+      <screen>
+$ echo allow-guest=false | sudo tee -a /etc/lightdm/lightdm.conf.d/50-unity-greeter.conf
+$ echo greeter-show-remote-login=false | sudo tee -a /etc/lightdm/lightdm.conf.d/50-unity-greeter.conf
+      </screen>
+
+    </section>
+
+    <section>
+      <title>Firewall</title>
+
+      <para>Configuración del cortafuegos.</para>
+      <screen>
+$ sudo apt-get install gufw
+$ gufw
+      </screen>
+      <para>http://debianhelp.wordpress.com/2013/11/19/to-do-list-after-installing-ubuntu-13-10-aka-saucy-salamander-os-2/</para>
+    </section>
+
+
+
+  </section>
+  <!-- ***** End of section: Seguridad y privacidad ***** -->
+
+  <section>
+    <title>Software de Google</title>
+
+    <para>Varios programas de uso frecuente.</para>
+
+    <section>
+      <title>Instalación de Chrome</title>
+      <para>Instalamos el navegador de Google</para>
+      <screen>
+$ wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub \
+| sudo apt-key add -
+      </screen>
+    </section>
+  </section>
+  <!-- ***** End of section: Sw Google ***** -->
+  <section>
+    <title>Gráficos y dibujos</title>
+
+    <section>
+      <title>Gimp</title>
+      <screen>
+$ sudo add-apt-repository ppa:otto-kesselgulasch/gimp
+$ sudo apt-get update
+$ sudo apt-get install gmic gimp-gmic
+      </screen>
+      <para>Instalamos también el GPS (Gimp Paint Studio).</para>
+      <para>Descargamos el paquete con el GPS 2.0 desde aquí:</para>
+      <para>Y descomprimimos en nuestro directorio ~/.gimp-2.8</para>
+    </section>
+
+    <section>
+      <title>Inkscape</title>
+      <para>Instalado desde los depósitos de Ubuntu.</para>
+      <screen>
+$ sudo apt-get install inkscape
+      </screen>
+      <para>Un dia de estos habrá que probar sozi y scour.</para>
+    </section>
+
+    <section>
+      <title>Krita</title>
+      <para>Instalado desde los depósitos de Kubuntu.</para>
+      <screen>
+$ sudo add-apt-repository ppa:kubuntu-ppa/backports
+$ sudo apt-get install krita
+      </screen>
+    </section>
+
+    <section>
+      <title>MyPaint</title>
+      <para>Instalamos desde ppa</para>
+      <screen>
+$ sudo add-apt-repository ppa:achadwick/mypaint-testing
+$ sudo apt-get update
+$ sudo apt-get install mypaint mypaint-data-extras
+      </screen>
+
+    </section>
+
+  </section>
+<!--********** End of section: Gráficos **********-->
+<section>
+  <title>Fotografía</title>
+
+  <section>
+    <title>Rawtherapee</title>
+    <screen>
+$ sudo add-apt-repository ppa:dhor/myway
+$ sudo apt-get update
+$ sudo apt-get install rawtherapee
+    </screen>
+  </section>
+  <section>
+    <title>Darktable</title>
+    <screen>
+$ sudo add-apt-repository ppa:pmjdebruijn/darktable-release-plus
+$ sudo apt-get update
+$ sudo apt-get install darktable
+    </screen>
+  </section>
+  <section>
+    <title>Luminance</title>
+    <screen>
+$ sudo apt-get install luminance
+    </screen>
+  </section>
+  <section>
+    <title>Hugin</title>
+    <screen>
+$ sudo apt-get install hugin
+    </screen>
+  </section>
+</section>
+<!--********** End of section: Fotografía **********-->
+
+<section>
+  <title>Desarrollo software</title>
+  <section>
+    <title>EMACS</title>
+    <para></para>
+  </section>
+
+  <section>
+    <title>Git</title>
+    <para>Lo del git-cola es opcional.</para>
+    <screen>
+$ sudo add-apt-repository ppa:git-core/ppa
+$ sudo apt-get update
+$ sudo apt-get install git
+$ sudo apt-get install git-cola
+    </screen>
+  </section>
+
+  <section>
+    <title>Mercurial</title>
+    <para>Tortoise Hg no es imprescindible.</para>
+    <screen>
+$ sudo apt-get install mercurial
+$ sudo apt-get install tortoisehg tortoisehg-nautilus
+    </screen>
+  </section>
+
+  <section>
+    <title>Subversion</title>
+    <screen>
+$ sudo apt-get install subversion
+    </screen>
+  </section>
+
+  <section>
+    <title>D programming language</title>
+  </section>
+
+</section>
+<!--********** End of section: Desarrollo **********-->
+
+<section>
+  <title>Diseño</title>
+
+  <section>
+    <title>LibreCAD</title>
+    <screen>
+$ sudo add-apt-repository ppa:librecad-dev/librecad-stable
+$ sudo apt-get install librecad librecad-data
+    </screen>
+  </section>
+      <section>
+        <title>FreeCAD</title>
+        <screen>
+$ sudo add-apt-repository ppa:freecad-maintainers/freecad-stable
+$ sudo apt-get install freecad freecad-doc
+        </screen>
+      </section>
+
+      <section>
+        <title>OpenSCAD</title>
+        <para>He intentado instalarlo desde el ppa recomendado pero
+        falla para Saucy</para>
+        <screen>
+$ sudo add-apt-repository ppa:chrysn/openscad
+        </screen>
+      </section>
+</section>
+<!--********** End of section: Diseño **********-->
+
+<section>
+  <title>Electrónica</title>
+</section>
+<!--********** End of section: Electrónica **********-->
+
+<section>
+  <title>Astronomía</title>
+</section>
+<!--********** End of section: Astronomía **********-->
+
+<section>
+  <title>Mapas</title>
+</section>
+<!--********** End of section: Mapas **********-->
+
+<section>
+  <title>Desarrollo Web</title>
+</section>
+<!--********** End of section: web **********-->
+
+    <!--
+
+instalado vlc
+Plugins for Rithmbox
+sudo add-apt-repository ppa:fossfreedom/rhythmbox-plugins
+sudo apt-get update
+sudo apt-get install rhythmbox-plugin-complete
+
+
+Unity reset
+sudo apt-get install dcon
+dconf reset -f /org/compiz/
+setsid unity
+unity - -reset-icons
+
+Instalados
+Chrome
+Cromium
+Emacs(23 y 24, 24 por defecto)
+Emacs 24 tiene un problema con IBUS, hay que hackearlo con export XMODIFIERS=""
+gnucash
+everpad
+Amarok
+
+keepassx
+
+audacity
+sudo add-apt-repository ppa:audacity-team/daily
+
+
+arduino
+sudo apt-get install gcc-avr avr-libc
+sudo usermod -a salvari dialout
+
+KSP
+
+jdownloader
+ppa:jd-team/jdownloader
+
+google-earth
+sudo apt-get install libc6-i386 libglib2.0-0:i386 libsm6:i386 \libglu1-mesa:i386 libgl1-mesa-glx:i386 libxext6:i386 \libxrender1:i386 libx11-6:i386 libfontconfig1:i386 lsb-core
+
+
+
+
+
+http://www.google.es/intl/es_es/earth/download/thanks.html#os=linux#linux_dl=deb_32  nguino
+
+
+Pinguino
+sudo apt-get install python-wxgtk2.8
+Ya funciona, falta hackear usuarios y /dev/usb
+
+Enable open in terminal
+sudo apt-get install nautilus-open-terminal
+To enable the Open in Terminal option follow these steps: Click on org Click on gnome Click on desktop Click on Interface Enable can-change-accels
+When done you can close the dconf editor tool and you need to restart nautilus. To restart nautilus open a terminal window (press Ctrl+Alt+T) and copy+paste the following line: nautilus -q
+
+Configuración de emacs
+Instalar yasnippets
+mkdir ~/emacs.d/plugins
+mkdir ~/emacs.d/snippets
+cd ~/.emacs.d/plugins
+git clone - -recursive  https://github.com/capitaomorte/yasnippet
+Seguir instrucciones en  https://github.com/capitaomorte/yasnippet
+
+Configuración de Mercurial
+Creado fichero ~/.hgrc con el contenido:
+[ui]
+username = Sergio Alvariño <salvari@gmail.com>
+editor = emacs
+
+[web]
+cacerts = /etc/ssl/certs/ca-certificates.crt
+
+
+Configuración de Git
+git config - -global user.name "Sergio Alvariño"
+git config - -global user.mail "salvari@gmail.com"
+git config - -global credential.helper cache
+git config - -global credential.helper 'cache - -timeout=3600'
+
+Instalado TASKSEL
+Instalado LAMP server
+Instalado calibre, desde la página web
+Instalado geda y kicad desde ubuntu
+
+texlive2013
+https://github.com/scottkosty/install-tl-ubuntu
+Instalado auctex desde ubuntu
+Scribus instalado desde ubuntu
+
+Luminance desde ubuntu
+Hugin desde Ubuntu
+
+dmd como siempre
+
+stellarium
+
+
+Concrete
+como ya tenemos nuestro lamp server instalado...
+sudo apt-get install php5-gd
+sudo /etc/init.d/apache restart
+Asegurarse de que modrewrite está activado 'sudo a2enmod rewrite'
+Descomprimimos el contenido del zip en /var/www/concrete5
+Cambiamos propietario 'sudo chmod -R www-data:www-data concrete5'
+mysql -uroot -p
+create database concretedb;
+grant all privileges on concretedb.* to 'concrete'@'localhost' identified by 'concret3';
+grant all privileges on concretedb.* to 'concrete'@'%' identified by 'concrete3';
+Entramos con el navegador a   http://localhost/concrete5    y finalizamos el proceso de instalación
+WordPress
+Hay que tener el lamp server instalado y tb la php5-gd que mencionamos más arriba.
+Crear la base de datos
+mysql -uroot -p
+create database wordpressdb;
+grant all privileges on wpdb.* to 'wpuser'@'localhost' identified by 'esperiment0';
+grant all privileges on wpdb.* to 'wpuser'@'%' identified by 'esperiment0';
+flush privileges;
+Descomprimimos el zip con la última versión del wp en "/var/www/wordpress"
+Configuramos Wordpress
+cd /var/www/wordpress
+sudo cp wp-config-sample.php
+Damos permisos 'chown -R www-data:www-data /var/www/wordpress'
+Editamos el fichero wp-config.php
+Ponemos el nombre y usuario configurados para la base de datos.
+Installed google calendar indicator de atareao
+
+DRUPAL
+Crear la database, el baile de siempre
+create database drupaldb;
+grant all privileges on drupaldb.* to 'drupal'@'localhost' identified by 'pr1vad0';
+grant all privileges on drupaldb.* to 'drupal'@'%' identified by 'pr1vad0';
+https://help.ubuntu.com/community/Drupal
+Ollo!!! Unbuntu 13.10:
+sudo apt-get-install php5-json
+sudo /etc/init.d/apache restart
+openatrium
+http://www.linux-magazine.com/Issues/2009/109/Open-Atrium
+http://tips.timscomputer.com/archives/64
+https://www.linode.com/stackscripts/view/?StackScriptID=169
+https://drupal.org/documentation/install/settings-file
+https://drupal.org/node/306267
+http://reyero.net/es/drupal/bienvenido_open_atrium
+Joomla
+
+Docbook5
+From Synptic:
+Install docboo5-xml review
+http://tex.stackexchange.com/questions/1092/how-to-install-vanilla-texlive-on-debian-or-ubuntu
+http://www.tug.org/texlive/files/debian-equivs-2013-ex.txt
+
+Pendientes
+joomla
+nginx
+configurar preferencias arduino
+configurar pinguino definitivamente
+fotografía
+snapshot
+clementine ???
+configurar gufw
+blender
+https://help.ubuntu.com/community/UbuntuEngineering#Electronics
+Maps
+http://kunzuilh.blogspot.com.es/2012/07/mapas-para-oruxmaps-vi-creacion-de.html
+http://www.foromtb.com/threads/mobile-atlas-creator-y-compegps-land-7-una-buena-combinaci%C3%B3n.734022/
+Configurar yasnippets
+https://github.com/hober/html5-el/tree/master
+http://syntax.whattf.org/relaxng/
+http://stackoverflow.com/questions/1082474/authoring-html5-in-emacs
+
+
+FUTURO BACKUP
+~/.emacs
+~/.emacs.d
+~/.hgrc
+~/.git ????
+~/.mylisp
+~/.fonts
+
+
+    -->
+
+
+
+</section>
+</article>
