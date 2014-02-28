@@ -3,7 +3,21 @@
 
 xmlstarlet val --err --xsd /usr/share/xml/docbook/schema/xsd/5.0/docbook.xsd src/ubuntuPostInstall.xml
 
+# PDF
+xsltproc --stringparam paper.type A4  \
+    --output out/ubuntuPostInstall.fo \
+    --stringparam admon.graphics 1 \
+    --stringparam admon.graphics.path /usr/share/xml/docbook/stylesheet/docbook-xsl-ns/images/ \
+    --stringparam admon.graphics.extension .svg \
+    /usr/share/xml/docbook/stylesheet/docbook-xsl-ns/fo/docbook.xsl \
+    src/ubuntuPostInstall.xml 
 
-xsltproc -stringparam paper.type A4 /usr/share/xml/docbook/stylesheet/docbook-xsl-ns/fo/docbook.xsl src/ubuntuPostInstall.xml > out/ubuntuPostInstall.fo
+fop -fo out/ubuntuPostInstall.fo -pdf out/ubuntuPostInstall.pdf
 
-fop -fo out/ubuntuPostInstall.fo -pdf out/ubuntuPostIntall.pdf
+# HTML
+xsltproc --output out/ubuntuPostInstall.html \
+    --stringparam admon.graphics 1 \
+    --stringparam admon.graphics.path /usr/share/xml/docbook/stylesheet/docbook-xsl-ns/images/ \
+    --stringparam admon.graphics.extension .svg \
+    /usr/share/xml/docbook/stylesheet/docbook-xsl-ns/html/docbook.xsl \
+    src/ubuntuPostInstall.xml
