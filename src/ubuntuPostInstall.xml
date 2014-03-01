@@ -332,13 +332,12 @@ $ sudo apt-get install aptitude
 
       <para>Aptitude es un atavismo de mis tiempos Debianitas, cuando
       los hombres eran hombres y usaban la linea de comandos para casi
-      todo, yo era uno de los que usaba un interfaz pseudo gráfico
+      todo, yo era uno de los timoratos que usaba un interfaz pseudo gráfico
       para la gestión de paquetes. En cualquier caso tiene la ventaja
       de que también lo podemos usar como sustituto de apt-get en la
       linea de comandos y una vez configurado no nos va a instalar los
       paquetes recomendados.
       </para>
-
 
     </section>
 
@@ -353,7 +352,7 @@ $ sudo apt-get install aptitude
 
       <para>Esta aplicación nos permite configurar un montón de
       opciones de Compiz, el gestor de ventanas de Ubuntu. (aunque yo,
-      la verdad, lo mantengo con los efectos al mínimo.</para>
+      la verdad, lo mantengo con los efectos al mínimo).</para>
 
       <screen>
 $ sudo apt-get install compizconfig-settings-manager
@@ -565,7 +564,13 @@ export GTK_IM_MODULE=xim
 $ sudo apt-get install gufw
 $ gufw
       </screen>
-      <para> Pendiente de configurar. Más información en <link>http://debianhelp.wordpress.com/2013/11/19/to-do-list-after-installing-ubuntu-13-10-aka-saucy-salamander-os-2/</link></para>
+      <note>
+        <title>TODO</title>
+        <para>Completar esta sección con la configuración del
+        cortafuegos</para>
+        <para>Más información en <link>http://debianhelp.wordpress.com/2013/11/19/to-do-list-after-installing-ubuntu-13-10-aka-saucy-salamander-os-2/</link></para>
+      </note>
+
     </section>
 
   </section>
@@ -614,14 +619,14 @@ $ gufw
       desmerezca el aspecto gráfico de Cairo.</para>
 
       <para>La segunda opción se basa en que tanto Gnome, como Kde
-      cumplen con el menu estandar especificado por FreeDesktop. Eso
+      cumplen con el menu estándar especificado por FreeDesktop. Eso
       implica que basta con crear un fichero (con un formato xml
       específico) en el directorio
       <filename>/usr/share/applications</filename> para que esté
       disponible para todos los usuarios, o en el directorio
       <filename>~/.local/share/applications</filename> para que solo
       le aparezca a nuestro usuario, lo lógico en nuestro portátil
-      como solo instalamos para nuestro usuario es usar esta
+      como solo instalamos para nuestro usuario es usar esta última
       opción.</para>
 
       <para>Hay multitud de herramientas para crear este
@@ -634,7 +639,8 @@ $ gufw
       ejemplo para el programa TOR que acabamos de instalar, sin más
       que ejecutar:</para>
       <screen>
-        $ sudo gnome-desktop-item-edit ~/.local/share/applications/ --create-new      
+        $ sudo gnome-desktop-item-edit ~/.local/share/applications/ \
+        --create-new      
       </screen>
     </section>
 
@@ -642,17 +648,56 @@ $ gufw
       <title>Organizando el directorio <filename>~/apps</filename></title>
 
       <para>Cuando instalamos programas en <filename>~/apps</filename>
-      nos podemos ahorrar trabajo organizándolo un poco. Cuando
-      actualizamos nuestros programas descargando nuevas versiones
-      puede que nos vayan apareciendo directorios nuevos, por ejemplo
-      para el IDE Arduino al descomprimir nos aparece el directorio:
-      <filename>~/apps/arduino-1.0.5</filename>. Si después instalamos
-      una nueva versión nos aparecerá un directorio diferente, por
-      ejemplo <filename>arduino-1.5.6-r2</filename>. Si no cambiamos
-      los nombres de directorios tendremos que estar editando los
-      lanzadores, de lo contrario dificultamos el seguimiento de la
-      versión instalada.</para>
-      
+      nos podemos ahorrar trabajo organizándolo un poco.</para>
+      <para>Cuando actualizamos nuestros programas descargando nuevas
+      versiones puede que nos vayan apareciendo directorios nuevos,
+      por ejemplo para el IDE Arduino al descomprimir nos aparece el
+      directorio: <filename>~/apps/arduino-1.0.5</filename>. Si
+      después instalamos la nueva versión beta para Arduino Yun nos
+      aparecerá un directorio diferente, en el momento de escribir
+      esto sería: <filename>arduino-1.5.6-r2</filename>. Si no
+      cambiamos los nombres de directorios tendremos que estar
+      editando los lanzadores, de lo contrario dificultamos el
+      seguimiento de la versión instalada.</para>
+      <para>Nos puede quedar más organizado si:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Creamos el directorio
+          <filename>~/apps/arduino</filename></para>
+          <screen>
+$ mkdir ~/apps/arduino            
+          </screen>
+        </listitem>
+        <listitem>
+          <para>Descomprimimos las versiones que descargamos en este
+          directorio.</para>
+        </listitem>
+        <listitem>
+          <para>Cremos un link <filename>current</filename> a la
+          versión actual (también se puede hacer en modo gráfico desde
+          tu gestor de ficheros favorito).</para>
+          <screen>
+$ cd ~/apps/arduino
+$ ln -s ./arduino-1.5.6-r2 current
+          </screen>
+        </listitem>
+        <listitem>
+          <para>En este punto el directorio <filename>~/apps/arduino</filename>
+          tendría esta pinta:</para>
+          <screen>
+$ tree -L 1 -d arduino
+arduino
+├── arduino-1.0.5
+├── arduino-1.5.6-r2
+└── current -> arduino-1.5.6-r2/            
+          </screen>          
+        </listitem>
+      </itemizedlist>
+      <para>Ahora podemos crear nuestros lanzadores asociándolos al
+      path <filename>~/apps/arduino/current</filename>. Cuando
+      descarguemos nuevas versiones actualizamos el link
+      <filename>current</filename> y todos los lanzadores seguirán
+      funcionando.</para>
     </section>
     
   </section>
@@ -682,8 +727,11 @@ $ sudo apt-get install chromium
 
     <section>
       <title>Instalación de Google-Earth</title>
-
-      <para>Instalación de Google-Earth está pendiente</para>
+      <note>
+        <title>TODO</title>
+        <para>Completar esta sección con la instalación del
+        Google-Earth</para>
+      </note>
     </section>
   </section>
   <!-- ***** End of section: Sw Google ***** -->
@@ -889,7 +937,9 @@ $ sudo apt-get install git-cola
 
       <screen>
 $ git config --global user.name "Sergio Alvariño"
-$ git config --global user.mail "salvari@gmail.com"
+$ git config --global user.email "salvari@gmail.com"
+$ git config --global core.editor emacs
+$ git config --global color.ui true
 $ git config --global credential.helper cache
 $ git config --global credential.helper 'cache --timeout=3600'
       </screen>
@@ -1024,7 +1074,7 @@ $ sudo gnome-desktop-item-edit /usr/share/applications/ --create-new
 
     </section>
     <section>
-      <title>Pinguino IDE</title>
+      <title>Pingüino IDE</title>
       <para>Pingüino</para>
     </section>
     <section>
