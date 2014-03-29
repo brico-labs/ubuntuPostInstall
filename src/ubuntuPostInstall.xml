@@ -640,7 +640,7 @@ $ gufw
       que ejecutar:</para>
       <screen>
         $ sudo gnome-desktop-item-edit ~/.local/share/applications/ \
-        --create-new      
+        --create-new
       </screen>
     </section>
 
@@ -665,7 +665,7 @@ $ gufw
           <para>Creamos el directorio
           <filename>~/apps/arduino</filename></para>
           <screen>
-$ mkdir ~/apps/arduino            
+$ mkdir ~/apps/arduino
           </screen>
         </listitem>
         <listitem>
@@ -689,8 +689,8 @@ $ tree -L 1 -d arduino
 arduino
 ├── arduino-1.0.5
 ├── arduino-1.5.6-r2
-└── current -> arduino-1.5.6-r2/            
-          </screen>          
+└── current -> arduino-1.5.6-r2/
+          </screen>
         </listitem>
       </itemizedlist>
       <para>Ahora podemos crear nuestros lanzadores asociándolos al
@@ -699,7 +699,7 @@ arduino
       <filename>current</filename> y todos los lanzadores seguirán
       funcionando.</para>
     </section>
-    
+
   </section>
 
   <section>
@@ -977,25 +977,108 @@ $ sudo apt-get install subversion
 
     <section>
       <title>D programming language</title>
-      <para>Visitamos la página e instalamos.</para>
+      <para>Visitamos la página e instalamos el paquete para
+      Debian/Ubuntu
+      (<link>http://dlang.org/download.html</link>).</para>
+
+      <para>También conviene que nos instalemos el DUB
+      <link>http://code.dlang.org/download</link>, con este no hay que
+      partirse la cabeza, nos descargamos el "binary tarball" para
+      linux 64 bits y lo descomprimimos en
+      <filename>~/bin</filename></para>
+    </section>
+
+    <section>
+      <title>Perl</title>
+
+      <para>Perl viene instalado por defecto (se usa para un montón de
+      cosas en linux)</para>
+
+      <para>En Debian, y consecuentemente en Ubuntu, hay versiones
+      empaquetadas de la mayor parte de los módulos de Perl, pero no
+      estarán completamente actualizadas. Como es más rápido instalar
+      las versiones empaquetadas yo suelo instalar las empaquetadas la
+      primera vez, después uso las herramientas internas de Perl para
+      descargar desde CPAN las últimas versiones cuando me
+      interesa.</para>
+      <para>He instalado los siguientes módulos de Perl en sus
+      versiones empaquetadas para Debian/Ubuntu:</para>
+
+      <variablelist>
+        <varlistentry>
+          <term>libmodern-perl-perl</term>
+          <listitem>
+            <para>Atajos para varios pragmas usados comunmente (ver
+            <link>http://modernperlbooks.com/books/modern_perl/</link></para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>liblog-log4perl-perl</term>
+          <listitem>
+            <para>Logs para Perl</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>libtemplate-perl</term>
+          <listitem>
+            <para>Template toolkit para Perl</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>libmoose-perl</term>
+          <listitem>
+            <para>Extensión para facilitar OOP en Perl.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <section>
+        <title>Padre, un IDE para Perl</title>
+
+        <para>También me lo he instalado, aunque la verdad suelo usar
+        Emacs para todo.</para>
+
+        <screen>
+$ sudo aptitude install Padre
+        </screen>
+      </section>
     </section>
   </section>
   <!--********** End of section: Desarrollo **********-->
+
+  <section>
+    <title>Desarrollo Web</title>
+
+    <para>Wordpress y Drupal</para>
+
+    <section>
+      <title>Web2py</title>
+      <para>Descargamos la última versión desde la página web de la
+      aplicación
+      <link>http://www.web2py.com/init/default/download</link> (yo
+      descargo la versión para usuarios normales - source code)</para>
+
+      <para>Como de costumbre descomprimimos en nuestro directorio
+      <filename>~/apps</filename>, y tendremos el directorio
+      <filename>~/apps/web2py</filename></para>
+    </section>
+  </section>
+  <!--********** End of section: web **********-->
 
   <section>
     <title>Documentación</title>
 
     <section>
       <title>TeX/LaTeX</title>
-      
+
       <para>Esto va a ser largo</para>
     </section>
-    
+
     <section>
       <title>Docbook 5</title>
       <para>Esto es fácil pero con dependencias.</para>
     </section>
-    
+
     <section>
       <title>Scribus</title>
       <para>Instalar Scribus</para>
@@ -1043,6 +1126,15 @@ $ sudo add-apt-repository ppa:chrysn/openscad
       <screen>
 $ sudo aptitude install gcc-avr avr-libc
       </screen>
+
+      <para>También tendremos que dar privilegios a nuestro usuario
+      para que pueda acceder a los puertos usb, lo más sencillo es
+      añadirlo al grupo dialout</para>
+
+      <screen>
+$ sudo usermod -a salvari -G dialout
+      </screen>
+
 
       <para>Descargamos el programa desde la página web
       <link>http:/arduino.cc</link></para>
@@ -1095,7 +1187,73 @@ $ sudo gnome-desktop-item-edit /usr/share/applications/ --create-new
 
   <section>
     <title>Astronomía</title>
-    <para>Stellarium y demas</para>
+    <section>
+      <title>Stellarium</title>
+      <para>Excelente programa para explorar los cielos nocturnos, lo
+      instalamos directamente desde Ubuntu:</para>
+      <screen>
+$ sudo aptitude install stellarium
+      </screen>
+
+      <para>El programa es muy fácil de usar. Solo comentar que desde
+      el menú <guimenu>Options</guimenu> en la opción
+      <guimenuitem>Tools</guimenuitem> se pueden descargar catalogos
+      adicionales.</para>
+    </section>
+
+    <section>
+      <title>Where is M13?</title>
+      <para>Otra aplicación interesante de astronomía, se trata de un
+      mapa tridimensional de nuestra galaxia implementado en
+      java.</para>
+
+      <para>El programa libre y gratuito se puede descargar desde
+      aqui:
+      <link>http://www.thinkastronomy.com/M13/common/download.html</link></para>
+
+      <para>La instalación también es muy sencilla, sencillamente lo
+      descomprimimos en nuestro directorio
+      <filename>~/apps</filename>. Basta con dar permisos de ejecución
+      al fichero <filename>WhereIsM13.jar</filename> y ya lo podemos
+      ejecutar desde el explorador de ficheros con doble click o
+      crearnos un lanzador para el programa de la manera que más nos
+      guste.</para>
+    </section>
+
+    <section>
+      <title>Digital Universe</title>
+
+      <para>Una aplicación que se basa en un visor de particulas en
+      tres dimensiones para hacer implementar un mapa de nuestra
+      galaxia y otro de nuestra galaxia y sus alrededores.</para>
+      <para>El programa puede descargarse desde la web del Museo
+      Americano de Historia Natural:
+      <link>http://www.amnh.org/our-research/hayden-planetarium/digital-universe/download</link>. Ojito
+      que no es software libre. Es gratuito, pero si quereis usarlo
+      para otra cosa distinta del uso personal hay que leerse la
+      licencia.</para>
+
+      <para>Para instalarlo, lo mismo que el anterior, los
+      descomprimimos en nuestro directorio
+      <filename>~/apps/</filename> y veremos que en el directorio
+      <filename>~/apps/Digital Universe</filename>tendremos el manual
+      de la aplicación, el manual del visualizador de partículas en
+      3D, un par de scripts de ejemplos y dos scripts para visualizar
+      los datos astronomicos:</para>
+      <itemizedlist>
+        <listitem>
+          <para>milkyway.sh</para>
+        </listitem>
+        <listitem>
+          <para>extragalactic.sh</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>Como de costumbre, podemos crearnos lanzadores para los
+      programas que nos interesen.</para>
+    </section>
+
+
   </section>
   <!--********** End of section: Astronomía **********-->
 
@@ -1105,17 +1263,12 @@ $ sudo gnome-desktop-item-edit /usr/share/applications/ --create-new
   </section>
   <!--********** End of section: Mapas **********-->
 
-  <section>
-    <title>Desarrollo Web</title>
-    <para>Wordpress y Drupal</para>
-  </section>
-  <!--********** End of section: web **********-->
 <!-- Notes:
 Plugins for Rithmbox
  sudo add-apt-repository ppa:fossfreedom/rhythmbox-plugins
  sudo apt-get update
  sudo apt-get install rhythmbox-plugin-complete
- 
+
 Unity reset
  sudo apt-get install dcon
  dconf reset -f /org/compiz/
@@ -1134,19 +1287,17 @@ sudo add-apt-reposiroty ppa:nvbn-rm/ppa
  audacity
  sudo add-apt-repository ppa:audacity-team/daily
 
- arduino
- sudo apt-get install gcc-avr avr-libc
- sudo usermod -a salvari -G dialout
  KSP
  jdownloader
  ppa:jd-team/jdownloader
- google-earth
+
+google-earth
  sudo apt-get install libc6-i386 libglib2.0-0:i386 libsm6:i386 \libglu1-mesa:i386 libgl1-mesa-glx:i386 libxext6:i386 \libxrender1:i386 libx11-6:i386 libfontconfig1:i386 lsb-core
 
-http://www.google.es/intl/es_es/earth/download/thanks.html#os=linux#linux_dl=deb_32  nguino   
+http://www.google.es/intl/es_es/earth/download/thanks.html#os=linux#linux_dl=deb_32  nguino
 
- Pinguino 
- sudo apt-get install python-wxgtk2.8 
+ Pinguino
+ sudo apt-get install python-wxgtk2.8
  Ya funciona, falta hackear usuarios y /dev/usb
  Enable open in terminal
  sudo apt-get install nautilus-open-terminal
@@ -1155,8 +1306,8 @@ http://www.google.es/intl/es_es/earth/download/thanks.html#os=linux#linux_dl=deb
  Configuración de emacs
  Instalar yasnippets
  mkdir ~/emacs.d/plugins
- mkdir ~/emacs.d/snippets 
- cd ~/.emacs.d/plugins 
+ mkdir ~/emacs.d/snippets
+ cd ~/.emacs.d/plugins
  git clone - -recursive   https://github.com/capitaomorte/yasnippet
  Seguir instrucciones en   https://github.com/capitaomorte/yasnippet
 
@@ -1165,9 +1316,9 @@ http://www.google.es/intl/es_es/earth/download/thanks.html#os=linux#linux_dl=deb
  Instalado calibre, desde la página web
  Instalado geda y kicad desde ubuntu
 
- texlive2013 
- https://github.com/scottkosty/install-tl-ubuntu 
- Instalado auctex desde ubuntu 
+ texlive2013
+ https://github.com/scottkosty/install-tl-ubuntu
+ Instalado auctex desde ubuntu
  Scribus instalado desde ubuntu
  stellarium
 
@@ -1178,7 +1329,7 @@ http://www.google.es/intl/es_es/earth/download/thanks.html#os=linux#linux_dl=deb
  Asegurarse de que modrewrite está activado 'sudo a2enmod rewrite'
  Descomprimimos el contenido del zip en /var/www/concrete5
  Cambiamos propietario 'sudo chmod -R www-data:www-data concrete5'
- mysql -uroot -p 
+ mysql -uroot -p
  create database concretedb;
  grant all privileges on concretedb.* to 'concrete'@'localhost' identified by 'concret3';
  grant all privileges on concretedb.* to 'concrete'@'%' identified by 'concrete3';
@@ -1205,44 +1356,44 @@ http://www.google.es/intl/es_es/earth/download/thanks.html#os=linux#linux_dl=deb
  create database drupaldb;
  grant all privileges on drupaldb.* to 'drupal'@'localhost' identified by 'pr1vad0';
  grant all privileges on drupaldb.* to 'drupal'@'%' identified by 'pr1vad0';
- https://help.ubuntu.com/community/Drupal 
+ https://help.ubuntu.com/community/Drupal
  Ollo!!! Unbuntu 13.10:
  sudo apt-get-install php5-json
  sudo /etc/init.d/apache restart
  openatrium
- http://www.linux-magazine.com/Issues/2009/109/Open-Atrium 
- http://tips.timscomputer.com/archives/64 
- https://www.linode.com/stackscripts/view/?StackScriptID=169 
- https://drupal.org/documentation/install/settings-file 
- https://drupal.org/node/306267 
- http://reyero.net/es/drupal/bienvenido_open_atrium 
+ http://www.linux-magazine.com/Issues/2009/109/Open-Atrium
+ http://tips.timscomputer.com/archives/64
+ https://www.linode.com/stackscripts/view/?StackScriptID=169
+ https://drupal.org/documentation/install/settings-file
+ https://drupal.org/node/306267
+ http://reyero.net/es/drupal/bienvenido_open_atrium
  Joomla
 
  Docbook5
- From Synptic: 
- Install docboo5-xml review 
-  http://tex.stackexchange.com/questions/1092/how-to-install-vanilla-texlive-on-debian-or-ubuntu 
-  http://www.tug.org/texlive/files/debian-equivs-2013-ex.txt 
+ From Synptic:
+ Install docboo5-xml review
+  http://tex.stackexchange.com/questions/1092/how-to-install-vanilla-texlive-on-debian-or-ubuntu
+  http://www.tug.org/texlive/files/debian-equivs-2013-ex.txt
 
 
  Pendientes
  joomla
  nginx
- configurar preferencias arduino 
+ configurar preferencias arduino
  configurar pinguino definitivamente
  fotografía
- snapshot 
+ snapshot
  clementine ???
  configurar gufw
  blender
- https://help.ubuntu.com/community/UbuntuEngineering#Electronics 
+ https://help.ubuntu.com/community/UbuntuEngineering#Electronics
  Maps
  http://kunzuilh.blogspot.com.es/2012/07/mapas-para-oruxmaps-vi-creacion-de.html
  http://www.foromtb.com/threads/mobile-atlas-creator-y-compegps-land-7-una-buena-combinaci%C3%B3n.734022/
 Configurar yasnippets
- https://github.com/hober/html5-el/tree/master 
- http://syntax.whattf.org/relaxng/ 
- http://stackoverflow.com/questions/1082474/authoring-html5-in-emacs 
+ https://github.com/hober/html5-el/tree/master
+ http://syntax.whattf.org/relaxng/
+ http://stackoverflow.com/questions/1082474/authoring-html5-in-emacs
 
 
  FUTURO BACKUP
@@ -1264,5 +1415,5 @@ Configurar dejadup
 
 
  -->
- 
+
 </article>
