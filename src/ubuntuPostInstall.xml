@@ -1043,6 +1043,36 @@ $ sudo aptitude install Padre
         </screen>
       </section>
     </section>
+
+    <section>
+      <title>Squirrel SQL Client</title>
+
+      <para>Un cliente SQL muy versátil. Como va sobre Java me vale
+      para el trabajo (Windows) y para uso personal.</para>
+      
+      <para>Descargamos el instalador de la última versión (en el
+      momento de escribir esto la 3.5.2) desde la página web
+      <link>http://squirrel-sql.sourceforge.net/#installation</link>. Le
+      damos permisos para ejecución y lo ejecutamos. El instalador ya
+      se encarga de crear los lanzadores correspondientes. Si queremos
+      instalarlo para todos los usuarios del sistema hay que
+      ejecutarlo como root.</para>
+
+      <para>Yo lo uso sobre todo con MySQL, así que necesitamos
+      descargarnos el driver para el MySQL desde la página web de
+      MySQL<link>http://dev.mysql.com/downloads/connector/j/</link> y
+      lo descomprimimos (por ejemplo en
+      <filename>~/apps</filename>)</para>
+
+      <para>Una vez descomprimido basta con informar al Squirrel SQL
+      de la ruta al conector. En el menú <guimenu>Windows</guimenu>
+      escogemos <guimenuitem>View Drivers</guimenuitem>. Picamos dos
+      veces en el driver de MySQL y añadimos el jar que descargamos en
+      el paso anterior a la pestaña: Extra Class Path.</para>
+
+      <para>A partir de aquí ya podremos conectarnos a bases de datos
+      MySQL.</para>
+    </section>
   </section>
   <!--********** End of section: Desarrollo **********-->
 
