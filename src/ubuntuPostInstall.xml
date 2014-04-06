@@ -981,11 +981,53 @@ $ sudo apt-get install subversion
       Debian/Ubuntu
       (<link>http://dlang.org/download.html</link>).</para>
 
-      <para>También conviene que nos instalemos el DUB
-      <link>http://code.dlang.org/download</link>, con este no hay que
-      partirse la cabeza, nos descargamos el "binary tarball" para
-      linux 64 bits y lo descomprimimos en
-      <filename>~/bin</filename></para>
+      <section>
+        <title>DUB</title>
+        <para>También conviene que nos instalemos el DUB
+        <link>http://code.dlang.org/download</link>, con este no hay que
+        partirse la cabeza, nos descargamos el "binary tarball" para
+        linux 64 bits y lo descomprimimos en
+        <filename>~/bin</filename></para>
+
+        <para>DUB será en breve el instalador oficial para el
+        D. Conviene a empezar a usarlo cuanto antes. Además tiene
+        ventajas obvias a la hora de gestionar las dependencias de
+        nuestros programas.</para>
+      </section>
+
+      <section>
+        <title>vibe.d</title>
+        <para>Instalamos dependencias</para>
+        <screen>
+$sudo apt-get install libevent-dev libssl-dev
+        </screen>
+      </section>
+
+      <section>
+        <title>D completion daemon - DCD</title>
+        <para>Instalamos también este programa que nos va a permitir
+        configurar varios editores para la edición de código en
+        D, de momento lo he probado solo en emacs y va muy bien.</para>
+        <screen>
+$ git clone https://github.com/Hackerpilot/DCD
+$ cd DCD
+$ ./build.sh
+        </screen>
+        <para>Una vez compilados copiamos el
+        <filename>dcd-server</filename> y
+        <filename>dcd-client</filename> a nuestro path, por ejemplo a
+        <filename>~/bin</filename>.</para>
+
+        <para>Para completar la instalación tenemos que crear el
+        fichero <filename>~/.config/dcd/dcd.conf</filename>. Cada
+        linea del fichero es un directorio para imports desde D, si
+        has hecho la instalación como yo deberá tener estas dos
+        líneas:</para>
+        <screen>
+/usr/include/dmd/phobos
+/usr/include/dmd/druntime/import
+        </screen>
+      </section>
     </section>
 
     <section>
@@ -1049,7 +1091,7 @@ $ sudo aptitude install Padre
 
       <para>Un cliente SQL muy versátil. Como va sobre Java me vale
       para el trabajo (Windows) y para uso personal.</para>
-      
+
       <para>Descargamos el instalador de la última versión (en el
       momento de escribir esto la 3.5.2) desde la página web
       <link>http://squirrel-sql.sourceforge.net/#installation</link>. Le
