@@ -1327,22 +1327,65 @@ $ sudo aptitude install stellarium
 
     <section>
       <title>Virtual Moon</title>
-      <para>Un excelente programa para explorar la Luna.</para>
+      <para>Un excelente programa para explorar la Luna. Tiene un
+      montón de texturas e información disponible, hasta se pueden
+      cargar los mapas de los astrónomos clásicos (Casini,
+      Hevelius...) Unos gráficos super chulos.</para>
+      
       <para>El único problemilla es que lo distribuyen como binario y
       nos piden que instalemos como root. Como eso va contra mis
       principios os comento como hacer la instalación con nuestro
       usuario en nuestro directorio habitual
       <filename>~/apps</filename></para>
+      
       <para>Descargamos el programa desde la dirección
       <link>https://dl.dropboxusercontent.com/u/4192826/dumpNoAuth.sql.gz</link></para>
+      
       <para>Cuando yo me instalé este programa (abril del 2014) me
       descargué la versión 6.0, el upgrade a 6.1 y necesitamos también
       descargarnos al menos un archivo de texturas (después se pueden
       añadir el resto pero necesitamos uno al menos para comprobar que
       la instalación funciona)</para>
+      
       <para>Para la instalación propiamente dicha creamos un
       directorio <filename>~/apps/vma</filename> (vma viene de Virtual
-      Moon Atlas)</para>
+      Moon Atlas) y a continuación simplemente descomprimimos los
+      ficheros descargados en ese directorio:</para>
+
+      <orderedlist>
+        <listitem>
+          <para>Descomprimimos el fichero con la release 6.0, dentro
+          tendremos dos comprimidos (para 32 y 64 bits) escogemos el
+          que convenga a nuestra arquitectura (64 bits salvo que tu pc
+          sea a vapor) y descomprimimos en el directorio
+          <filename>~/apps/vma</filename></para>
+          <para>Nos apareceran tres directorios
+          <filename>bin</filename>, <filename>lib</filename> y
+          <filename>share</filename></para>
+        </listitem>
+        <listitem>
+          <para>Descomprimimos el upgrade a 6.1 (habremos descargado
+          el correspondiente a nuestra arquitectura, o sea el de
+          64bits en mi caso), en el mismo directorio
+          <filename>~/apps/vma</filename></para>
+        </listitem>
+        <listitem>
+          <para>Descomprimimos todos los ficheros de texturas que
+          descarguemos en el mismo directorio. Hay que descargar al
+          menos uno para que funcione, y tenemos que instalar siempre
+          de menor a mayor resolución.</para>
+        </listitem>
+        <listitem>
+          <para>Por último, lo más importante, creamos un fichero
+          <filename>~/apps/vma/vmaStart.sh</filename> con el siguiente
+          contenido:</para>
+          <screen>
+#!/bin/bash
+export LD_LIBRARY_PATH="$HOME/apps/vma/lib"
+`$HOME/apps/vma/bin/cclun`            
+          </screen>
+        </listitem>
+      </orderedlist>
     </section>
 
   </section>
