@@ -1325,6 +1325,25 @@ $ sudo aptitude install stellarium
       programas que nos interesen.</para>
     </section>
 
+    <section>
+      <title>Virtual Moon</title>
+      <para>Un excelente programa para explorar la Luna.</para>
+      <para>El único problemilla es que lo distribuyen como binario y
+      nos piden que instalemos como root. Como eso va contra mis
+      principios os comento como hacer la instalación con nuestro
+      usuario en nuestro directorio habitual
+      <filename>~/apps</filename></para>
+      <para>Descargamos el programa desde la dirección
+      <link>https://dl.dropboxusercontent.com/u/4192826/dumpNoAuth.sql.gz</link></para>
+      <para>Cuando yo me instalé este programa (abril del 2014) me
+      descargué la versión 6.0, el upgrade a 6.1 y necesitamos también
+      descargarnos al menos un archivo de texturas (después se pueden
+      añadir el resto pero necesitamos uno al menos para comprobar que
+      la instalación funciona)</para>
+      <para>Para la instalación propiamente dicha creamos un
+      directorio <filename>~/apps/vma</filename> (vma viene de Virtual
+      Moon Atlas)</para>
+    </section>
 
   </section>
   <!--********** End of section: Astronomía **********-->
@@ -1335,6 +1354,20 @@ $ sudo aptitude install stellarium
   </section>
   <!--********** End of section: Mapas **********-->
 
+  <section>
+    <title>Virtualización</title>
+
+    <section>
+      <title>VirtualBox</title>
+      <para>Instalación de virtual box</para>
+    </section>
+
+    <section>
+      <title>Mininet: Un simulador de SDN</title>
+      <para>Mininet</para>
+    </section>
+  </section>
+  <!--********** End of section: Virtualización **********-->  
 <!-- Notes:
 Plugins for Rithmbox
  sudo add-apt-repository ppa:fossfreedom/rhythmbox-plugins
