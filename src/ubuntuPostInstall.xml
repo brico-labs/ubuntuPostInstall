@@ -1115,6 +1115,28 @@ $ sudo aptitude install Padre
       <para>A partir de aquí ya podremos conectarnos a bases de datos
       MySQL.</para>
     </section>
+
+    <section>
+      <title>R</title>
+      <para>Añadimos nuestro mirror preferido a la lista de
+      repositorios (yo lo hago desde synaptic)</para>
+      <screen>
+$ deb http://cran.es.r-project.org/bin/linux/ubuntu saucy/
+      </screen>
+      <para>Necesitamos añadir la clave gpg para validar los
+      paquetes</para>
+      <screen>
+$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9       
+      </screen>
+      <para>Instalamos por el método que mas nos guste el paquete
+      r-recommended.</para>
+      <para>Para poder instalar paquetes R para todos los usuarios sin
+      liarnos mucho lo mejor es que nos hagamos miembros del grupo
+      staff</para>
+      <screen>
+$ sudo gpasswd -a staff myuser        
+      </screen>
+    </section>
   </section>
   <!--********** End of section: Desarrollo **********-->
 
