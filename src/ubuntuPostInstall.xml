@@ -27,7 +27,7 @@
       </affiliation>
     </author>
 
-    <pubdate>2014-01-27</pubdate>
+    <pubdate>2014-04-15</pubdate>
   </info>
 
 
@@ -1126,7 +1126,7 @@ $ deb http://cran.es.r-project.org/bin/linux/ubuntu saucy/
       <para>Necesitamos añadir la clave gpg para validar los
       paquetes</para>
       <screen>
-$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9       
+$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
       </screen>
       <para>Instalamos por el método que mas nos guste el paquete
       r-recommended.</para>
@@ -1134,7 +1134,7 @@ $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
       liarnos mucho lo mejor es que nos hagamos miembros del grupo
       staff</para>
       <screen>
-$ sudo gpasswd -a staff myuser        
+$ sudo gpasswd -a staff myuser
       </screen>
     </section>
   </section>
@@ -1143,10 +1143,112 @@ $ sudo gpasswd -a staff myuser
   <section>
     <title>Desarrollo Web</title>
 
-    <para>Wordpress y Drupal</para>
+    <section>
+      <title>Servidor LAMP</title>
+
+      <para>Un servidor LAMP (Linux, Apache, MySQL, PHP o Perl), como
+      base para empezar con desarrollo web. La manera más
+      fácil de instalarlo en Debian y derivados es instalar
+      TASKSEL</para>
+
+      <warning>
+        <para>La verdad es que cada vez uso más nginx y que tengo
+        muchas ganas de pasarme a MariaDB y dejar MySQL, de todas
+        formas como Apache y MySQL es el estadar de facto...</para>
+      </warning>
+
+      <screen>
+$ sudo aptitude install tasksel
+$ sudo tasksel
+      </screen>
+
+      <para>Una vez instalada la aplicación tasksel la invocamos e
+      instalamos los "combinados" que queramos, en este caso escogemos
+      la opción "LAMP Server"</para>
+
+      <para>En el momento en que instalamos la opción "LAMP Server" el
+      ordenador arrancará un servidor Apache (no tienes más que
+      visitar <link>http://localhost</link> para verlo en acción) si
+      no queremos tenerlo siempre corriendo en nuestro portatil
+      tenemos que cambiar que programas arrancamos por defecto. A mi
+      no me preocupa demasiado tenerlo corriendo pero si quereis
+      configurar apache para que no arranque tenéis que mirar los
+      comandos runlevel (para saber en que runlevel estáis) y
+      update-rc.d (para actualizar los servicios que se arrancan o
+      paran en cada runlevel.</para>
+
+      <para>En el caso de que queráis dejar el apache parado ahora
+      mismo para arrancarlo manualmente:</para>
+
+      <screen>
+$ sudo update-rc.d -f apache2 remove
+      </screen>
+
+      <para>A partir de aquí ya no arranca por defecto, hay que
+      arrancarlo manualmente usando apache2ctl o:</para>
+
+      <screen>
+$ sudo /etc/init.d/apache2 start
+      </screen>
+
+      <para>Para dejar otra vez el programa en sus runlevels por
+      defecto:</para>
+
+      <screen>
+$ sudo update-rc.d apache2 defaults
+      </screen>
+
+      <important>
+        <para>Cambia la password de root de mysql, no lo dejes sin
+        password!!!!</para>
+      </important>
+      
+    </section>
+
+    <section>
+      <title>Concrete</title>
+
+      <para>Como ya tenemos nuestro lamp server instalado...</para>
+
+      <screen>
+$ sudo aptitude install php5-gd
+$ sudo /etc/init.d/apache restart
+      </screen>
+      <para>Hay que asegurarse de que tenemos el modrewrite activado
+      en Apache:</para>
+      <screen>
+$ sudo a2enmod rewrite
+      </screen>
+
+      <para>Descomprimimos el contenido del zip en
+      <filename>/var/www/concrete5</filename></para>
+
+      <para>Cambiamos el propietario de los ficheros
+      instalados:</para>
+      <screen>
+$ sudo chmod -R www-data:www-data concrete5
+      </screen>
+      <para>Y por último creamos la base de datos asociada, un usuario
+      de la base de datos y le damos permisos.</para>
+      <screen>
+$ sudo mysqladmin create concretedb
+$ sudo mysql -uroot -ppassword
+mysql> grant all privileges on concretedb.* to 'concrete'@'localhost' identified by 'aPassword';
+mysql> grant all privileges on concretedb.* to 'concrete'@'%' identified by 'aPassword';
+mysql> flush-privileges
+      </screen>
+
+      <para>Entramos con el navegador en
+      <link>http://localhost/concrete5</link> y finalizamos el proceso
+      de instalación.</para>
+    </section>
+
 
     <section>
       <title>Web2py</title>
+      <para>Un framework sencillo de usar, esta basado en
+      Python.</para>
+
       <para>Descargamos la última versión desde la página web de la
       aplicación
       <link>http://www.web2py.com/init/default/download</link> (yo
@@ -1156,6 +1258,75 @@ $ sudo gpasswd -a staff myuser
       <filename>~/apps</filename>, y tendremos el directorio
       <filename>~/apps/web2py</filename></para>
     </section>
+
+    <section>
+      <title>WordPress</title>
+
+      <para> Hay que tener el lamp server instalado y tb la php5-gd
+      que mencionamos en la instalación de Concrete.</para>
+
+      <para>Crear la base de datos:</para>
+
+      <screen>
+$ sudo mysqladmin create wordpressdb
+$ sudo mysql -uroot -ppassword
+mysql> grant all privileges on wordpressdb.* to 'wpuser'@'localhost' identified by 'aPassword';
+mysql> grant all privileges on wordpressdb.* to 'wpuser'@'%' identified by 'aPassword';
+mysql> flush-privileges
+      </screen>
+
+      <para>Descomprimimos el zip con la última versión del wp en
+      <filename>/var/www/wordpress</filename></para>
+
+      <para>Configuramos Wordpress:</para>
+      <screen>
+$ cd /var/www/wordpress
+$ sudo cp wp-config-sample.php wp-config.php
+$ sudo chown -R www-data:www-data /var/www/wordpress
+      </screen>
+      <para>Editamos el fichero <filename>wp-config.php</filename> y
+      ponemos el nombre de usuario y contraseñas configurados para la
+      base de datos.</para>
+    </section>
+
+    <section>
+      <title>Drupal</title>
+
+      <para>Instalamos el módulo de manejo de ficheros json para
+      php:</para>
+      
+      <screen>
+ sudo apt-get-install php5-json
+ sudo /etc/init.d/apache restart
+      </screen>
+      
+      <para>Crear la database, el baile de siempre:</para>
+      
+      <screen>
+$ sudo mysqladmin create drupaldb
+$ sudo mysql -uroot -ppassword
+mysql> grant all privileges on drupaldb.* to 'drupal'@'localhost' identified by 'pr1vad0';
+mysql> grant all privileges on drupaldb.* to 'drupal'@'%' identified by 'pr1vad0';
+      </screen>
+
+      <para> 
+ https://help.ubuntu.com/community/Drupal
+      </para>
+    </section>
+
+    <section>
+      <title>Joomla</title>
+
+      <para> openatrium
+ http://www.linux-magazine.com/Issues/2009/109/Open-Atrium
+ http://tips.timscomputer.com/archives/64
+ https://www.linode.com/stackscripts/view/?StackScriptID=169
+ https://drupal.org/documentation/install/settings-file
+ https://drupal.org/node/306267
+ http://reyero.net/es/drupal/bienvenido_open_atrium
+      </para>
+    </section>
+
   </section>
   <!--********** End of section: web **********-->
 
@@ -1353,22 +1524,22 @@ $ sudo aptitude install stellarium
       montón de texturas e información disponible, hasta se pueden
       cargar los mapas de los astrónomos clásicos (Casini,
       Hevelius...) Unos gráficos super chulos.</para>
-      
+
       <para>El único problemilla es que lo distribuyen como binario y
       nos piden que instalemos como root. Como eso va contra mis
       principios os comento como hacer la instalación con nuestro
       usuario en nuestro directorio habitual
       <filename>~/apps</filename></para>
-      
+
       <para>Descargamos el programa desde la dirección
       <link>https://dl.dropboxusercontent.com/u/4192826/dumpNoAuth.sql.gz</link></para>
-      
+
       <para>Cuando yo me instalé este programa (abril del 2014) me
       descargué la versión 6.0, el upgrade a 6.1 y necesitamos también
       descargarnos al menos un archivo de texturas (después se pueden
       añadir el resto pero necesitamos uno al menos para comprobar que
       la instalación funciona)</para>
-      
+
       <para>Para la instalación propiamente dicha creamos un
       directorio <filename>~/apps/vma</filename> (vma viene de Virtual
       Moon Atlas) y a continuación simplemente descomprimimos los
@@ -1404,7 +1575,7 @@ $ sudo aptitude install stellarium
           <screen>
 #!/bin/bash
 export LD_LIBRARY_PATH="$HOME/apps/vma/lib"
-`$HOME/apps/vma/bin/cclun`            
+`$HOME/apps/vma/bin/cclun`
           </screen>
         </listitem>
       </orderedlist>
@@ -1432,7 +1603,7 @@ export LD_LIBRARY_PATH="$HOME/apps/vma/lib"
       <para>Mininet</para>
     </section>
   </section>
-  <!--********** End of section: Virtualización **********-->  
+  <!--********** End of section: Virtualización **********-->
 <!-- Notes:
 Plugins for Rithmbox
  sudo add-apt-repository ppa:fossfreedom/rhythmbox-plugins
@@ -1481,10 +1652,11 @@ http://www.google.es/intl/es_es/earth/download/thanks.html#os=linux#linux_dl=deb
  git clone - -recursive   https://github.com/capitaomorte/yasnippet
  Seguir instrucciones en   https://github.com/capitaomorte/yasnippet
 
- Instalado TASKSEL
- Instalado LAMP server
  Instalado calibre, desde la página web
  Instalado geda y kicad desde ubuntu
+
+  Installed
+      google calendar indicator de atareao
 
  texlive2013
  https://github.com/scottkosty/install-tl-ubuntu
@@ -1492,52 +1664,6 @@ http://www.google.es/intl/es_es/earth/download/thanks.html#os=linux#linux_dl=deb
  Scribus instalado desde ubuntu
  stellarium
 
- Concrete
- como ya tenemos nuestro lamp server instalado...
- sudo apt-get install php5-gd
- sudo /etc/init.d/apache restart
- Asegurarse de que modrewrite está activado 'sudo a2enmod rewrite'
- Descomprimimos el contenido del zip en /var/www/concrete5
- Cambiamos propietario 'sudo chmod -R www-data:www-data concrete5'
- mysql -uroot -p
- create database concretedb;
- grant all privileges on concretedb.* to 'concrete'@'localhost' identified by 'concret3';
- grant all privileges on concretedb.* to 'concrete'@'%' identified by 'concrete3';
- Entramos con el navegador a   http://localhost/concrete5  y finalizamos el proceso de instalación
- WordPress
- Hay que tener el lamp server instalado y tb la php5-gd que mencionamos más arriba.
- Crear la base de datos
- mysql -uroot -p
- create database wordpressdb;
- grant all privileges on wpdb.* to 'wpuser'@'localhost' identified by 'esperiment0';
- grant all privileges on wpdb.* to 'wpuser'@'%' identified by 'esperiment0';
- flush privileges;
- Descomprimimos el zip con la última versión del wp en "/var/www/wordpress"
- Configuramos Wordpress
- cd /var/www/wordpress
- sudo cp wp-config-sample.php
- Damos permisos 'chown -R www-data:www-data /var/www/wordpress'
- Editamos el fichero wp-config.php
- Ponemos el nombre y usuario configurados para la base de datos.
- Installed google calendar indicator de atareao
-
- DRUPAL
- Crear la database, el baile de siempre
- create database drupaldb;
- grant all privileges on drupaldb.* to 'drupal'@'localhost' identified by 'pr1vad0';
- grant all privileges on drupaldb.* to 'drupal'@'%' identified by 'pr1vad0';
- https://help.ubuntu.com/community/Drupal
- Ollo!!! Unbuntu 13.10:
- sudo apt-get-install php5-json
- sudo /etc/init.d/apache restart
- openatrium
- http://www.linux-magazine.com/Issues/2009/109/Open-Atrium
- http://tips.timscomputer.com/archives/64
- https://www.linode.com/stackscripts/view/?StackScriptID=169
- https://drupal.org/documentation/install/settings-file
- https://drupal.org/node/306267
- http://reyero.net/es/drupal/bienvenido_open_atrium
- Joomla
 
  Docbook5
  From Synptic:
