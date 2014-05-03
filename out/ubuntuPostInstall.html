@@ -1,6 +1,6 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Ubuntu 13.10 Postinstallation</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div lang="es" class="article"><div class="titlepage"><div><div><h1 class="title"><a name="idp19857328"></a>Ubuntu 13.10 Postinstallation</h1></div><div><h3 class="subtitle"><i>Un Quick Hacking para Bricolabs</i></h3></div><div><div class="author"><h3 class="author">Sergio Alvariño (salvari)</h3><div class="affiliation"><span class="org"><span class="orgname">BricoLabs</span>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Ubuntu 13.10 Postinstallation</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div lang="es" class="article"><div class="titlepage"><div><div><h1 class="title"><a name="idp18449600"></a>Ubuntu 13.10 Postinstallation</h1></div><div><h3 class="subtitle"><i>Un Quick Hacking para Bricolabs</i></h3></div><div><div class="author"><h3 class="author">Sergio Alvariño (salvari)</h3><div class="affiliation"><span class="org"><span class="orgname">BricoLabs</span>
         <code class="uri">www.bricolabs.cc</code>
-        </span></div><code class="email">&lt;<a class="email" href="mailto:salvari@gmail.com">salvari@gmail.com</a>&gt;</code></div></div><div><p class="pubdate">2014-04-15</p></div></div><hr></div><div class="toc"><p><b>Tabla de contenidos</b></p><dl class="toc"><dt><span class="section"><a href="#intro">Introducción</a></span></dt><dt><span class="section"><a href="#idp45805504">Solución de problemas</a></span></dt><dd><dl><dt><span class="section"><a href="#idp45806144">Cursor parpadeante</a></span></dt><dt><span class="section"><a href="#idp45808240">Retardo en el click izquierdo del ratón.</a></span></dt></dl></dd><dt><span class="section"><a href="#idp45822464">Ajustes estéticos</a></span></dt><dd><dl><dt><span class="section"><a href="#idp45823152">Activar espacios de trabajo</a></span></dt><dt><span class="section"><a href="#idp45827376">Modificar formato de fecha</a></span></dt><dt><span class="section"><a href="#idp45828896">Cairo Dock</a></span></dt><dt><span class="section"><a href="#idp45832384">Instalación de Classic Menú</a></span></dt></dl></dd><dt><span class="section"><a href="#idp45834128">Gestión de paquetes</a></span></dt><dd><dl><dt><span class="section"><a href="#idp45834832">Instalación de Synaptic</a></span></dt><dt><span class="section"><a href="#idp45839504">Instalación de Aptitude</a></span></dt></dl></dd><dt><span class="section"><a href="#idp45844656">Herramientas de configuración de sistema</a></span></dt><dd><dl><dt><span class="section"><a href="#idp45845392">Instalación de CCSM</a></span></dt><dt><span class="section"><a href="#idp45847504">Instalar Unity Tweak y Gnome Tweak</a></span></dt><dt><span class="section"><a href="#idp45849344">TLP</a></span></dt></dl></dd><dt><span class="section"><a href="#idp45851760">Utilidades y programas básicos</a></span></dt><dd><dl><dt><span class="section"><a href="#idp45852480">Herramientas de compresión</a></span></dt><dt><span class="section"><a href="#idp45853840">Instalación de  restricted extras</a></span></dt><dt><span class="section"><a href="#idp45855136">Codecs</a></span></dt><dt><span class="section"><a href="#idp45857200">Habilitar la opción de Abrir en Terminal en Nautilus</a></span></dt><dt><span class="section"><a href="#idp45862896">Java</a></span></dt></dl></dd><dt><span class="section"><a href="#idp45866144">Seguridad y privacidad</a></span></dt><dd><dl><dt><span class="section"><a href="#idp45866784">Ejecución de fixubuntu</a></span></dt><dt><span class="section"><a href="#idp45871936">Desactivado el reporte automático de errores</a></span></dt><dt><span class="section"><a href="#idp45875072">Desactivación de remote login y guest login</a></span></dt><dt><span class="section"><a href="#idp45877408">TOR</a></span></dt><dt><span class="section"><a href="#idp45882256">Firewall</a></span></dt></dl></dd><dt><span class="section"><a href="#idp45886592">Instalando programas</a></span></dt><dd><dl><dt><span class="section"><a href="#idp45887232">Creando lanzadores</a></span></dt><dt><span class="section"><a href="#idp45899984">Organizando el directorio <code class="filename">~/apps</code></a></span></dt></dl></dd><dt><span class="section"><a href="#idp45912800">Software de Google</a></span></dt><dd><dl><dt><span class="section"><a href="#idp45913440">Instalación de Chrome</a></span></dt><dt><span class="section"><a href="#idp45915136">Instalación de Chromium</a></span></dt><dt><span class="section"><a href="#idp45917024">Instalación de Google-Earth</a></span></dt></dl></dd><dt><span class="section"><a href="#idp45919664">Gráficos y dibujos</a></span></dt><dd><dl><dt><span class="section"><a href="#idp45920304">Gimp</a></span></dt><dt><span class="section"><a href="#idp45924096">Inkscape</a></span></dt><dt><span class="section"><a href="#idp45926400">Krita</a></span></dt><dt><span class="section"><a href="#idp45928384">MyPaint</a></span></dt><dt><span class="section"><a href="#idp45930576">Alchemy</a></span></dt></dl></dd><dt><span class="section"><a href="#idp45933824">Fotografía</a></span></dt><dd><dl><dt><span class="section"><a href="#idp45934464">Rawtherapee</a></span></dt><dt><span class="section"><a href="#idp45936240">Darktable</a></span></dt><dt><span class="section"><a href="#idp45938032">Luminance</a></span></dt><dt><span class="section"><a href="#idp45939680">Hugin</a></span></dt></dl></dd><dt><span class="section"><a href="#idp45941824">Desarrollo software</a></span></dt><dd><dl><dt><span class="section"><a href="#idp45942464">EMACS</a></span></dt><dt><span class="section"><a href="#idp45952736">VIM</a></span></dt><dt><span class="section"><a href="#idp45954496">Git</a></span></dt><dt><span class="section"><a href="#idp45957760">Mercurial</a></span></dt><dt><span class="section"><a href="#idp45960592">Subversion</a></span></dt><dt><span class="section"><a href="#idp45962288">D programming language</a></span></dt><dt><span class="section"><a href="#idp45974064">Perl</a></span></dt><dt><span class="section"><a href="#idp45986080">Squirrel SQL Client</a></span></dt><dt><span class="section"><a href="#idp45992816">R</a></span></dt></dl></dd><dt><span class="section"><a href="#idp46018240">Desarrollo Web</a></span></dt><dd><dl><dt><span class="section"><a href="#idp46018880">Servidor LAMP</a></span></dt><dt><span class="section"><a href="#idp46028208">Concrete</a></span></dt><dt><span class="section"><a href="#idp46034560">Web2py</a></span></dt><dt><span class="section"><a href="#idp46038064">WordPress</a></span></dt><dt><span class="section"><a href="#idp46043200">Drupal</a></span></dt><dt><span class="section"><a href="#idp46046448">Joomla</a></span></dt></dl></dd><dt><span class="section"><a href="#idp46048448">Documentación</a></span></dt><dd><dl><dt><span class="section"><a href="#idp46049088">TeX/LaTeX</a></span></dt><dt><span class="section"><a href="#idp46050240">Docbook 5</a></span></dt><dt><span class="section"><a href="#idp46051488">Scribus</a></span></dt></dl></dd><dt><span class="section"><a href="#idp46052768">Diseño</a></span></dt><dd><dl><dt><span class="section"><a href="#idp46053408">LibreCAD</a></span></dt><dt><span class="section"><a href="#idp46054688">FreeCAD</a></span></dt><dt><span class="section"><a href="#idp46055968">OpenSCAD</a></span></dt></dl></dd><dt><span class="section"><a href="#idp46058064">Electrónica</a></span></dt><dd><dl><dt><span class="section"><a href="#idp46059088">Arduino IDE</a></span></dt><dt><span class="section"><a href="#idp46067056">Pingüino IDE</a></span></dt><dt><span class="section"><a href="#idp46068208">KiCAD</a></span></dt><dt><span class="section"><a href="#idp46069360">Geda</a></span></dt><dt><span class="section"><a href="#idp46070512">Fritzing</a></span></dt></dl></dd><dt><span class="section"><a href="#idp46072128">Astronomía</a></span></dt><dd><dl><dt><span class="section"><a href="#idp46072768">Stellarium</a></span></dt><dt><span class="section"><a href="#idp46075920">Where is M13?</a></span></dt><dt><span class="section"><a href="#idp46080032">Digital Universe</a></span></dt><dt><span class="section"><a href="#idp46086800">Virtual Moon</a></span></dt></dl></dd><dt><span class="section"><a href="#idp46100464">Mapas</a></span></dt><dt><span class="section"><a href="#idp46102000">Virtualización</a></span></dt><dd><dl><dt><span class="section"><a href="#idp46102640">VirtualBox</a></span></dt><dt><span class="section"><a href="#idp46103792">Mininet: Un simulador de SDN</a></span></dt></dl></dd></dl></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="intro"></a>Introducción</h2></div></div></div><p>Este documento es una descripción de las operaciones de post
+        </span></div><code class="email">&lt;<a class="email" href="mailto:salvari@gmail.com">salvari@gmail.com</a>&gt;</code></div></div><div><p class="pubdate">2014-04-15</p></div></div><hr></div><div class="toc"><p><b>Tabla de contenidos</b></p><dl class="toc"><dt><span class="section"><a href="#intro">Introducción</a></span></dt><dt><span class="section"><a href="#idp44367040">Solución de problemas</a></span></dt><dd><dl><dt><span class="section"><a href="#idp44367680">Cursor parpadeante</a></span></dt><dt><span class="section"><a href="#idp44369776">Retardo en el click izquierdo del ratón.</a></span></dt></dl></dd><dt><span class="section"><a href="#idp44384000">Ajustes estéticos</a></span></dt><dd><dl><dt><span class="section"><a href="#idp44384688">Activar espacios de trabajo</a></span></dt><dt><span class="section"><a href="#idp44388912">Modificar formato de fecha</a></span></dt><dt><span class="section"><a href="#idp44390432">Cairo Dock</a></span></dt><dt><span class="section"><a href="#idp44393920">Instalación de Classic Menú</a></span></dt></dl></dd><dt><span class="section"><a href="#idp44395664">Gestión de paquetes</a></span></dt><dd><dl><dt><span class="section"><a href="#idp44396368">Instalación de Synaptic</a></span></dt><dt><span class="section"><a href="#idp44401040">Instalación de Aptitude</a></span></dt></dl></dd><dt><span class="section"><a href="#idp44406192">Herramientas de configuración de sistema</a></span></dt><dd><dl><dt><span class="section"><a href="#idp44406928">Instalación de CCSM</a></span></dt><dt><span class="section"><a href="#idp44409040">Instalar Unity Tweak y Gnome Tweak</a></span></dt><dt><span class="section"><a href="#idp44410880">TLP</a></span></dt></dl></dd><dt><span class="section"><a href="#idp44413296">Utilidades y programas básicos</a></span></dt><dd><dl><dt><span class="section"><a href="#idp44414016">Herramientas de compresión</a></span></dt><dt><span class="section"><a href="#idp44415376">Instalación de  restricted extras</a></span></dt><dt><span class="section"><a href="#idp44416672">Codecs</a></span></dt><dt><span class="section"><a href="#idp44418736">Habilitar la opción de Abrir en Terminal en Nautilus</a></span></dt><dt><span class="section"><a href="#idp44424432">Java</a></span></dt></dl></dd><dt><span class="section"><a href="#idp44427680">Seguridad y privacidad</a></span></dt><dd><dl><dt><span class="section"><a href="#idp44428320">Ejecución de fixubuntu</a></span></dt><dt><span class="section"><a href="#idp44433472">Desactivado el reporte automático de errores</a></span></dt><dt><span class="section"><a href="#idp44436608">Desactivación de remote login y guest login</a></span></dt><dt><span class="section"><a href="#idp44438944">TOR</a></span></dt><dt><span class="section"><a href="#idp44443792">Firewall</a></span></dt></dl></dd><dt><span class="section"><a href="#idp44448128">Instalando programas</a></span></dt><dd><dl><dt><span class="section"><a href="#idp44448768">Creando lanzadores</a></span></dt><dt><span class="section"><a href="#idp44461520">Organizando el directorio <code class="filename">~/apps</code></a></span></dt></dl></dd><dt><span class="section"><a href="#idp44474336">Software de Google</a></span></dt><dd><dl><dt><span class="section"><a href="#idp44474976">Instalación de Chrome</a></span></dt><dt><span class="section"><a href="#idp44476672">Instalación de Chromium</a></span></dt><dt><span class="section"><a href="#idp44478560">Instalación de Google-Earth</a></span></dt></dl></dd><dt><span class="section"><a href="#idp44481200">Gráficos y dibujos</a></span></dt><dd><dl><dt><span class="section"><a href="#idp44481840">Gimp</a></span></dt><dt><span class="section"><a href="#idp44485632">Inkscape</a></span></dt><dt><span class="section"><a href="#idp44487936">Krita</a></span></dt><dt><span class="section"><a href="#idp44489920">MyPaint</a></span></dt><dt><span class="section"><a href="#idp44492112">Alchemy</a></span></dt></dl></dd><dt><span class="section"><a href="#idp44495360">Fotografía</a></span></dt><dd><dl><dt><span class="section"><a href="#idp44496000">Rawtherapee</a></span></dt><dt><span class="section"><a href="#idp44497776">Darktable</a></span></dt><dt><span class="section"><a href="#idp44499568">Luminance</a></span></dt><dt><span class="section"><a href="#idp44501216">Hugin</a></span></dt></dl></dd><dt><span class="section"><a href="#idp44503360">Desarrollo software</a></span></dt><dd><dl><dt><span class="section"><a href="#idp44504000">EMACS</a></span></dt><dt><span class="section"><a href="#idp44514272">VIM</a></span></dt><dt><span class="section"><a href="#idp44516032">Git</a></span></dt><dt><span class="section"><a href="#idp44519296">Mercurial</a></span></dt><dt><span class="section"><a href="#idp44522128">Subversion</a></span></dt><dt><span class="section"><a href="#idp44523824">D programming language</a></span></dt><dt><span class="section"><a href="#idp44535600">Perl</a></span></dt><dt><span class="section"><a href="#idp44547616">Squirrel SQL Client</a></span></dt><dt><span class="section"><a href="#idp44554352">R</a></span></dt></dl></dd><dt><span class="section"><a href="#idp44579776">Desarrollo Web</a></span></dt><dd><dl><dt><span class="section"><a href="#idp44580416">Servidor LAMP</a></span></dt><dt><span class="section"><a href="#idp44589808">Concrete</a></span></dt><dt><span class="section"><a href="#idp44596160">Web2py</a></span></dt><dt><span class="section"><a href="#idp44599664">Django</a></span></dt><dt><span class="section"><a href="#idp44607024">WordPress</a></span></dt><dt><span class="section"><a href="#idp44612160">Drupal</a></span></dt><dt><span class="section"><a href="#idp44615408">Joomla</a></span></dt></dl></dd><dt><span class="section"><a href="#idp44617408">Documentación</a></span></dt><dd><dl><dt><span class="section"><a href="#idp44618048">TeX/LaTeX</a></span></dt><dt><span class="section"><a href="#idp44619200">Docbook 5</a></span></dt><dt><span class="section"><a href="#idp44620448">Scribus</a></span></dt></dl></dd><dt><span class="section"><a href="#idp44621728">Diseño</a></span></dt><dd><dl><dt><span class="section"><a href="#idp44622368">LibreCAD</a></span></dt><dt><span class="section"><a href="#idp44623648">FreeCAD</a></span></dt><dt><span class="section"><a href="#idp44624928">OpenSCAD</a></span></dt></dl></dd><dt><span class="section"><a href="#idp44627024">Electrónica</a></span></dt><dd><dl><dt><span class="section"><a href="#idp44628048">Arduino IDE</a></span></dt><dt><span class="section"><a href="#idp44636016">Pingüino IDE</a></span></dt><dt><span class="section"><a href="#idp44637168">KiCAD</a></span></dt><dt><span class="section"><a href="#idp44638320">Geda</a></span></dt><dt><span class="section"><a href="#idp44639472">Fritzing</a></span></dt></dl></dd><dt><span class="section"><a href="#idp44641088">Astronomía</a></span></dt><dd><dl><dt><span class="section"><a href="#idp44641728">Stellarium</a></span></dt><dt><span class="section"><a href="#idp44644880">Where is M13?</a></span></dt><dt><span class="section"><a href="#idp44648992">Digital Universe</a></span></dt><dt><span class="section"><a href="#idp44655760">Virtual Moon</a></span></dt></dl></dd><dt><span class="section"><a href="#idp44669424">Mapas</a></span></dt><dt><span class="section"><a href="#idp44670960">Virtualización</a></span></dt><dd><dl><dt><span class="section"><a href="#idp44671600">VirtualBox</a></span></dt><dt><span class="section"><a href="#idp44672752">Mininet: Un simulador de SDN</a></span></dt></dl></dd></dl></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="intro"></a>Introducción</h2></div></div></div><p>Este documento es una descripción de las operaciones de post
     instalación para Ubuntu 13.10 Saucy Salamander.</p><p>La instalación de Ubuntu se hizo en mi portátil, un
     ordenador Acer 5755G con las siguientes características:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Core i5 2430M 2.4GHz</p></li><li class="listitem"><p>NVIDIA Geforce GT 540M</p></li><li class="listitem"><p>8Gb RAM</p></li><li class="listitem"><p>750Gb HD</p></li></ul></div><p>La instalación de Ubuntu realizada es una instalación
     personalizada para permitir editar la tabla de particiones. Las
@@ -33,11 +33,11 @@
         aparezca en el Dash</p></li><li class="listitem"><p>Hacer que la base de datos de paquetes sepa que hemos
         instalado el programa.</p></li></ul></div><p>Del primer caso hay múltiples ejemplos en el documento, del
     segundo tenemos el caso de TeX, que también incluimos en este
-    documento.</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp45805504"></a>Solución de problemas</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45806144"></a>Cursor parpadeante</h3></div></div></div><p>Nada más terminar la instalación me apareció un problema
+    documento.</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp44367040"></a>Solución de problemas</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44367680"></a>Cursor parpadeante</h3></div></div></div><p>Nada más terminar la instalación me apareció un problema
       bastante molesto de parpadeo del cursor. Se soluciona fácilmente
       desactivando el monitor secundario que creó la
       instalación.</p><p>System Settings::Displays: Desactivar el Unknow
-    Monitor</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45808240"></a>Retardo en el click izquierdo del ratón.</h3></div></div></div><p>Este problema apareció mucho más tarde despues de estar
+    Monitor</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44369776"></a>Retardo en el click izquierdo del ratón.</h3></div></div></div><p>Este problema apareció mucho más tarde despues de estar
       unos dias usando la nueva distribución. No tengo ni idea de la
       causa y la solución la encontré después de un par de horas
       navegando foros en la web.</p><p>Los síntomas eran bastante curiosos. Resumiendo: para que
@@ -82,13 +82,13 @@ $ sudo gedit /usr/share/hal/fdi/policy/mouse-3button.fdi
       &lt;/match&gt;
     &lt;/device&gt;
   &lt;/deviceinfo&gt;
-      </pre><p>Con esta modificación a mi se me resuelve el problema.</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp45822464"></a>Ajustes estéticos</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45823152"></a>Activar espacios de trabajo</h3></div></div></div><p>
+      </pre><p>Con esta modificación a mi se me resuelve el problema.</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp44384000"></a>Ajustes estéticos</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44384688"></a>Activar espacios de trabajo</h3></div></div></div><p>
         </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>En el Dash
             (<span class="keycap"><strong>Super</strong></span>+<span class="keycap"><strong>A</strong></span>)
             buscamos Appearance (Apariencia)</p></li><li class="listitem"><p>En la pestaña Behavior activamos la opción de Workspaces</p></li></ol></div><p>
-      </p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45827376"></a>Modificar formato de fecha</h3></div></div></div><p>Cambio el formato del reloj para poder ver el dia del mes
+      </p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44388912"></a>Modificar formato de fecha</h3></div></div></div><p>Cambio el formato del reloj para poder ver el dia del mes
       y de la semana. Con botón derecho del ratón sobre el reloj
-      accedemos a Settings.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45828896"></a>Cairo Dock</h3></div></div></div><p>Cuando Canonical decidió brindar una nueva experiencia de
+      accedemos a Settings.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44390432"></a>Cairo Dock</h3></div></div></div><p>Cuando Canonical decidió brindar una nueva experiencia de
       usuario, adoptando Unity, superé el trauma instalando Cairo
       Dock.</p><p>Tengo que admitir que hoy en dia estoy bastante cómodo con
       Unity pero "le he cogido cariño" al dock y lo mantengo en mi
@@ -98,11 +98,11 @@ $ sudo add-apt-repository ppa:xubuntu-dev/xfce-4.10
 $ sudo apt-get install cairo-dock
       </pre><p>Para todos los que necesiten tener un menú de aplicaciones
       pero no quieran el Dock les recomiendo que prueben el
-      appindicator Classic Menú. Así que...</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45832384"></a>Instalación de Classic Menú</h3></div></div></div><pre class="screen">
+      appindicator Classic Menú. Así que...</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44393920"></a>Instalación de Classic Menú</h3></div></div></div><pre class="screen">
 $ sudo add-apt-repository ppa:diesch/testing
 $ sudo apt-get update
 $ sudo apt-get install classicmenu-indicator
-      </pre></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp45834128"></a>Gestión de paquetes</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45834832"></a>Instalación de Synaptic</h3></div></div></div><p>Generalmente uso la línea de comandos o Aptitude para
+      </pre></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp44395664"></a>Gestión de paquetes</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44396368"></a>Instalación de Synaptic</h3></div></div></div><p>Generalmente uso la línea de comandos o Aptitude para
       instalar pero Synaptic también está muy bien, mucho mejor que el
       centro de software de Ubuntu para la mayor parte de las
       tareas. Desde Synaptic podemos visualizar facilmente los
@@ -114,7 +114,7 @@ $ sudo apt-get install synaptic
         recomendados. En el menú <span class="guimenu">Opciones</span> en la
         opción <span class="guimenuitem">Preferencias</span> descativamos la
         opción <span class="guimenuitem">Considerar paquetes recomendados como
-        dependencias</span></p></td></tr></table></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45839504"></a>Instalación de Aptitude</h3></div></div></div><pre class="screen">
+        dependencias</span></p></td></tr></table></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44401040"></a>Instalación de Aptitude</h3></div></div></div><pre class="screen">
 $ sudo apt-get install aptitude
       </pre><p>Una vez instalado Aptitude, lo configuro para que no
       instale los paquetes recomendados, arrancamos con <span class="command"><strong>sudo
@@ -128,34 +128,34 @@ $ sudo apt-get install aptitude
       de que también lo podemos usar como sustituto de apt-get en la
       linea de comandos y una vez configurado no nos va a instalar los
       paquetes recomendados.
-      </p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp45844656"></a>Herramientas de configuración de sistema</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45845392"></a>Instalación de CCSM</h3></div></div></div><p>Esta aplicación nos permite configurar un montón de
+      </p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp44406192"></a>Herramientas de configuración de sistema</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44406928"></a>Instalación de CCSM</h3></div></div></div><p>Esta aplicación nos permite configurar un montón de
       opciones de Compiz, el gestor de ventanas de Ubuntu. (aunque yo,
       la verdad, lo mantengo con los efectos al mínimo).</p><pre class="screen">
 $ sudo apt-get install compizconfig-settings-manager
 $ sudo apt-get install compiz-plugins-extra
-      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45847504"></a>Instalar Unity Tweak y Gnome Tweak</h3></div></div></div><p>Nos dan más facilidades para configurar opciones de Unity
+      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44409040"></a>Instalar Unity Tweak y Gnome Tweak</h3></div></div></div><p>Nos dan más facilidades para configurar opciones de Unity
       y de Gnome.</p><pre class="screen">
 $ sudo apt-get install unity-tweak-tool gnome-tweak-tool
-      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45849344"></a>TLP</h3></div></div></div><p>Para mantener un consumo de batería ajustado en el
+      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44410880"></a>TLP</h3></div></div></div><p>Para mantener un consumo de batería ajustado en el
       portátil. Yo antes usaba Jupiter pero ya no existe.</p><pre class="screen">
 $ sudo add-apt-repository ppa:linrunner/tlpsudo
 $ apt-get updatesudo
 $ apt-get install tlp tlp-rdw
 $ sudo tlp start
 $ sudo tlp stat
-      </pre></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp45851760"></a>Utilidades y programas básicos</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45852480"></a>Herramientas de compresión</h3></div></div></div><pre class="screen">
+      </pre></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp44413296"></a>Utilidades y programas básicos</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44414016"></a>Herramientas de compresión</h3></div></div></div><pre class="screen">
 $ sudo apt-get install p7zip-rar p7zip-full unace unrar zip unzip \
 sharutils rar uudeview mpack arj cabextract file-roller
-      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45853840"></a>Instalación de  restricted extras</h3></div></div></div><pre class="screen">
+      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44415376"></a>Instalación de  restricted extras</h3></div></div></div><pre class="screen">
 $ sudo apt-get install ubuntu-restricted-extras
-      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45855136"></a>Codecs</h3></div></div></div><p>Me da la impresión de que todo esto lo han incluido en los
+      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44416672"></a>Codecs</h3></div></div></div><p>Me da la impresión de que todo esto lo han incluido en los
       restricted extras, pero por si acaso ejecutamos:</p><pre class="screen">
 $ sudo apt-get install gstreamer0.10-plugins-ugly \
 gstreamer0.10-ffmpeg libxine1-ffmpeg gxine mencoder libdvdread4 \
 totem-mozilla icedax tagtool easytag id3tool lame \
 nautilus-script-audio-convert libmad0 mpg321
 $ sudo /usr/share/doc/libdvdread4/install-css.sh
-      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45857200"></a>Habilitar la opción de Abrir en Terminal en Nautilus</h3></div></div></div><p>Si queremos tener la opción de abrir un terminal de
+      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44418736"></a>Habilitar la opción de Abrir en Terminal en Nautilus</h3></div></div></div><p>Si queremos tener la opción de abrir un terminal de
       comandos en el directorio que estamos visitando con
       Nautilus.</p><pre class="screen">
 $  sudo apt-get install nautilus-open-terminal
@@ -166,13 +166,13 @@ $  sudo apt-get install nautilus-open-terminal
       <span class="guimenuitem">can-change-accels</span></p><p>Una vez hecho esto cerramos
       <span class="application">dconf</span> y reiniciamos nautilus:</p><pre class="screen">
 $ nautilus -q
-      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45862896"></a>Java</h3></div></div></div><p>Necesitamos tener Java instalado para que posteriormente nos funcionen varios
+      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44424432"></a>Java</h3></div></div></div><p>Necesitamos tener Java instalado para que posteriormente nos funcionen varios
       programas y el plugin del navegador.  Yo personalmente uso el
       openjdk:</p><pre class="screen">
 $ sudo aptitude install icedtea-7-plugin openjdk-7-jre
       </pre><p>Para desarrolladores hay que instalar también:</p><pre class="screen">
 $ sudo apt-get install openjdk-7-jdk
-      </pre></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp45866144"></a>Seguridad y privacidad</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45866784"></a>Ejecución de fixubuntu</h3></div></div></div><p>Información reciente disponible en htpps://fixubuntu.com</p><p>Basicamente desactivamos las opciones que permiten al Dash
+      </pre></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp44427680"></a>Seguridad y privacidad</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44428320"></a>Ejecución de fixubuntu</h3></div></div></div><p>Información reciente disponible en htpps://fixubuntu.com</p><p>Basicamente desactivamos las opciones que permiten al Dash
       buscar on-line en sitios como Amazon, E-Bay o Ubuntu Shop.</p><p>Lo que yo hice fue copiar esto a un terminal y ejecutar</p><pre class="programlisting">
 V=`/usr/bin/lsb_release -rs`; \
 if [ $V \&lt; 12.10 ]; then \
@@ -191,14 +191,14 @@ then echo -e "\n127.0.0.1 productsearch.ubuntu.com" \
  | sudo tee -a /etc/hosts &gt;/dev/null;\
 fi; \
 echo "All done. Enjoy your privacy."; fi
-      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45871936"></a>Desactivado el reporte automático de errores</h3></div></div></div><p>Si te molesta que Ubuntu esté todo el tiempo pidiendo
+      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44433472"></a>Desactivado el reporte automático de errores</h3></div></div></div><p>Si te molesta que Ubuntu esté todo el tiempo pidiendo
       permiso para enviar un informe.</p><p>Editamos el fichero
       <code class="filename">/etc/default/apport</code> y ponemos
       <code class="code">enabled=0</code>
       </p><pre class="screen">
 $ sudo gedit /etc/default/apport
 $ sudo restart apport
-      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45875072"></a>Desactivación de remote login y guest login</h3></div></div></div><p>A mi no me hacen falta (no lo uso), además lo de permitir
+      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44436608"></a>Desactivación de remote login y guest login</h3></div></div></div><p>A mi no me hacen falta (no lo uso), además lo de permitir
       simultaneamente las opciones de login remoto y login anónimo no
       parece muy buena idea. Pero que conste que no lo he investigado
       en profundidad.</p><pre class="screen">
@@ -206,7 +206,7 @@ $ echo allow-guest=false \
 | sudo tee -a /etc/lightdm/lightdm.conf.d/50-unity-greeter.conf
 $ echo greeter-show-remote-login=false \
 | sudo tee -a /etc/lightdm/lightdm.conf.d/50-unity-greeter.conf
-      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45877408"></a>TOR</h3></div></div></div><p>Para utilizar la red TOR, que garantiza la navegación
+      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44438944"></a>TOR</h3></div></div></div><p>Para utilizar la red TOR, que garantiza la navegación
       anónima, descargamos el Bundle desde la página web del proyecto
       en el idioma deseado:
       https://www.torproject.org/projects/torbrowser.html.en</p><p>Descomprimimos el fichero recibido en donde queramos
@@ -216,11 +216,11 @@ $ echo greeter-show-remote-login=false \
 export GTK_IM_MODULE=xim
       </pre><p>Tenemos que instalarnos un lanzador para TOR, podemos
       hacerlo en Cairo o integrarlo en el propio Ubuntu. En la
-      siguiente sección describiremos como hacerlo.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45882256"></a>Firewall</h3></div></div></div><p>Configuración del cortafuegos.</p><pre class="screen">
+      siguiente sección describiremos como hacerlo.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44443792"></a>Firewall</h3></div></div></div><p>Configuración del cortafuegos.</p><pre class="screen">
 $ sudo apt-get install gufw
 $ gufw
       </pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note: TODO"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Nota]" src="/usr/share/xml/docbook/stylesheet/docbook-xsl-ns/images/note.svg"></td><th align="left">TODO</th></tr><tr><td align="left" valign="top"><p>Completar esta sección con la configuración del
-        cortafuegos</p><p>Más información en http://debianhelp.wordpress.com/2013/11/19/to-do-list-after-installing-ubuntu-13-10-aka-saucy-salamander-os-2/</p></td></tr></table></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp45886592"></a>Instalando programas</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45887232"></a>Creando lanzadores</h3></div></div></div><p>Como comentamos en la introducción a la hora de instalar
+        cortafuegos</p><p>Más información en http://debianhelp.wordpress.com/2013/11/19/to-do-list-after-installing-ubuntu-13-10-aka-saucy-salamander-os-2/</p></td></tr></table></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp44448128"></a>Instalando programas</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44448768"></a>Creando lanzadores</h3></div></div></div><p>Como comentamos en la introducción a la hora de instalar
       programas nos vamos a encontrar con dos casos:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Programas integrados en los orígenes de software de
           Ubuntu (ya sean oficiales o no).</p></li><li class="listitem"><p>Programas no disponibles en paquetes para Ubuntu, o
           que decidimos instalar fuera de los orígenes de software
@@ -256,7 +256,7 @@ $ gufw
       que ejecutar:</p><pre class="screen">
         $ sudo gnome-desktop-item-edit ~/.local/share/applications/ \
         --create-new
-      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45899984"></a>Organizando el directorio <code class="filename">~/apps</code></h3></div></div></div><p>Cuando instalamos programas en <code class="filename">~/apps</code>
+      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44461520"></a>Organizando el directorio <code class="filename">~/apps</code></h3></div></div></div><p>Cuando instalamos programas en <code class="filename">~/apps</code>
       nos podemos ahorrar trabajo organizándolo un poco.</p><p>Cuando actualizamos nuestros programas descargando nuevas
       versiones puede que nos vayan apareciendo directorios nuevos,
       por ejemplo para el IDE Arduino al descomprimir nos aparece el
@@ -286,49 +286,49 @@ arduino
       path <code class="filename">~/apps/arduino/current</code>. Cuando
       descarguemos nuevas versiones actualizamos el link
       <code class="filename">current</code> y todos los lanzadores seguirán
-      funcionando.</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp45912800"></a>Software de Google</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45913440"></a>Instalación de Chrome</h3></div></div></div><p>Instalamos el navegador de Google</p><pre class="screen">
+      funcionando.</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp44474336"></a>Software de Google</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44474976"></a>Instalación de Chrome</h3></div></div></div><p>Instalamos el navegador de Google</p><pre class="screen">
 $ wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub \
 | sudo apt-key add -
-      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45915136"></a>Instalación de Chromium</h3></div></div></div><p>También podemos instalar la versión libre de Chrome aunque
+      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44476672"></a>Instalación de Chromium</h3></div></div></div><p>También podemos instalar la versión libre de Chrome aunque
       Google está limitando algunas funcionalidades.</p><pre class="screen">
 $ sudo apt-get install chromium
-      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45917024"></a>Instalación de Google-Earth</h3></div></div></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note: TODO"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Nota]" src="/usr/share/xml/docbook/stylesheet/docbook-xsl-ns/images/note.svg"></td><th align="left">TODO</th></tr><tr><td align="left" valign="top"><p>Completar esta sección con la instalación del
-        Google-Earth</p></td></tr></table></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp45919664"></a>Gráficos y dibujos</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45920304"></a>Gimp</h3></div></div></div><p>El software libre de manipulación de imágenes.</p><pre class="screen">
+      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44478560"></a>Instalación de Google-Earth</h3></div></div></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note: TODO"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Nota]" src="/usr/share/xml/docbook/stylesheet/docbook-xsl-ns/images/note.svg"></td><th align="left">TODO</th></tr><tr><td align="left" valign="top"><p>Completar esta sección con la instalación del
+        Google-Earth</p></td></tr></table></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp44481200"></a>Gráficos y dibujos</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44481840"></a>Gimp</h3></div></div></div><p>El software libre de manipulación de imágenes.</p><pre class="screen">
 $ sudo add-apt-repository ppa:otto-kesselgulasch/gimp
 $ sudo apt-get update
 $ sudo apt-get install gmic gimp-gmic
       </pre><p>Instalamos también el GPS (Gimp Paint Studio). Para añadir
       más funcionalidades de dibujo a Gimp. Descargamos el paquete con
-      el GPS 2.0 desde aquí:</p><p>http://www.ramonmiranda.com/2012/07/gps-20-disponible.html</p><p>Y descomprimimos en nuestro directorio <code class="filename">~/.gimp-2.8</code></p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45924096"></a>Inkscape</h3></div></div></div><p>El programa libre de gráficos vectoriales. Instalado desde
+      el GPS 2.0 desde aquí:</p><p>http://www.ramonmiranda.com/2012/07/gps-20-disponible.html</p><p>Y descomprimimos en nuestro directorio <code class="filename">~/.gimp-2.8</code></p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44485632"></a>Inkscape</h3></div></div></div><p>El programa libre de gráficos vectoriales. Instalado desde
       los orígenes de software de Ubuntu.</p><pre class="screen">
 $ sudo apt-get install inkscape
-      </pre><p>Un dia de estos habrá que probar sozi y scour.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45926400"></a>Krita</h3></div></div></div><p>Un programa de dibujo completísimo. No hay que dejarse
+      </pre><p>Un dia de estos habrá que probar sozi y scour.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44487936"></a>Krita</h3></div></div></div><p>Un programa de dibujo completísimo. No hay que dejarse
       engañar por los menús minimalistas. Instalado desde los orígenes
       de software de Kubuntu.</p><pre class="screen">
 $ sudo add-apt-repository ppa:kubuntu-ppa/backports
 $ sudo apt-get install krita
-      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45928384"></a>MyPaint</h3></div></div></div><p>Un programa de dibujo artístico muy completo.</p><p>Instalamos desde ppa</p><pre class="screen">
+      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44489920"></a>MyPaint</h3></div></div></div><p>Un programa de dibujo artístico muy completo.</p><p>Instalamos desde ppa</p><pre class="screen">
 $ sudo add-apt-repository ppa:achadwick/mypaint-testing
 $ sudo apt-get update
 $ sudo apt-get install mypaint mypaint-data-extras
-      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45930576"></a>Alchemy</h3></div></div></div><p>Un programa para buscar inspiración a la hora de ponerse a
+      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44492112"></a>Alchemy</h3></div></div></div><p>Un programa para buscar inspiración a la hora de ponerse a
       dibujar. Echad una mirada a la página web
       http://al.chemy.org/gallery/ para entender lo que
       digo.</p><p>Pues como siempre, descargamos, descomprimimos en
       <code class="filename">~/apps</code> y creamos el lanzador a nuestro
-      gusto.</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp45933824"></a>Fotografía</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45934464"></a>Rawtherapee</h3></div></div></div><p>Programa para revelado digital de imágenes raw.</p><pre class="screen">
+      gusto.</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp44495360"></a>Fotografía</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44496000"></a>Rawtherapee</h3></div></div></div><p>Programa para revelado digital de imágenes raw.</p><pre class="screen">
 $ sudo add-apt-repository ppa:dhor/myway
 $ sudo apt-get update
 $ sudo apt-get install rawtherapee
-      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45936240"></a>Darktable</h3></div></div></div><p>Programa para revelado digital de imágenes raw.</p><pre class="screen">
+      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44497776"></a>Darktable</h3></div></div></div><p>Programa para revelado digital de imágenes raw.</p><pre class="screen">
 $ sudo add-apt-repository ppa:pmjdebruijn/darktable-release-plus
 $ sudo apt-get update
 $ sudo apt-get install darktable
-      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45938032"></a>Luminance</h3></div></div></div><p>Para generar imagenes HDR</p><pre class="screen">
+      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44499568"></a>Luminance</h3></div></div></div><p>Para generar imagenes HDR</p><pre class="screen">
 $ sudo apt-get install luminance
-      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45939680"></a>Hugin</h3></div></div></div><p>Para generar imágenes panorámicas o HDR.</p><pre class="screen">
+      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44501216"></a>Hugin</h3></div></div></div><p>Para generar imágenes panorámicas o HDR.</p><pre class="screen">
 $ sudo apt-get install hugin
-      </pre></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp45941824"></a>Desarrollo software</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45942464"></a>EMACS</h3></div></div></div><p>Si no eres de EMACS puedes pasar a la sección
+      </pre></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp44503360"></a>Desarrollo software</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44504000"></a>EMACS</h3></div></div></div><p>Si no eres de EMACS puedes pasar a la sección
       siguiente. Instalamos el paquete emacs y a mayores instalamos la
       última versión emacs24</p><pre class="screen">
 $ sudo apt-get install emacs
@@ -338,7 +338,7 @@ $ sudo apt-get install emacs24
       instaladas, la última versión tiene un problema con el Saucy, no
       parece llevarse nada bien con el Ibus. A causa de ese problema
       no se pueden escribir por ejemplo: "x^2"</p><p>Para soslayar el problema tendremos que establecer la
-      variable de entorno XMODIFIERS=""</p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Important: TODO"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Importante]" src="/usr/share/xml/docbook/stylesheet/docbook-xsl-ns/images/important.svg"></td><th align="left">TODO</th></tr><tr><td align="left" valign="top"><p>Describir el fichero .emacs</p><p>Auctex</p></td></tr></table></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idp45947936"></a>Instalación de yasnippets</h4></div></div></div><p>Yasnippets es una utilidad para Emacs que uso
+      variable de entorno XMODIFIERS=""</p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Important: TODO"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Importante]" src="/usr/share/xml/docbook/stylesheet/docbook-xsl-ns/images/important.svg"></td><th align="left">TODO</th></tr><tr><td align="left" valign="top"><p>Describir el fichero .emacs</p><p>Auctex</p></td></tr></table></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idp44509408"></a>Instalación de yasnippets</h4></div></div></div><p>Yasnippets es una utilidad para Emacs que uso
         bastante. Se puede instalar desde Ubuntu pero no me gusta como
         se instala, es muy dificil de configurar a tu gusto, así que
         la instalo fuera del sistema de paquetes.</p><pre class="screen">
@@ -346,9 +346,9 @@ $ mkdir ~/.emacs.d/plugins
 $ mkdir ~/.emacs.d/snippets
 $ cd ~/.emacs.d/plugins
 $ git clone -recursive https://github.com/capitaomorte/yasnippet
-        </pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Nota]" src="/usr/share/xml/docbook/stylesheet/docbook-xsl-ns/images/note.svg"></td><th align="left">Nota</th></tr><tr><td align="left" valign="top"><p>COMPLETAR https://github.com/capitaomorte/yasnippet</p></td></tr></table></div></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idp45951024"></a>Instalación AucTex</h4></div></div></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Nota]" src="/usr/share/xml/docbook/stylesheet/docbook-xsl-ns/images/note.svg"></td><th align="left">Nota</th></tr><tr><td align="left" valign="top"><p>COMPLETAR</p></td></tr></table></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45952736"></a>VIM</h3></div></div></div><p>Si no eres de Emacs serás de Vi ¿no?. Instalamos VIM desde Ubuntu:</p><pre class="screen">
+        </pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Nota]" src="/usr/share/xml/docbook/stylesheet/docbook-xsl-ns/images/note.svg"></td><th align="left">Nota</th></tr><tr><td align="left" valign="top"><p>COMPLETAR https://github.com/capitaomorte/yasnippet</p></td></tr></table></div></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idp44512560"></a>Instalación AucTex</h4></div></div></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Nota]" src="/usr/share/xml/docbook/stylesheet/docbook-xsl-ns/images/note.svg"></td><th align="left">Nota</th></tr><tr><td align="left" valign="top"><p>COMPLETAR</p></td></tr></table></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44514272"></a>VIM</h3></div></div></div><p>Si no eres de Emacs serás de Vi ¿no?. Instalamos VIM desde Ubuntu:</p><pre class="screen">
 $ sudo apt-get install gnome-vim
-      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45954496"></a>Git</h3></div></div></div><p>Lo del git-cola es opcional.</p><pre class="screen">
+      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44516032"></a>Git</h3></div></div></div><p>Lo del git-cola es opcional.</p><pre class="screen">
 $ sudo add-apt-repository ppa:git-core/ppa
 $ sudo apt-get update
 $ sudo apt-get install git
@@ -360,7 +360,7 @@ $ git config --global core.editor emacs
 $ git config --global color.ui true
 $ git config --global credential.helper cache
 $ git config --global credential.helper 'cache --timeout=3600'
-      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45957760"></a>Mercurial</h3></div></div></div><p>Tortoise Hg no es imprescindible.</p><pre class="screen">
+      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44519296"></a>Mercurial</h3></div></div></div><p>Tortoise Hg no es imprescindible.</p><pre class="screen">
 $ sudo apt-get install mercurial
 $ sudo apt-get install tortoisehg tortoisehg-nautilus
       </pre><p>Creado fichero ~/.hgrc con el contenido:</p><pre class="programlisting">
@@ -370,21 +370,21 @@ editor = emacs
 
 [web]
 cacerts = /etc/ssl/certs/ca-certificates.crt
-      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45960592"></a>Subversion</h3></div></div></div><p>No lo uso para programar pero hay veces en que te bajas
+      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44522128"></a>Subversion</h3></div></div></div><p>No lo uso para programar pero hay veces en que te bajas
       programas con el cliente.</p><pre class="screen">
 $ sudo apt-get install subversion
-      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45962288"></a>D programming language</h3></div></div></div><p>Visitamos la página e instalamos el paquete para
+      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44523824"></a>D programming language</h3></div></div></div><p>Visitamos la página e instalamos el paquete para
       Debian/Ubuntu
-      (http://dlang.org/download.html).</p><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idp45963968"></a>DUB</h4></div></div></div><p>También conviene que nos instalemos el DUB
+      (http://dlang.org/download.html).</p><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idp44525504"></a>DUB</h4></div></div></div><p>También conviene que nos instalemos el DUB
         http://code.dlang.org/download, con este no hay que
         partirse la cabeza, nos descargamos el "binary tarball" para
         linux 64 bits y lo descomprimimos en
         <code class="filename">~/bin</code></p><p>DUB será en breve el instalador oficial para el
         D. Conviene a empezar a usarlo cuanto antes. Además tiene
         ventajas obvias a la hora de gestionar las dependencias de
-        nuestros programas.</p></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idp45966912"></a>vibe.d</h4></div></div></div><p>Instalamos dependencias</p><pre class="screen">
+        nuestros programas.</p></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idp44528448"></a>vibe.d</h4></div></div></div><p>Instalamos dependencias</p><pre class="screen">
 $sudo apt-get install libevent-dev libssl-dev
-        </pre></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idp45968512"></a>D completion daemon - DCD</h4></div></div></div><p>Instalamos también este programa que nos va a permitir
+        </pre></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idp44530048"></a>D completion daemon - DCD</h4></div></div></div><p>Instalamos también este programa que nos va a permitir
         configurar varios editores para la edición de código en
         D, de momento lo he probado solo en emacs y va muy bien.</p><pre class="screen">
 $ git clone https://github.com/Hackerpilot/DCD
@@ -400,7 +400,7 @@ $ ./build.sh
         líneas:</p><pre class="screen">
 /usr/include/dmd/phobos
 /usr/include/dmd/druntime/import
-        </pre></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45974064"></a>Perl</h3></div></div></div><p>Perl viene instalado por defecto (se usa para un montón de
+        </pre></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44535600"></a>Perl</h3></div></div></div><p>Perl viene instalado por defecto (se usa para un montón de
       cosas en linux)</p><p>En Debian, y consecuentemente en Ubuntu, hay versiones
       empaquetadas de la mayor parte de los módulos de Perl, pero no
       estarán completamente actualizadas. Como es más rápido instalar
@@ -409,10 +409,10 @@ $ ./build.sh
       descargar desde CPAN las últimas versiones cuando me
       interesa.</p><p>He instalado los siguientes módulos de Perl en sus
       versiones empaquetadas para Debian/Ubuntu:</p><div class="variablelist"><dl class="variablelist"><dt><span class="term">libmodern-perl-perl</span></dt><dd><p>Atajos para varios pragmas usados comunmente (ver
-            http://modernperlbooks.com/books/modern_perl/</p></dd><dt><span class="term">liblog-log4perl-perl</span></dt><dd><p>Logs para Perl</p></dd><dt><span class="term">libtemplate-perl</span></dt><dd><p>Template toolkit para Perl</p></dd><dt><span class="term">libmoose-perl</span></dt><dd><p>Extensión para facilitar OOP en Perl.</p></dd></dl></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idp45984192"></a>Padre, un IDE para Perl</h4></div></div></div><p>También me lo he instalado, aunque la verdad suelo usar
+            http://modernperlbooks.com/books/modern_perl/</p></dd><dt><span class="term">liblog-log4perl-perl</span></dt><dd><p>Logs para Perl</p></dd><dt><span class="term">libtemplate-perl</span></dt><dd><p>Template toolkit para Perl</p></dd><dt><span class="term">libmoose-perl</span></dt><dd><p>Extensión para facilitar OOP en Perl.</p></dd></dl></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idp44545728"></a>Padre, un IDE para Perl</h4></div></div></div><p>También me lo he instalado, aunque la verdad suelo usar
         Emacs para todo.</p><pre class="screen">
 $ sudo aptitude install Padre
-        </pre></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45986080"></a>Squirrel SQL Client</h3></div></div></div><p>Un cliente SQL muy versátil. Como va sobre Java me vale
+        </pre></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44547616"></a>Squirrel SQL Client</h3></div></div></div><p>Un cliente SQL muy versátil. Como va sobre Java me vale
       para el trabajo (Windows) y para uso personal.</p><p>Descargamos el instalador de la última versión (en el
       momento de escribir esto la 3.5.2) desde la página web
       http://squirrel-sql.sourceforge.net/#installation. Le
@@ -428,7 +428,7 @@ $ sudo aptitude install Padre
       escogemos <span class="guimenuitem">View Drivers</span>. Picamos dos
       veces en el driver de MySQL y añadimos el jar que descargamos en
       el paso anterior a la pestaña: Extra Class Path.</p><p>A partir de aquí ya podremos conectarnos a bases de datos
-      MySQL.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp45992816"></a>R</h3></div></div></div><p>Añadimos nuestro mirror preferido a la lista de
+      MySQL.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44554352"></a>R</h3></div></div></div><p>Añadimos nuestro mirror preferido a la lista de
       repositorios (yo lo hago desde synaptic)</p><pre class="screen">
 $ deb http://cran.es.r-project.org/bin/linux/ubuntu saucy/
       </pre><p>Necesitamos añadir la clave gpg para validar los
@@ -439,7 +439,7 @@ $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
       liarnos mucho lo mejor es que nos hagamos miembros del grupo
       staff</p><pre class="screen">
 $ sudo gpasswd -a staff myuser
-      </pre></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp46018240"></a>Desarrollo Web</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp46018880"></a>Servidor LAMP</h3></div></div></div><p>Un servidor LAMP (Linux, Apache, MySQL, PHP o Perl), como
+      </pre></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp44579776"></a>Desarrollo Web</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44580416"></a>Servidor LAMP</h3></div></div></div><p>Un servidor LAMP (Linux, Apache, MySQL, PHP o Perl), como
       base para empezar con desarrollo web. La manera más
       fácil de instalarlo en Debian y derivados es instalar
       TASKSEL</p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Warning"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Aviso]" src="/usr/share/xml/docbook/stylesheet/docbook-xsl-ns/images/warning.svg"></td><th align="left">Aviso</th></tr><tr><td align="left" valign="top"><p>La verdad es que cada vez uso más nginx y que tengo
@@ -468,7 +468,7 @@ $ sudo /etc/init.d/apache2 start
       defecto:</p><pre class="screen">
 $ sudo update-rc.d apache2 defaults
       </pre><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Important"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Importante]" src="/usr/share/xml/docbook/stylesheet/docbook-xsl-ns/images/important.svg"></td><th align="left">Importante</th></tr><tr><td align="left" valign="top"><p>Cambia la password de root de mysql, no lo dejes sin
-        password!!!!</p></td></tr></table></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp46028208"></a>Concrete</h3></div></div></div><p>Como ya tenemos nuestro lamp server instalado...</p><pre class="screen">
+        password!!!!</p></td></tr></table></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44589808"></a>Concrete</h3></div></div></div><p>Como ya tenemos nuestro lamp server instalado...</p><pre class="screen">
 $ sudo aptitude install php5-gd
 $ sudo /etc/init.d/apache restart
       </pre><p>Hay que asegurarse de que tenemos el modrewrite activado
@@ -487,13 +487,38 @@ mysql&gt; grant all privileges on concretedb.* to 'concrete'@'%' identified by '
 mysql&gt; flush-privileges
       </pre><p>Entramos con el navegador en
       http://localhost/concrete5 y finalizamos el proceso
-      de instalación.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp46034560"></a>Web2py</h3></div></div></div><p>Un framework sencillo de usar, esta basado en
+      de instalación.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44596160"></a>Web2py</h3></div></div></div><p>Un framework sencillo de usar, esta basado en
       Python.</p><p>Descargamos la última versión desde la página web de la
       aplicación
       http://www.web2py.com/init/default/download (yo
       descargo la versión para usuarios normales - source code)</p><p>Como de costumbre descomprimimos en nuestro directorio
       <code class="filename">~/apps</code>, y tendremos el directorio
-      <code class="filename">~/apps/web2py</code></p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp46038064"></a>WordPress</h3></div></div></div><p> Hay que tener el lamp server instalado y tb la php5-gd
+      <code class="filename">~/apps/web2py</code></p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44599664"></a>Django</h3></div></div></div><p>En mi sistema tengo instalado Python.2.7 (no recuerdo
+      haberlo instalado debe venir incluido por defecto en Ubuntu). En
+      su dia también instalé el paquete python-pip. En caso de no
+      tenerlos instalados:</p><pre class="screen">
+$ sudo aptitude install python python-pip        
+      </pre><p>Instalamos virtualenv</p><pre class="screen">
+$ sudo pip install virtualenv
+      </pre><p><span class="application">virtualenv</span> es una aplicación
+      genial para python que te permite crear entornos diferentes para
+      hacer instalaciones, incluso podrías tener entornos con
+      diferentes versiones de Python, se parece mucho a
+      <span class="application">perlbrew</span>.</p><p>Por último para probar <span class="application">Django</span>
+      parece conveniente usar también
+      <span class="application">Pinax</span>. <span class="application">Pinax</span>
+      ya no es una aplicación, más bien es un conjunto de
+      configuraciones para <span class="application">Django</span> que se
+      pueden descargar desde Github:</p><pre class="screen"> 
+$ virtualenv mysiteenv
+$ source mysiteenv/bin/activate
+$ pip install Django==1.6.2
+$ django-admin.py startproject --template=https://github.com/pinax/pinax-project-account/zipball/master mysite
+$ cd mysite
+$ pip install -r requirements.txt
+$ python manage.py syncdb
+$ python manage.py runserver       
+      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44607024"></a>WordPress</h3></div></div></div><p> Hay que tener el lamp server instalado y tb la php5-gd
       que mencionamos en la instalación de Concrete.</p><p>Crear la base de datos:</p><pre class="screen">
 $ sudo mysqladmin create wordpressdb
 $ sudo mysql -uroot -ppassword
@@ -507,7 +532,7 @@ $ sudo cp wp-config-sample.php wp-config.php
 $ sudo chown -R www-data:www-data /var/www/wordpress
       </pre><p>Editamos el fichero <code class="filename">wp-config.php</code> y
       ponemos el nombre de usuario y contraseñas configurados para la
-      base de datos.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp46043200"></a>Drupal</h3></div></div></div><p>Instalamos el módulo de manejo de ficheros json para
+      base de datos.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44612160"></a>Drupal</h3></div></div></div><p>Instalamos el módulo de manejo de ficheros json para
       php:</p><pre class="screen">
  sudo apt-get-install php5-json
  sudo /etc/init.d/apache restart
@@ -516,25 +541,25 @@ $ sudo mysqladmin create drupaldb
 $ sudo mysql -uroot -ppassword
 mysql&gt; grant all privileges on drupaldb.* to 'drupal'@'localhost' identified by 'pr1vad0';
 mysql&gt; grant all privileges on drupaldb.* to 'drupal'@'%' identified by 'pr1vad0';
-      </pre><p> 
+      </pre><p>
  https://help.ubuntu.com/community/Drupal
-      </p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp46046448"></a>Joomla</h3></div></div></div><p> openatrium
+      </p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44615408"></a>Joomla</h3></div></div></div><p> openatrium
  http://www.linux-magazine.com/Issues/2009/109/Open-Atrium
  http://tips.timscomputer.com/archives/64
  https://www.linode.com/stackscripts/view/?StackScriptID=169
  https://drupal.org/documentation/install/settings-file
  https://drupal.org/node/306267
  http://reyero.net/es/drupal/bienvenido_open_atrium
-      </p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp46048448"></a>Documentación</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp46049088"></a>TeX/LaTeX</h3></div></div></div><p>Esto va a ser largo</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp46050240"></a>Docbook 5</h3></div></div></div><p>Esto es fácil pero con dependencias.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp46051488"></a>Scribus</h3></div></div></div><p>Instalar Scribus</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp46052768"></a>Diseño</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp46053408"></a>LibreCAD</h3></div></div></div><pre class="screen">
+      </p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp44617408"></a>Documentación</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44618048"></a>TeX/LaTeX</h3></div></div></div><p>Esto va a ser largo</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44619200"></a>Docbook 5</h3></div></div></div><p>Esto es fácil pero con dependencias.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44620448"></a>Scribus</h3></div></div></div><p>Instalar Scribus</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp44621728"></a>Diseño</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44622368"></a>LibreCAD</h3></div></div></div><pre class="screen">
 $ sudo add-apt-repository ppa:librecad-dev/librecad-stable
 $ sudo apt-get install librecad librecad-data
-      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp46054688"></a>FreeCAD</h3></div></div></div><pre class="screen">
+      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44623648"></a>FreeCAD</h3></div></div></div><pre class="screen">
 $ sudo add-apt-repository ppa:freecad-maintainers/freecad-stable
 $ sudo apt-get install freecad freecad-doc
-      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp46055968"></a>OpenSCAD</h3></div></div></div><p>He intentado instalarlo desde el ppa recomendado pero
+      </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44624928"></a>OpenSCAD</h3></div></div></div><p>He intentado instalarlo desde el ppa recomendado pero
       falla para Saucy</p><pre class="screen">
 $ sudo add-apt-repository ppa:chrysn/openscad
-      </pre></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp46058064"></a>Electrónica</h2></div></div></div><p>Diversos programas.</p><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp46059088"></a>Arduino IDE</h3></div></div></div><p>Instalamos dependencias:</p><pre class="screen">
+      </pre></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp44627024"></a>Electrónica</h2></div></div></div><p>Diversos programas.</p><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44628048"></a>Arduino IDE</h3></div></div></div><p>Instalamos dependencias:</p><pre class="screen">
 $ sudo aptitude install gcc-avr avr-libc
       </pre><p>También tendremos que dar privilegios a nuestro usuario
       para que pueda acceder a los puertos usb, lo más sencillo es
@@ -554,13 +579,13 @@ $ sudo gnome-desktop-item-edit /usr/share/applications/ --create-new
       </pre><p>Una vez creado el lanzador nos aparecerá en el Dash cuando
       busquemos aplicaciones. Y también podemos arrastrarlo desde el
       dash al dock para dejarlos permanentes.</p><p>Evidentemente también aparecerá en el menú global del
-      Cairo o el applet de Classic Menú si lo hemos instalado.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp46067056"></a>Pingüino IDE</h3></div></div></div><p>Pingüino</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp46068208"></a>KiCAD</h3></div></div></div><p>KiCAD</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp46069360"></a>Geda</h3></div></div></div><p>Geda</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp46070512"></a>Fritzing</h3></div></div></div><p>Fritzing</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp46072128"></a>Astronomía</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp46072768"></a>Stellarium</h3></div></div></div><p>Excelente programa para explorar los cielos nocturnos, lo
+      Cairo o el applet de Classic Menú si lo hemos instalado.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44636016"></a>Pingüino IDE</h3></div></div></div><p>Pingüino</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44637168"></a>KiCAD</h3></div></div></div><p>KiCAD</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44638320"></a>Geda</h3></div></div></div><p>Geda</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44639472"></a>Fritzing</h3></div></div></div><p>Fritzing</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp44641088"></a>Astronomía</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44641728"></a>Stellarium</h3></div></div></div><p>Excelente programa para explorar los cielos nocturnos, lo
       instalamos directamente desde Ubuntu:</p><pre class="screen">
 $ sudo aptitude install stellarium
       </pre><p>El programa es muy fácil de usar. Solo comentar que desde
       el menú <span class="guimenu">Options</span> en la opción
       <span class="guimenuitem">Tools</span> se pueden descargar catalogos
-      adicionales.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp46075920"></a>Where is M13?</h3></div></div></div><p>Otra aplicación interesante de astronomía, se trata de un
+      adicionales.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44644880"></a>Where is M13?</h3></div></div></div><p>Otra aplicación interesante de astronomía, se trata de un
       mapa tridimensional de nuestra galaxia implementado en
       java.</p><p>El programa libre y gratuito se puede descargar desde
       aqui:
@@ -570,7 +595,7 @@ $ sudo aptitude install stellarium
       al fichero <code class="filename">WhereIsM13.jar</code> y ya lo podemos
       ejecutar desde el explorador de ficheros con doble click o
       crearnos un lanzador para el programa de la manera que más nos
-      guste.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp46080032"></a>Digital Universe</h3></div></div></div><p>Una aplicación que se basa en un visor de particulas en
+      guste.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44648992"></a>Digital Universe</h3></div></div></div><p>Una aplicación que se basa en un visor de particulas en
       tres dimensiones para hacer implementar un mapa de nuestra
       galaxia y otro de nuestra galaxia y sus alrededores.</p><p>El programa puede descargarse desde la web del Museo
       Americano de Historia Natural:
@@ -584,7 +609,7 @@ $ sudo aptitude install stellarium
       de la aplicación, el manual del visualizador de partículas en
       3D, un par de scripts de ejemplos y dos scripts para visualizar
       los datos astronomicos:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>milkyway.sh</p></li><li class="listitem"><p>extragalactic.sh</p></li></ul></div><p>Como de costumbre, podemos crearnos lanzadores para los
-      programas que nos interesen.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp46086800"></a>Virtual Moon</h3></div></div></div><p>Un excelente programa para explorar la Luna. Tiene un
+      programas que nos interesen.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44655760"></a>Virtual Moon</h3></div></div></div><p>Un excelente programa para explorar la Luna. Tiene un
       montón de texturas e información disponible, hasta se pueden
       cargar los mapas de los astrónomos clásicos (Casini,
       Hevelius...) Unos gráficos super chulos.</p><p>El único problemilla es que lo distribuyen como binario y
@@ -617,4 +642,4 @@ $ sudo aptitude install stellarium
 #!/bin/bash
 export LD_LIBRARY_PATH="$HOME/apps/vma/lib"
 `$HOME/apps/vma/bin/cclun`
-          </pre></li></ol></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp46100464"></a>Mapas</h2></div></div></div><p>MOBAC</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp46102000"></a>Virtualización</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp46102640"></a>VirtualBox</h3></div></div></div><p>Instalación de virtual box</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp46103792"></a>Mininet: Un simulador de SDN</h3></div></div></div><p>Mininet</p></div></div></div></body></html>
+          </pre></li></ol></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp44669424"></a>Mapas</h2></div></div></div><p>MOBAC</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp44670960"></a>Virtualización</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44671600"></a>VirtualBox</h3></div></div></div><p>Instalación de virtual box</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idp44672752"></a>Mininet: Un simulador de SDN</h3></div></div></div><p>Mininet</p></div></div></div></body></html>

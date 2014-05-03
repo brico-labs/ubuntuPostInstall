@@ -1202,7 +1202,7 @@ $ sudo update-rc.d apache2 defaults
         <para>Cambia la password de root de mysql, no lo dejes sin
         password!!!!</para>
       </important>
-      
+
     </section>
 
     <section>
@@ -1260,6 +1260,47 @@ mysql> flush-privileges
     </section>
 
     <section>
+      <title>Django</title>
+      <para>En mi sistema tengo instalado Python.2.7 (no recuerdo
+      haberlo instalado debe venir incluido por defecto en Ubuntu). En
+      su dia también instalé el paquete python-pip. En caso de no
+      tenerlos instalados:</para>
+
+      <screen>
+$ sudo aptitude install python python-pip        
+      </screen>
+
+      <para>Instalamos virtualenv</para>
+      <screen>
+$ sudo pip install virtualenv
+      </screen>
+
+      <para><application>virtualenv</application> es una aplicación
+      genial para python que te permite crear entornos diferentes para
+      hacer instalaciones, incluso podrías tener entornos con
+      diferentes versiones de Python, se parece mucho a
+      <application>perlbrew</application>.</para>
+
+      <para>Por último para probar <application>Django</application>
+      parece conveniente usar también
+      <application>Pinax</application>. <application>Pinax</application>
+      ya no es una aplicación, más bien es un conjunto de
+      configuraciones para <application>Django</application> que se
+      pueden descargar desde Github:</para>
+
+      <screen> 
+$ virtualenv mysiteenv
+$ source mysiteenv/bin/activate
+$ pip install Django==1.6.2
+$ django-admin.py startproject --template=https://github.com/pinax/pinax-project-account/zipball/master mysite
+$ cd mysite
+$ pip install -r requirements.txt
+$ python manage.py syncdb
+$ python manage.py runserver       
+      </screen>
+    </section>
+
+    <section>
       <title>WordPress</title>
 
       <para> Hay que tener el lamp server instalado y tb la php5-gd
@@ -1294,14 +1335,14 @@ $ sudo chown -R www-data:www-data /var/www/wordpress
 
       <para>Instalamos el módulo de manejo de ficheros json para
       php:</para>
-      
+
       <screen>
  sudo apt-get-install php5-json
  sudo /etc/init.d/apache restart
       </screen>
-      
+
       <para>Crear la database, el baile de siempre:</para>
-      
+
       <screen>
 $ sudo mysqladmin create drupaldb
 $ sudo mysql -uroot -ppassword
@@ -1309,7 +1350,7 @@ mysql> grant all privileges on drupaldb.* to 'drupal'@'localhost' identified by 
 mysql> grant all privileges on drupaldb.* to 'drupal'@'%' identified by 'pr1vad0';
       </screen>
 
-      <para> 
+      <para>
  https://help.ubuntu.com/community/Drupal
       </para>
     </section>
