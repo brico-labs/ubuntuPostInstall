@@ -1267,7 +1267,7 @@ mysql> flush-privileges
       tenerlos instalados:</para>
 
       <screen>
-$ sudo aptitude install python python-pip        
+$ sudo aptitude install python python-pip
       </screen>
 
       <para>Instalamos virtualenv</para>
@@ -1288,7 +1288,7 @@ $ sudo pip install virtualenv
       configuraciones para <application>Django</application> que se
       pueden descargar desde Github:</para>
 
-      <screen> 
+      <screen>
 $ virtualenv mysiteenv
 $ source mysiteenv/bin/activate
 $ pip install Django==1.6.2
@@ -1296,7 +1296,27 @@ $ django-admin.py startproject --template=https://github.com/pinax/pinax-project
 $ cd mysite
 $ pip install -r requirements.txt
 $ python manage.py syncdb
-$ python manage.py runserver       
+$ python manage.py runserver
+      </screen>
+    </section>
+
+    <section>
+      <title>Mosquitto</title>
+      <para>Mosquitto es una implementación abierta del protocolo
+      MQTT, la incluyo por tener todo documentado pero, salvo que
+      sepas que es MQTT y te interese, no creo que la quieras
+      instalar.</para>
+      <para>Para instalar Mosquitto seguimos las instrucciones en la
+      propia web de la aplicación:</para>
+      <screen>
+$ wget http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key
+$ sudo apt-key add mosquitto-repo.gpg.key
+$ rm mosquitto-repo.gpg.key
+$ cd /etc/apt/sources.list.d/
+$ sudo wget http://repo.mosquitto.org/debian/mosquitto-stable.list
+$ sudo apt-get update
+$ apt-cache search mosquitto
+$ sudo aptitude install mosquitto
       </screen>
     </section>
 
