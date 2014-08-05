@@ -14,7 +14,7 @@
 	 version="5.0" xml:lang="es">
 
   <info>
-    <title>Ubuntu 13.10 Postinstallation</title>
+    <title>Ubuntu 14.04 Trusty Tahir Postinstallation</title>
     <subtitle>Un Quick Hacking para Bricolabs</subtitle>
 
     <author>
@@ -36,7 +36,7 @@
     <title>Introducción</title>
 
     <para>Este documento es una descripción de las operaciones de post
-    instalación para Ubuntu 13.10 Saucy Salamander.</para>
+    instalación para Ubuntu 14.04 Trusty Tahir.</para>
 
     <para>La instalación de Ubuntu se hizo en mi portátil, un
     ordenador Acer 5755G con las siguientes características:</para>
@@ -193,7 +193,10 @@ Feb 22 15:23:33 rasalhague mtp-probe: bus: 2, device: 4 was not an MTP device
 $ xinput --list
       </screen>
 
-      <para>En mi caso veo que tengo el ratón con el identificador de producto que ya mencionamos asociado al dispositivo 12, para ver las propiedades puedo ejecutar cualquiera de los dos comandos siguientes:</para>
+      <para>En mi caso veo que tengo el ratón con el identificador de
+      producto que ya mencionamos asociado al dispositivo 12, para ver
+      las propiedades puedo ejecutar cualquiera de los dos comandos
+      siguientes:</para>
       <screen>
 $ xinput --list-props "Microsoft  Microsoft Basic Optical Mouse v2.0 "
 $ xinput --list-props 17
@@ -223,6 +226,46 @@ $ sudo gedit /usr/share/hal/fdi/policy/mouse-3button.fdi
 
       <para>Con esta modificación a mi se me resuelve el problema.</para>
 
+    </section>
+    <section>
+      <title>Soporte para la Nvidia Optimus</title>
+      <para>Si tienes la suerte (o la desgracia, según se mire) de
+      tener una Nvidia Optimus el soporte en linux (y en Ubuntu) ya
+      esta muy avanzado.</para>
+      <para>Instalamos el paquete Bublebee:</para>
+      <screen>
+sudo add-apt-repository ppa:bumblebee/stable
+sudo apt-get update
+sudo apt-get install bumblebee bumblebee-nvidia virtualgl primus nvidia-331
+      </screen>
+      <para>Si ademas vamos a necesitar utilizar la nvidia con programas de 32 bits (por ejemplo bajo wine):</para>
+      <screen>
+sudo apt-get install virtualgl-libs:i386
+primus-libs-ia32
+      </screen>
+
+      <para>Si algo no va bien habría que tocar los ficheros de
+      configuración, el propio programa de instalación nos da algunas
+      pistas:</para>
+      <screen>
+DKMS: install completed.
+Setting up bumblebee (3.2.1-90~trustyppa1) ...
+Installing new version of config file /etc/modprobe.d/bumblebee.conf ...
+Selecting 01:00:0 as discrete nvidia card. If this is incorrect,
+edit the BusID line in /etc/bumblebee/xorg.conf.nouveau .
+bumblebeed start/running, process 26868
+Setting up primus-libs:amd64 (20131127-1~trustyppa1) ...
+Processing triggers for initramfs-tools (0.103ubuntu4.2) ...
+update-initramfs: Generating /boot/initrd.img-3.13.0-32-generic
+Setting up primus (20131127-1~trustyppa1) ...
+Setting up bumblebee-nvidia (3.2.1-90~trustyppa1) ...
+Selecting 01:00:0 as discrete nvidia card. If this is incorrect,
+edit the BusID line in /etc/bumblebee/xorg.conf.nvidia
+rmmod: ERROR: Module nouveau is in use
+bumblebeed stop/waiting
+bumblebeed start/running, process 32484
+Processing triggers for libc-bin (2.19-0ubuntu6) ...
+      </screen>
     </section>
   </section>
   <!-- ********** End of Section: Primeros Ajustes ********** -->
@@ -285,6 +328,7 @@ $ sudo apt-get update
 $ sudo apt-get install classicmenu-indicator
       </screen>
     </section>
+
 
   </section>
   <!-- ***** End of section: Ajustes estéticos ***** -->
@@ -361,12 +405,15 @@ $ sudo apt-get install compiz-plugins-extra
     </section>
 
     <section>
-      <title>Instalar Unity Tweak y Gnome Tweak</title>
+      <title>Instalar Unity Tweak, Gnome Tweak y Ubuntu Tweak</title>
 
       <para>Nos dan más facilidades para configurar opciones de Unity
       y de Gnome.</para>
 
       <screen>
+$ sudo add-apt-repository ppa:tualatrix/ppa
+$ sudo apt-get update
+$ sudo apt-get install ubuntu-tweak
 $ sudo apt-get install unity-tweak-tool gnome-tweak-tool
       </screen>
     </section>
@@ -429,20 +476,67 @@ $ sudo /usr/share/doc/libdvdread4/install-css.sh
 $  sudo apt-get install nautilus-open-terminal
       </screen>
 
-      <para>Abrimos <application>dconf</application> y: hacemos click
-      en <guimenu>Org</guimenu>, hacemos click en
-      <guimenu>Desktop</guimenu>, hacemos click en
-      <guimenu>Interface</guimenu>, habilitamos la opción
-      <guimenuitem>can-change-accels</guimenuitem></para>
-
-      <para>Una vez hecho esto cerramos
-      <application>dconf</application> y reiniciamos nautilus:</para>
+      <para>Una vez hecho reiniciamos nautilus:</para>
 
       <screen>
 $ nautilus -q
       </screen>
     </section>
 
+    <section>
+      <title>Applets de Ubuntu</title>
+      <para>Algunos applets útiles (hay muchos más):</para>
+     <para>Primero un applet para el pronóstico meteorológico y otro
+     para el calendario.</para>
+      <screen>
+$ sudo add-apt-repository ppa:atareao/atareao
+$ sudo apt-get update
+$ sudo apt-get install my-weather-indicator
+$ sudo apt-get install calendar-indicator
+      </screen>
+      <para>Arrancamos los dos desde el Dash (Win+A).</para>
+      <para>Si eres usuario de Evernote no te pierdas everpad</para>
+      <screen>
+$ sudo add-apt-repository ppa:nvbn-rm/ppa
+$ sudo apt-get update
+$ sudo apt-get install everpad
+      </screen>
+      <para>Wallpapers variados con Variety</para>
+      <screen>
+$ sudo add-apt-repository ppa:peterlevi/ppa
+$ sudo apt-get update
+$ sudo apt-get install variety
+      </screen>
+    </section>
+
+    <section>
+      <title>Nixnote</title>
+      <para>El cliente de Evernote para Linux:</para>
+      <screen>
+$ sudo add-apt-repository ppa:vincent-c/nevernote
+$ sudo apt-get update
+$ sudo apt-get install
+      </screen>
+    </section>
+
+    <section>
+      <title>Dropbox</title>
+      <para>Si eres usuario de Dropbox, la instalación ahora se ha
+      simplificado, el paquete se encarga de descargar el último
+      cliente de la página web de Dropbox:</para>
+      <screen>
+$ sudo aptitude install dropbox  (se encarga de descargar el sw de la página web)
+        </screen>
+    </section>
+
+    <section>
+      <title>KeePassX</title>
+      <para>Para almacenar todas nuestras contraseñas cifradas con
+      clave fuerte.</para>
+      <screen>
+$ sudo aptitude install keepassx
+      </screen>
+    </section>
     <section>
       <title>Java</title>
 
@@ -461,6 +555,57 @@ $ sudo apt-get install openjdk-7-jdk
       </screen>
     </section>
 
+    <section>
+      <title>Deluge</title>
+      <para>Para descargar torrents</para>
+      <screen>
+$ sudo add-apt-repository ppa:deluge-team/ppa  !!!! falla lo he instalado a mano
+$ sudo apt-get update
+$ sudo apt-get install deluge
+      </screen>
+    </section>
+
+    <section>
+      <title>jDownloader</title>
+      <screen>
+$ sudo add-apt-repository ppa:jd-team/jdownloader
+$ sudo apt-get update
+$ sudo apt-get install jdownloader-installer
+      </screen>
+    </section>
+
+    <section>
+      <title>rsync</title>
+      <para>grsync para tener un interfaz gráfico</para>
+      <screen>
+$ sudo aptitude install grsync
+      </screen>
+    </section>
+
+    <section>
+      <title>Calibre</title>
+      <para>Hacemos un binary install desde linea de comandos:</para>
+      <screen>
+sudo -v &amp;&amp; wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py \
+| sudo python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()"        
+      </screen>
+      <para>Se actualiza a menudo así que yo dejo un fichero
+      <filename>updCalibre</filename> en mi directorio
+      <filename>~/bin</filename> con el siguiente contenido:</para>
+      <screen>
+#!/bin/bash
+$ sudo -v &amp;&amp; wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py \
+| sudo python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()"        
+      </screen>
+    </section>
+
+    <section>
+      <title>GnuCash</title>
+      <para>Instalado desde Ubuntu</para>
+      <screen>
+$ sudo aptitude install gnucash gnucash-docs        
+      </screen>
+    </section>
   </section>
   <!-- ***** End of section: Utilidades y herramientas ***** -->
 
@@ -709,9 +854,12 @@ arduino
       <title>Instalación de Chrome</title>
       <para>Instalamos el navegador de Google</para>
       <screen>
-$ wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub \
-| sudo apt-key add -
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+sudo apt-get update
+sudo apt-get install google-chrome-stable
       </screen>
+
     </section>
 
     <section>
@@ -737,8 +885,90 @@ $ sudo apt-get install chromium
   <!-- ***** End of section: Sw Google ***** -->
 
   <section>
+    <title>Sonido</title>
+    <section>
+      <title>Gpodder</title>
+      <para>Gestión de podcast</para>
+      <screen>
+$ sudo add-apt-repository ppa:thp/gpodder
+$ sudo apt-get update
+$ sudo apt-get install gpodder
+      </screen>
+    </section>
+
+    <section>
+      <title>Audacity</title>
+      <screen>
+$ sudo add-apt-repository ppa:audacity-team/daily
+$ sudo aptitude update
+$ sudo aptitude install audacity lame libmp3lame0
+      </screen>
+    </section>
+
+    <section>
+      <title>Clementine</title>
+      <screen>
+$ sudo apt-get install clementine
+      </screen>
+    </section>
+
+    <section>
+      <title>Banshee</title>
+      <para>Tengo la colección de música ordenada por Banshee y me
+      resisto a abandonarlo.</para>
+      <screen>
+$ sudo add-apt-repository ppa:banshee-team/ppa
+$ sudo apt-get update
+$ sudo apt-get install banshee banshee-extension-soundmenu
+      </screen>
+    </section>
+
+  </section>
+ <!-- End of section Sonido -->
+
+ <section>
+   <title>Video</title>
+   <para>Para ver y hacer videos</para>
+
+   <para>Algunos codecs (creo que están algunos repes pero bueno):</para>
+   <screen>
+$ sudo apt-get install vlc vlc-plugin-pulse
+$ sudo apt-get install mplayer smplayer gnome-mplayer
+
+$ sudo apt-get install libxine1-ffmpeg gxine mencoder mpeg2dec vorbis-tools \
+  id3v2 mpg321 mpg123 libflac++6 ffmpeg totem-mozilla icedax tagtool easytag \
+  id3tool lame nautilus-script-audio-convert libmad0 libjpeg-progs flac faac faad \
+  sox ffmpeg2theora libmpeg2-4 uudeview flac libmpeg3-1 mpeg3-utils \
+  mpegdemux liba52-0.7.4-dev libquicktime2
+
+$ sudo apt-get install gstreamer0.10-ffmpeg gstreamer0.10-fluendo-mp3 \
+gstreamer0.10-gnonlin gstreamer0.10-plugins-bad-multiverse gstreamer0.10-plugins-bad \
+gstreamer0.10-plugins-ugly totem-plugins-extra gstreamer-dbus-media-service \
+gstreamer-tools ubuntu-restricted-extras ttf-mscorefonts-installer
+   </screen>
+
+   <section>
+     <title>OpenShot</title>
+     <screen>
+sudo add-apt-repository ppa:openshot.developers/ppa -- FALLA
+sudo apt-get update
+sudo apt-get install openshot frei0r-plugins
+       
+     </screen>
+   </section>
+ </section>
+ <!-- end of section Video -->
+ 
+  <section>
     <title>Gráficos y dibujos</title>
 
+    <section>
+      <title>Dia</title>
+      <para>Un clásico imprescindible:</para>
+      <screen>
+$ sudo aptitude install dia
+      </screen>
+    </section>
     <section>
       <title>Gimp</title>
 
@@ -748,6 +978,8 @@ $ sudo apt-get install chromium
 $ sudo add-apt-repository ppa:otto-kesselgulasch/gimp
 $ sudo apt-get update
 $ sudo apt-get install gmic gimp-gmic
+$ sudo apt-get install gimp-data-extras
+$ sudo apt-get install gimp-plugin-registry
       </screen>
 
       <para>Instalamos también el GPS (Gimp Paint Studio). Para añadir
@@ -769,13 +1001,13 @@ $ sudo apt-get install gmic gimp-gmic
       <screen>
 $ sudo apt-get install inkscape
       </screen>
-      
+
       <tip>
         <para>Merece la pena probar Jessyink para presentaciones
         aunque ya es un poco antiguo, los resultados son muy
         resultones.</para>
       </tip>
-      
+
     </section>
 
     <section>
@@ -881,13 +1113,34 @@ $ sudo apt-get install emacs24
       comprobar si es posible hacer una instalación más limpia.</para>
 
       <para>Al margen de tener o no las dos versiones de Emacs
-      instaladas, la última versión tiene un problema con el Saucy, no
+      instaladas, la última versión tiene un problema con el Trusty, no
       parece llevarse nada bien con el Ibus. A causa de ese problema
       no se pueden escribir por ejemplo: "x^2"</para>
 
       <para>Para soslayar el problema tendremos que establecer la
       variable de entorno XMODIFIERS=""</para>
 
+      <para>Para no enredar nada más he creado el siguiente fichero
+      <filename>emacs</filename> en mi directorio <filename>~/bin</filename></para>
+      <screen>
+#!/bin/bash
+export XMODIFIERS=""
+/usr/bin/emacs $1
+      </screen>
+
+      <para>Le damos permisos de ejecución y creamos un par de alias</para>
+      <screen>
+  $ cd ~/bin
+  $ chmod 744 emacs
+  $ ln -s emacs24 emacs
+  $ ln -s x-emacs emacs
+      </screen>
+      <para>Como el directorio <filename>~/bin</filename> de cada
+      usuario siempre es el primero del PATH, tendrá precedencia sobre
+      el resto de ficheros del sistema, pero no sobre los menús del
+      sistema, si ejecutamos emacs desde el menú Developer Tools del
+      Classic Menu o del Cairo seguiremos teniendo el problema.</para>
+      <para>Para solucionar el problema tenemos que hackear el fichero de menú.</para>
       <important>
         <title>TODO</title>
         <para>Describir el fichero .emacs</para>
@@ -1485,17 +1738,72 @@ $ sudo chown www-data:www-data /var/www/drupal/sites/default/settings.php
     <section>
       <title>TeX/LaTeX</title>
 
-      <para>Esto va a ser largo</para>
+      <para>Tradicionalmente las versiones de TeX LaTeX en el el
+      directorio de Ubuntu (paquetes texlive) estaban muy
+      desfasadas. Ultimamente el desfase no es ya tan grande y si a lo
+      mejor de vale con instalar desde Ubuntu. Si no es asi, y quieres
+      tener las versiones actualizadas hay que aplicar la siguiente
+      receta.</para>
+
+
+      <para><link> https://github.com/scottkosty/install-tl-ubuntu</link></para>
+
+      <para>Finalmente instalamos el paquete auctex para editar TeX
+      LaTeX desde emacs sin problemas:</para>
+      <screen>
+$ sudo aptitude install auctex
+      </screen>
     </section>
 
     <section>
       <title>Docbook 5</title>
-      <para>Esto es fácil pero con dependencias.</para>
+      <para>Hay un resumen describiendo varias opciones en: <link>https://help.ubuntu.com/community/DocBook</link></para>
+      <para>Instalamos:</para>
+      <screen>
+$ sudo aptitude install docbook5-xml docbook-xsl-ns xsltproc fop xmlto libxml2-utils xmlstarlet
+      </screen>
+
+      <section>
+        <title>Validación</title>
+        <screen>
+$ xmlstarlet val --err --xsd /usr/share/xml/docbook/schema/xsd/5.0/docbook.xsd src/ubuntuTrustyPostInstall.xml
+        </screen>
+      </section>
+      <section>
+        <title>Salida a pdf</title>
+        <screen>
+$ xsltproc --stringparam paper.type A4  \
+    --output out/ubuntuTrustyPostInstall.fo \
+    --stringparam admon.graphics 1 \
+    --stringparam admon.graphics.path /usr/share/xml/docbook/stylesheet/docbook-xsl-ns/images/ \
+    --stringparam admon.graphics.extension .svg \
+    /usr/share/xml/docbook/stylesheet/docbook-xsl-ns/fo/docbook.xsl \
+    src/ubuntuTrustyPostInstall.xml
+
+$ fop -fo out/ubuntuTrustyPostInstall.fo -pdf out/ubuntuTrustyPostInstall.pdf
+        </screen>
+      </section>
+      <section>
+        <title>Salida a html</title>
+        <screen>
+$ xsltproc --output out/ubuntuTrustyPostInstall.html \
+    --stringparam admon.graphics 1 \
+    --stringparam admon.graphics.path /usr/share/xml/docbook/stylesheet/docbook-xsl-ns/images/ \
+    --stringparam admon.graphics.extension .svg \
+    /usr/share/xml/docbook/stylesheet/docbook-xsl-ns/html/docbook.xsl \
+    src/ubuntuTrustyPostInstall.xml
+        </screen>
+      </section>
     </section>
 
     <section>
       <title>Scribus</title>
-      <para>Instalar Scribus</para>
+      <para>Instalamos desde ppa</para>
+      <screen>
+$ sudo add-apt-repository ppa:ubuntuhandbook1/ppa
+$ sudo apt-get update
+$ sudo apt-get install scribus scribus-template icc-profiles-free        
+      </screen>
     </section>
   </section>
 
@@ -1765,21 +2073,11 @@ Unity reset
  setsid unity
  unity - -reset-icons
 
- Emacs 24 tiene un problema con IBUS, hay que hackearlo con export XMODIFIERS=""
 
-gnucash
- everpad
-sudo add-apt-reposiroty ppa:nvbn-rm/ppa
- Gimp 2.8
  Amarok
  gufw
- keepassx
- audacity
- sudo add-apt-repository ppa:audacity-team/daily
 
  KSP
- jdownloader
- ppa:jd-team/jdownloader
 
 google-earth
  sudo apt-get install libc6-i386 libglib2.0-0:i386 libsm6:i386 \libglu1-mesa:i386 libgl1-mesa-glx:i386 libxext6:i386 \libxrender1:i386 libx11-6:i386 libfontconfig1:i386 lsb-core
@@ -1789,11 +2087,13 @@ http://www.google.es/intl/es_es/earth/download/thanks.html#os=linux#linux_dl=deb
  Pinguino
  sudo apt-get install python-wxgtk2.8
  Ya funciona, falta hackear usuarios y /dev/usb
- Enable open in terminal
+
+Enable open in terminal
  sudo apt-get install nautilus-open-terminal
  To enable the Open in Terminal option follow these steps: Click on org Click on gnome Click on desktop Click on Interface Enable can-change-accels
  When done you can close the dconf editor tool and you need to restart nautilus. To restart nautilus open a terminal window (press Ctrl+Alt+T) and copy+paste the following line: nautilus -q
- Configuración de emacs
+
+Configuración de emacs
  Instalar yasnippets
  mkdir ~/emacs.d/plugins
  mkdir ~/emacs.d/snippets
@@ -1801,24 +2101,13 @@ http://www.google.es/intl/es_es/earth/download/thanks.html#os=linux#linux_dl=deb
  git clone - -recursive   https://github.com/capitaomorte/yasnippet
  Seguir instrucciones en   https://github.com/capitaomorte/yasnippet
 
- Instalado calibre, desde la página web
  Instalado geda y kicad desde ubuntu
 
-  Installed
-      google calendar indicator de atareao
 
- texlive2013
- https://github.com/scottkosty/install-tl-ubuntu
- Instalado auctex desde ubuntu
- Scribus instalado desde ubuntu
+
  stellarium
 
 
- Docbook5
- From Synptic:
- Install docboo5-xml review
-  http://tex.stackexchange.com/questions/1092/how-to-install-vanilla-texlive-on-debian-or-ubuntu
-  http://www.tug.org/texlive/files/debian-equivs-2013-ex.txt
 
 
  Pendientes
@@ -1826,15 +2115,19 @@ http://www.google.es/intl/es_es/earth/download/thanks.html#os=linux#linux_dl=deb
  nginx
  configurar preferencias arduino
  configurar pinguino definitivamente
- fotografía
+
+fotografía
  snapshot
- clementine ???
+
  configurar gufw
- blender
+
+blender
  https://help.ubuntu.com/community/UbuntuEngineering#Electronics
- Maps
+
+Maps
  http://kunzuilh.blogspot.com.es/2012/07/mapas-para-oruxmaps-vi-creacion-de.html
  http://www.foromtb.com/threads/mobile-atlas-creator-y-compegps-land-7-una-buena-combinaci%C3%B3n.734022/
+
 Configurar yasnippets
  https://github.com/hober/html5-el/tree/master
  http://syntax.whattf.org/relaxng/
@@ -1857,6 +2150,28 @@ Configurar yasnippets
 
 
 Configurar dejadup
+
+SKYPE
+sudo apt-get update && sudo apt-get install skype
+sudo apt-get install gtk2-engines-murrine:i386 sudo apt-get install gtk2-engines-pixbuf:i386
+
+
+XBMC
+sudo add-apt-repository ppa:team-xbmc
+sudo apt-get update
+sudo apt-get install xbmc
+
+
+
+HANDBRAKE
+sudo apt-get update
+sudo apt-get install handbrake handbrake-cli handbrake-gtk
+
+
+BLENDER???
+
+
+
 
 
  -->

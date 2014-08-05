@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>  <!-- -*- nxml -*- -->
+<!DOCTYPE article [
+<!ENTITY version "5.0">
+<!--
+<!ENTITY yes "<phrase role='unicode yes'>✔</phrase>">
+<!ENTITY no "<phrase role='unicode no'>✘</phrase>">
+-->
+<!ENTITY yes "<phrase role='unicode yes'>YES</phrase>">
+<!ENTITY no "<phrase role='unicode no'>NO</phrase>">
+]>
+
+<article xmlns="http://docbook.org/ns/docbook"
+	 xmlns:xl="http://www.w3.org/1999/xlink"
+	 version="5.0" xml:lang="es">
+  <info>
+    <title>Ubuntu 13.10 Postinstallation</title>
+    <subtitle>Un Quick Hacking para Bricolabs</subtitle>
+
+    <author>
+      <personname>Sergio Alvariño (salvari)</personname>
+      <email>salvari@gmail.com</email>
+      <affiliation>
+        <org><orgname>BricoLabs</orgname>
+        <uri>www.bricolabs.cc</uri>
+        </org>
+      </affiliation>
+    </author>
+
+    <pubdate>2014-01-27</pubdate>
+  </info>
+
+
+
+
+
+  
+<!--
+
+instalado vlc
+Plugins for Rithmbox
+sudo add-apt-repository ppa:fossfreedom/rhythmbox-plugins
+sudo apt-get update
+sudo apt-get install rhythmbox-plugin-complete
+
+
+Unity reset
+sudo apt-get install dcon
+dconf reset -f /org/compiz/
+setsid unity
+unity - -reset-icons
+
+Instalados
+Chrome
+Cromium
+Emacs(23 y 24, 24 por defecto)
+Emacs 24 tiene un problema con IBUS, hay que hackearlo con export XMODIFIERS=""
+gnucash
+everpad
+Amarok
+
+keepassx
+
+audacity
+sudo add-apt-repository ppa:audacity-team/daily
+
+
+arduino
+sudo apt-get install gcc-avr avr-libc
+sudo usermod -a salvari dialout
+
+KSP
+
+jdownloader
+ppa:jd-team/jdownloader
+
+google-earth
+sudo apt-get install libc6-i386 libglib2.0-0:i386 libsm6:i386 \libglu1-mesa:i386 libgl1-mesa-glx:i386 libxext6:i386 \libxrender1:i386 libx11-6:i386 libfontconfig1:i386 lsb-core
+
+
+
+
+
+http://www.google.es/intl/es_es/earth/download/thanks.html#os=linux#linux_dl=deb_32  nguino
+
+
+Pinguino
+sudo apt-get install python-wxgtk2.8
+Ya funciona, falta hackear usuarios y /dev/usb
+
+Enable open in terminal
+sudo apt-get install nautilus-open-terminal
+To enable the Open in Terminal option follow these steps: Click on org Click on gnome Click on desktop Click on Interface Enable can-change-accels
+When done you can close the dconf editor tool and you need to restart nautilus. To restart nautilus open a terminal window (press Ctrl+Alt+T) and copy+paste the following line: nautilus -q
+
+Configuración de emacs
+Instalar yasnippets
+mkdir ~/emacs.d/plugins
+mkdir ~/emacs.d/snippets
+cd ~/.emacs.d/plugins
+git clone - -recursive  https://github.com/capitaomorte/yasnippet
+Seguir instrucciones en  https://github.com/capitaomorte/yasnippet
+
+Configuración de Mercurial
+Creado fichero ~/.hgrc con el contenido:
+[ui]
+username = Sergio Alvariño <salvari@gmail.com>
+editor = emacs
+
+[web]
+cacerts = /etc/ssl/certs/ca-certificates.crt
+
+
+Configuración de Git
+git config - -global user.name "Sergio Alvariño"
+git config - -global user.mail "salvari@gmail.com"
+git config - -global credential.helper cache
+git config - -global credential.helper 'cache - -timeout=3600'
+
+Instalado TASKSEL
+Instalado LAMP server
+Instalado calibre, desde la página web
+Instalado geda y kicad desde ubuntu
+
+texlive2013
+https://github.com/scottkosty/install-tl-ubuntu
+Instalado auctex desde ubuntu
+Scribus instalado desde ubuntu
+
+Luminance desde ubuntu
+Hugin desde Ubuntu
+
+dmd como siempre
+
+stellarium
+
+
+Concrete
+como ya tenemos nuestro lamp server instalado...
+sudo apt-get install php5-gd
+sudo /etc/init.d/apache restart
+Asegurarse de que modrewrite está activado 'sudo a2enmod rewrite'
+Descomprimimos el contenido del zip en /var/www/concrete5
+Cambiamos propietario 'sudo chmod -R www-data:www-data concrete5'
+mysql -uroot -p
+create database concretedb;
+grant all privileges on concretedb.* to 'concrete'@'localhost' identified by 'concret3';
+grant all privileges on concretedb.* to 'concrete'@'%' identified by 'concrete3';
+Entramos con el navegador a   http://localhost/concrete5    y finalizamos el proceso de instalación
+WordPress
+Hay que tener el lamp server instalado y tb la php5-gd que mencionamos más arriba.
+Crear la base de datos
+mysql -uroot -p
+create database wordpressdb;
+grant all privileges on wpdb.* to 'wpuser'@'localhost' identified by 'esperiment0';
+grant all privileges on wpdb.* to 'wpuser'@'%' identified by 'esperiment0';
+flush privileges;
+Descomprimimos el zip con la última versión del wp en "/var/www/wordpress"
+Configuramos Wordpress
+cd /var/www/wordpress
+sudo cp wp-config-sample.php
+Damos permisos 'chown -R www-data:www-data /var/www/wordpress'
+Editamos el fichero wp-config.php
+Ponemos el nombre y usuario configurados para la base de datos.
+Installed google calendar indicator de atareao
+
+DRUPAL
+Crear la database, el baile de siempre
+create database drupaldb;
+grant all privileges on drupaldb.* to 'drupal'@'localhost' identified by 'pr1vad0';
+grant all privileges on drupaldb.* to 'drupal'@'%' identified by 'pr1vad0';
+https://help.ubuntu.com/community/Drupal
+Ollo!!! Unbuntu 13.10:
+sudo apt-get-install php5-json
+sudo /etc/init.d/apache restart
+openatrium
+http://www.linux-magazine.com/Issues/2009/109/Open-Atrium
+http://tips.timscomputer.com/archives/64
+https://www.linode.com/stackscripts/view/?StackScriptID=169
+https://drupal.org/documentation/install/settings-file
+https://drupal.org/node/306267
+http://reyero.net/es/drupal/bienvenido_open_atrium
+Joomla
+
+Docbook5
+From Synptic:
+Install docboo5-xml review
+http://tex.stackexchange.com/questions/1092/how-to-install-vanilla-texlive-on-debian-or-ubuntu
+http://www.tug.org/texlive/files/debian-equivs-2013-ex.txt
+
+Pendientes
+joomla
+nginx
+configurar preferencias arduino
+configurar pinguino definitivamente
+fotografía
+snapshot
+clementine ???
+configurar gufw
+blender
+https://help.ubuntu.com/community/UbuntuEngineering#Electronics
+Maps
+http://kunzuilh.blogspot.com.es/2012/07/mapas-para-oruxmaps-vi-creacion-de.html
+http://www.foromtb.com/threads/mobile-atlas-creator-y-compegps-land-7-una-buena-combinaci%C3%B3n.734022/
+Configurar yasnippets
+https://github.com/hober/html5-el/tree/master
+http://syntax.whattf.org/relaxng/
+http://stackoverflow.com/questions/1082474/authoring-html5-in-emacs
+
+
+FUTURO BACKUP
+~/.emacs
+~/.emacs.d
+~/.hgrc
+~/.git ????
+~/.mylisp
+~/.fonts
+
+
+-->
+</section>
+</article>

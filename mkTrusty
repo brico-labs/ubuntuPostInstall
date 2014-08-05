@@ -1,0 +1,23 @@
+#!/bin/bash
+
+
+xmlstarlet val --err --xsd /usr/share/xml/docbook/schema/xsd/5.0/docbook.xsd src/ubuntuTrustyPostInstall.xml
+
+# PDF
+xsltproc --stringparam paper.type A4  \
+    --output out/ubuntuTrustyPostInstall.fo \
+    --stringparam admon.graphics 1 \
+    --stringparam admon.graphics.path /usr/share/xml/docbook/stylesheet/docbook-xsl-ns/images/ \
+    --stringparam admon.graphics.extension .svg \
+    /usr/share/xml/docbook/stylesheet/docbook-xsl-ns/fo/docbook.xsl \
+    src/ubuntuTrustyPostInstall.xml 
+
+fop -fo out/ubuntuTrustyPostInstall.fo -pdf out/ubuntuTrustyPostInstall.pdf
+
+# HTML
+xsltproc --output out/ubuntuTrustyPostInstall.html \
+    --stringparam admon.graphics 1 \
+    --stringparam admon.graphics.path /usr/share/xml/docbook/stylesheet/docbook-xsl-ns/images/ \
+    --stringparam admon.graphics.extension .svg \
+    /usr/share/xml/docbook/stylesheet/docbook-xsl-ns/html/docbook.xsl \
+    src/ubuntuTrustyPostInstall.xml
