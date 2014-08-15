@@ -587,7 +587,7 @@ $ sudo aptitude install grsync
       <para>Hacemos un binary install desde linea de comandos:</para>
       <screen>
 sudo -v &amp;&amp; wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py \
-| sudo python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()"        
+| sudo python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()"
       </screen>
       <para>Se actualiza a menudo así que yo dejo un fichero
       <filename>updCalibre</filename> en mi directorio
@@ -595,7 +595,7 @@ sudo -v &amp;&amp; wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/cal
       <screen>
 #!/bin/bash
 $ sudo -v &amp;&amp; wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py \
-| sudo python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()"        
+| sudo python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()"
       </screen>
     </section>
 
@@ -603,7 +603,7 @@ $ sudo -v &amp;&amp; wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/c
       <title>GnuCash</title>
       <para>Instalado desde Ubuntu</para>
       <screen>
-$ sudo aptitude install gnucash gnucash-docs        
+$ sudo aptitude install gnucash gnucash-docs
       </screen>
     </section>
   </section>
@@ -953,12 +953,12 @@ gstreamer-tools ubuntu-restricted-extras ttf-mscorefonts-installer
 sudo add-apt-repository ppa:openshot.developers/ppa -- FALLA
 sudo apt-get update
 sudo apt-get install openshot frei0r-plugins
-       
+
      </screen>
    </section>
  </section>
  <!-- end of section Video -->
- 
+
   <section>
     <title>Gráficos y dibujos</title>
 
@@ -1729,6 +1729,25 @@ $ sudo chown www-data:www-data /var/www/drupal/sites/default/settings.php
       <para></para>
     </section>
 
+    <section>
+      <title>Plone</title>
+      <para>Instalación de Plone</para>
+      <screen>
+sudo apt-get install python-setuptools python-dev build-essential libssl-dev libxml2-dev libxslt1-dev libbz2-dev
+// libjpeg62-dev -- conflicto con ros
+sudo apt-get install libreadline-dev wv poppler-utils
+sudo apt-get install libz-dev
+sudo ./install.sh standalone
+cd /usr/local/Plone/zinstance
+sudo ./bin/plonectl start
+      </screen>
+      <para>Hay que visitar el enlace <link>http://localhost:8080/</link></para>
+      <para>Hay que apuntar la password de admin que nos da al final
+      del proceso de instalación.</para>
+      <para>Conviene cambiar la password de admin y al menos en mi
+      caso cambiar el puerto en el que Plone escucha.</para>
+    </section>
+
   </section>
   <!--********** End of section: web **********-->
 
@@ -1802,7 +1821,7 @@ $ xsltproc --output out/ubuntuTrustyPostInstall.html \
       <screen>
 $ sudo add-apt-repository ppa:ubuntuhandbook1/ppa
 $ sudo apt-get update
-$ sudo apt-get install scribus scribus-template icc-profiles-free        
+$ sudo apt-get install scribus scribus-template icc-profiles-free
       </screen>
     </section>
   </section>
@@ -1829,10 +1848,15 @@ $ sudo apt-get install freecad freecad-doc
     <section>
       <title>OpenSCAD</title>
       <para>He intentado instalarlo desde el ppa recomendado pero
-      falla para Saucy</para>
+      falla para Trusty. El comando sería el siguiente:</para>
       <screen>
 $ sudo add-apt-repository ppa:chrysn/openscad
       </screen>
+      <para>Como falla me he bajado el paquete binario desde la página
+      oficial y lo he instalado. Se instala en
+      <filename>/usr/local/</filename>. Así que a la hora de hacer el
+      lanzador habrá que apuntar a
+      <filename>/usr/local/bin/openscad</filename></para>
     </section>
   </section>
   <!--********** End of section: Diseño **********-->
@@ -1887,9 +1911,43 @@ $ sudo gnome-desktop-item-edit /usr/share/applications/ --create-new
       Cairo o el applet de Classic Menú si lo hemos instalado.</para>
 
     </section>
+
     <section>
       <title>Pingüino IDE</title>
-      <para>Pingüino</para>
+      <para>La instalación del IDE Pingüino ha cambiado totalmente,
+      ahora ya hay instalador para Debian y derivados.</para>
+      <para>Para usarlo basta con descargarse el instalador desde aquí:
+      <link>http://sourceforge.net/projects/pinguinoide/files/linux/installer.sh/download?use_mirror=freefr</link></para>
+      <para>Después:</para>
+      <screen>
+$ sudo chmod +x installer.sh
+$ sudo ./installer.sh
+      </screen>
+      <para>El installer no se ocupa de instalar el fichero
+      <filename>/etc/udev/rules.d/41-microchip.rules</filename>, es
+      necesario instalarlo a mano. El contenido del fichero debe ser
+      el siguiente:</para>
+      <screen>
+# sudo cp 41-microchip.rules /etc/udev/rules.d/
+# sudo usermod -a -G plugdev $USER
+#
+# Pinguino8 (PIC18F)
+ATTR{idVendor}=="04d8", ATTR{idProduct}=="feaa", MODE="0660",GROUP="plugdev"
+#
+# Pinguino32 (PIC32MX)
+ATTR{idVendor}=="04d8", ATTR{idProduct}=="003c", MODE="0660",GROUP="plugdev"
+#
+# Pickit 2
+ATTR{idVendor}=="04d8", ATTR{idProduct}=="0033", MODE="0660",GROUP="plugdev"
+#
+# Pickit 3
+ATTR{idVendor}=="04d8", ATTR{idProduct}=="900a", MODE="0660",GROUP="plugdev"
+      </screen>
+      <para>También tenemos que asegurarnos de que nuestro usuario de
+      desarrollo pertenezca al grupo plugdev.</para>
+      <screen>
+$ usermod -a -G plugdev $USER
+      </screen>
     </section>
     <section>
       <title>KiCAD</title>
@@ -1946,7 +2004,7 @@ $ sudo aptitude install stellarium
       <title>Digital Universe</title>
 
       <para>Una aplicación que se basa en un visor de particulas en
-      tres dimensiones para hacer implementar un mapa de nuestra
+      tres dimensiones para implementar un mapa de nuestra
       galaxia y otro de nuestra galaxia y sus alrededores.</para>
       <para>El programa puede descargarse desde la web del Museo
       Americano de Historia Natural:
@@ -2041,10 +2099,12 @@ export LD_LIBRARY_PATH="$HOME/apps/vma/lib"
   </section>
   <!--********** End of section: Astronomía **********-->
 
+  <!--
   <section>
     <title>Mapas</title>
     <para>MOBAC</para>
   </section>
+  -->
   <!--********** End of section: Mapas **********-->
 
   <section>
@@ -2053,6 +2113,14 @@ export LD_LIBRARY_PATH="$HOME/apps/vma/lib"
     <section>
       <title>VirtualBox</title>
       <para>Instalación de virtual box</para>
+      <para><link>deb http://download.virtualbox.org/virtualbox/debian trusty contrib</link></para>
+      <screen>
+deb http://download.virtualbox.org/virtualbox/debian trusty contrib
+sudo apt-get update
+sudo apt-get install virtualbox-4.3
+wget http://download.virtualbox.org/virtualbox/4.3.10/Oracle_VM_VirtualBox_Extension_Pack-4.3.10-93012.vbox-extpack
+sudo adduser yourusername vboxusers
+      </screen>
     </section>
 
     <section>
@@ -2061,11 +2129,73 @@ export LD_LIBRARY_PATH="$HOME/apps/vma/lib"
     </section>
   </section>
   <!--********** End of section: Virtualización **********-->
-<!-- Notes:
-Plugins for Rithmbox
- sudo add-apt-repository ppa:fossfreedom/rhythmbox-plugins
- sudo apt-get update
- sudo apt-get install rhythmbox-plugin-complete
+  <section>
+    <title>Robótica: ROS</title>
+    <screen>
+$ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu trusty main" > /etc/apt/sources.list.d/ros-latest.list'
+$ wget https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -O - | sudo apt-key add -
+$ sudo aptitude update
+$ sudo apt-get install ros-indigo-desktop-full
+    </screen>
+  </section>
+  <!--********** End of section ROS **********-->
+
+  <section>
+    <title>Printrun</title>
+    <screen>
+ sudo apt-get install python python-serial python-wxgtk2.8 python-tk git
+     </screen>
+     <para>Preparamos un fichero para hacer la actualización del sw
+     con el siguiente contenido:</para>
+     <screen>
+#!/bin/bash
+BASEDIR="$HOME/apps/RepRap" # edit this is you don't want it installed in your home directory
+
+PRINTRUNDIR="$BASEDIR/Printrun" # Defines where the 'Printrun' directory is located. But of course
+                                # you can change this to say: "$HOME/Documents/Create/RepRap/Printrun".
+
+SKEINFORGEDIR="$PRINTRUNDIR/skeinforge" #Defines where the 'skeinforge' directory is located in the
+                                # 'Printrun' directory is located.
+
+SKEINFORGEBASEURL="http://fabmetheus.crsndoo.com/files/"
+SKEINFORGEFILENAME="50_reprap_python_beanshell.zip"
+
+cd $BASEDIR # Change directory to the executing users home directory.
+
+echo "Removing existing Printrun directory..." #Script being polite towards the user.
+rm -rf $PRINTRUNDIR # Removes the defined Printrun directory and _everything_ that resides
+                    # in and beneath its directory tree.
+
+echo "Cloning Printrun..." # Script being polite towards the user.
+git clone https://github.com/kliment/Printrun.git # See also: http://help.github.com/linux-set-up-git/
+
+echo "Grabbing skeinforge..." # Script being polite towards the user.
+wget -P /tmp $SKEINFORGEBASEURL$SKEINFORGEFILENAME # Uses good ol' wget for downloading skeinforge.
+
+echo "Unzipping skeinforge into Printrun directory..." # Script being polite towards the user.
+unzip -d $SKEINFORGEDIR /tmp/$SKEINFORGEFILENAME # unzips the grabbed zip to ones defined skeinforge dir.
+
+echo "Symlinking skeinforge inside Printrun directory..." #Script being polite towards the user.
+ln -s $SKEINFORGEDIR/* $PRINTRUNDIR/ # Script makes a symbolic link.
+
+echo "Cleaning up temporary installation files..." #Script being polite towards the user.
+rm -rf /tmp/$SKEINFORGEFILENAME # Removes tmp files.       
+     </screen>
+
+     <para>Una vez instalado en nuestro directorio podemos crear un
+     lanzardor para el Pronterface.</para>
+     <para>Para completar la instalación deberíamos asegurarnos de que
+     todas las dependencias del programa están instaladas:</para>
+     <screen>
+$ sudo pip install -r requirements.txt 
+     </screen>
+     <warning>
+       <para>Falla la instalacion de pycairo y cairosvg</para>
+     </warning>     
+  </section>
+<!-- Notes: Plugins for Rithmbox sudo add-apt-repository
+     ppa:fossfreedom/rhythmbox-plugins sudo apt-get update sudo
+     apt-get install rhythmbox-plugin-complete
 
 Unity reset
  sudo apt-get install dcon
@@ -2074,9 +2204,6 @@ Unity reset
  unity - -reset-icons
 
 
- Amarok
- gufw
-
  KSP
 
 google-earth
@@ -2084,14 +2211,6 @@ google-earth
 
 http://www.google.es/intl/es_es/earth/download/thanks.html#os=linux#linux_dl=deb_32  nguino
 
- Pinguino
- sudo apt-get install python-wxgtk2.8
- Ya funciona, falta hackear usuarios y /dev/usb
-
-Enable open in terminal
- sudo apt-get install nautilus-open-terminal
- To enable the Open in Terminal option follow these steps: Click on org Click on gnome Click on desktop Click on Interface Enable can-change-accels
- When done you can close the dconf editor tool and you need to restart nautilus. To restart nautilus open a terminal window (press Ctrl+Alt+T) and copy+paste the following line: nautilus -q
 
 Configuración de emacs
  Instalar yasnippets
@@ -2101,12 +2220,10 @@ Configuración de emacs
  git clone - -recursive   https://github.com/capitaomorte/yasnippet
  Seguir instrucciones en   https://github.com/capitaomorte/yasnippet
 
+
+https://help.ubuntu.com/community/UbuntuEngineering#Electronics
+
  Instalado geda y kicad desde ubuntu
-
-
-
- stellarium
-
 
 
 
@@ -2122,7 +2239,6 @@ fotografía
  configurar gufw
 
 blender
- https://help.ubuntu.com/community/UbuntuEngineering#Electronics
 
 Maps
  http://kunzuilh.blogspot.com.es/2012/07/mapas-para-oruxmaps-vi-creacion-de.html
@@ -2170,7 +2286,8 @@ sudo apt-get install handbrake handbrake-cli handbrake-gtk
 
 BLENDER???
 
-
+PLONE
+http://docs.plone.org/manage/installing/installation.html#install-the-operating-system-software-and-libraries-needed-to-run-plone
 
 
 
