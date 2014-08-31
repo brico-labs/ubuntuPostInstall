@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# http://xmlsoft.org/XSLT/xsltproc.html
+#http://www.microhowto.info/howto/process_an_xml_document_using_an_xslt_stylesheet.html
+
 
 xmlstarlet val --err --xsd /usr/share/xml/docbook/schema/xsd/5.0/docbook.xsd src/ubuntuTrustyPostInstall.xml
 
@@ -9,6 +12,7 @@ xsltproc --stringparam paper.type A4  \
     --stringparam admon.graphics 1 \
     --stringparam admon.graphics.path /usr/share/xml/docbook/stylesheet/docbook-xsl-ns/images/ \
     --stringparam admon.graphics.extension .svg \
+    --stringparam chunker.output.encoding UTF-8 \
     /usr/share/xml/docbook/stylesheet/docbook-xsl-ns/fo/docbook.xsl \
     src/ubuntuTrustyPostInstall.xml 
 
@@ -19,5 +23,15 @@ xsltproc --output out/ubuntuTrustyPostInstall.html \
     --stringparam admon.graphics 1 \
     --stringparam admon.graphics.path /usr/share/xml/docbook/stylesheet/docbook-xsl-ns/images/ \
     --stringparam admon.graphics.extension .svg \
+    --stringparam chunker.output.encoding UTF-8 \
     /usr/share/xml/docbook/stylesheet/docbook-xsl-ns/html/docbook.xsl \
+    src/ubuntuTrustyPostInstall.xml
+
+#xhtml
+xsltproc --output out/ubuntuTrustyPostInstall.xhtml \
+    --stringparam admon.graphics 1 \
+    --stringparam admon.graphics.path /usr/share/xml/docbook/stylesheet/docbook-xsl-ns/images/ \
+    --stringparam admon.graphics.extension .svg \
+    --stringparam chunker.output.encoding UTF-8 \
+    /usr/share/xml/docbook/stylesheet/docbook-xsl-ns/xhtml/docbook.xsl \
     src/ubuntuTrustyPostInstall.xml

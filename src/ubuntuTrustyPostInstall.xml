@@ -424,9 +424,9 @@ $ sudo apt-get install unity-tweak-tool gnome-tweak-tool
       <para>Para mantener un consumo de batería ajustado en el
       portátil. Yo antes usaba Jupiter pero ya no existe.</para>
       <screen>
-$ sudo add-apt-repository ppa:linrunner/tlpsudo
-$ apt-get updatesudo
-$ apt-get install tlp tlp-rdw
+$ sudo add-apt-repository ppa:linrunner/tlp
+$ sudo apt-get update
+$ sudo apt-get install tlp tlp-rdw
 $ sudo tlp start
 $ sudo tlp stat
       </screen>
@@ -880,6 +880,7 @@ $ sudo apt-get install chromium
         <para>Completar esta sección con la instalación del
         Google-Earth</para>
       </note>
+
     </section>
   </section>
   <!-- ***** End of section: Sw Google ***** -->
@@ -1459,9 +1460,13 @@ $ sudo update-rc.d apache2 defaults
       <important>
         <para>Cambia la password de root de mysql, no lo dejes sin
         password!!!!</para>
+        <para>La configuración de Apache a cambiado, ahora el único
+        directorio autorizado por defecto es
+        <filename>/var/www/html</filename></para>
       </important>
 
     </section>
+
 
     <section>
       <title>Concrete</title>
@@ -1479,12 +1484,12 @@ $ sudo a2enmod rewrite
       </screen>
 
       <para>Descomprimimos el contenido del zip en
-      <filename>/var/www/concrete5</filename></para>
+      <filename>/var/www/html/concrete5</filename></para>
 
       <para>Cambiamos el propietario de los ficheros
       instalados:</para>
       <screen>
-$ sudo chmod -R www-data:www-data concrete5
+$ sudo chmod -R www-data:www-data /var/www/html/concrete5
       </screen>
       <para>Y por último creamos la base de datos asociada, un usuario
       de la base de datos y le damos permisos.</para>
@@ -1501,6 +1506,81 @@ mysql> flush-privileges
       de instalación.</para>
     </section>
 
+    <section>
+      <title>Media-wiki</title>
+      <para>Descargamos el último paquete (en este momento 1.23.2)
+      desde la página web
+      <link>https://www.mediawiki.org/wiki/MediaWiki</link>. Lo
+      descomprimimos y tenemos que dejarlo en un sitio accesible por
+      apache, de momento lo dejo en
+      <filename>/var/www/html/wiki</filename>.</para>
+      <para>Es recomendable instalar:</para>
+      <screen>
+$ sudo aptitude install php-pear php5-dev
+$ sudo aptitude install libltdl-dev pkg-php-tools
+$ sudo aptitude install php-apc
+$ sudo aptitude install php5-intl
+      </screen>
+      <para>Hay otras cosas que es recomendable instalar como
+      ImageMagick (que yo ya tenía instalado).</para>
+
+      <para>Tenemos que crear la base de datos asociada al wiki, un
+      usario de base de datos y dar permisos a ese usuario.</para>
+      <screen>
+$ sudo mysqladmin create mediawikidb
+$ sudo mysql -uroot -ppassword
+mysql> grant all privileges on mediawikidb.* to 'mwikiuser'@'localhost' identified by 'aPassword';
+mysql> grant all privileges on mediawikidb.* to 'mwikiuser'@'%' identified by 'aPassword';
+mysql> flush-privileges
+      </screen>
+      <para>Durante la instalación:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Escogí el modo binario para la base de datos.</para>
+        </listitem>
+        <listitem>
+          <para>Escogí "Authorized edition only"</para>
+        </listitem>
+        <listitem>
+          <para>Creative commons attribution share alike</para>
+        </listitem>
+        <listitem>
+          <para>Es necesario configurar las opciones de correo de PHP,
+          en principio lo instalo sin correo.</para>
+        </listitem>
+        <listitem>
+          <para>He habilitado todos los plugins</para>
+        </listitem>
+        <listitem>
+          <para>Habilitada la subida de ficheros</para>
+        </listitem>
+        <listitem>
+          <para>Deshabilitado instant commons</para>
+        </listitem>
+        <listitem>
+          <para>Habilitado el caché de PHP</para>
+        </listitem>
+      </itemizedlist>
+      <section>
+        <title>Extensiones adicionales</title>
+        <para>Puede que tengamos que instalar alguna de las siguientes
+        extensiones:</para>
+        <itemizedlist>
+          <listitem>
+            <para>DynamicPageList (MediaWiki)</para>
+          </listitem>
+          <listitem>
+            <para>DynamicPageList (Third Part)</para>
+          </listitem>
+        </itemizedlist>
+
+        <para>También instalo en el portatil el paquete
+        libhtml-wikiconverter-mediawiki-perl</para>
+        <screen>
+$ sudo aptitude  install libhtml-wikiconverter-mediawiki-perl         
+        </screen>
+      </section>
+    </section>
 
     <section>
       <title>Web2py</title>
@@ -1748,8 +1828,14 @@ sudo ./bin/plonectl start
       caso cambiar el puerto en el que Plone escucha.</para>
     </section>
 
+    <section>
+      <title>Node.js</title>
+      <para>Instalación</para>
+    </section>
+
+
   </section>
-  <!--********** End of section: web **********-->
+  <!--********** End of section: Desarrollo web **********-->
 
   <section>
     <title>Documentación</title>
@@ -1951,11 +2037,17 @@ $ usermod -a -G plugdev $USER
     </section>
     <section>
       <title>KiCAD</title>
-      <para>KiCAD</para>
+      <para>Añadimos el ppa.</para>
+      <screen>
+$ sudo apt-add-repository ppa:js-reynaud/ppa-kicad
+      </screen>
     </section>
     <section>
       <title>Geda</title>
-      <para>Geda</para>
+      <para>Lo he instalado directamente desde Ubuntu.</para>
+      <screen>
+$ sudo aptitude install geda pcb gerbv
+      </screen>
     </section>
     <section>
       <title>Fritzing</title>
@@ -2121,6 +2213,12 @@ sudo apt-get install virtualbox-4.3
 wget http://download.virtualbox.org/virtualbox/4.3.10/Oracle_VM_VirtualBox_Extension_Pack-4.3.10-93012.vbox-extpack
 sudo adduser yourusername vboxusers
       </screen>
+      <important>
+        <para>He tenido que desinstalar VirtualBox por que los drivers
+        me dejaban el Kernel tainted y me estaban dando fallos
+        continuos de kernel panic. Pendiente de hacer más pruebas con
+        el virtualbox de Ubuntu.</para>
+      </important>
     </section>
 
     <section>
@@ -2141,13 +2239,16 @@ $ sudo apt-get install ros-indigo-desktop-full
   <!--********** End of section ROS **********-->
 
   <section>
-    <title>Printrun</title>
-    <screen>
+    <title>RepRap</title>
+    <section>
+
+      <title>Printrun</title>
+      <screen>
  sudo apt-get install python python-serial python-wxgtk2.8 python-tk git
-     </screen>
-     <para>Preparamos un fichero para hacer la actualización del sw
-     con el siguiente contenido:</para>
-     <screen>
+      </screen>
+      <para>Preparamos un fichero para hacer la actualización del sw
+      con el siguiente contenido:</para>
+      <screen>
 #!/bin/bash
 BASEDIR="$HOME/apps/RepRap" # edit this is you don't want it installed in your home directory
 
@@ -2179,20 +2280,41 @@ echo "Symlinking skeinforge inside Printrun directory..." #Script being polite t
 ln -s $SKEINFORGEDIR/* $PRINTRUNDIR/ # Script makes a symbolic link.
 
 echo "Cleaning up temporary installation files..." #Script being polite towards the user.
-rm -rf /tmp/$SKEINFORGEFILENAME # Removes tmp files.       
-     </screen>
+rm -rf /tmp/$SKEINFORGEFILENAME # Removes tmp files.
+      </screen>
 
-     <para>Una vez instalado en nuestro directorio podemos crear un
-     lanzardor para el Pronterface.</para>
-     <para>Para completar la instalación deberíamos asegurarnos de que
-     todas las dependencias del programa están instaladas:</para>
-     <screen>
-$ sudo pip install -r requirements.txt 
-     </screen>
-     <warning>
-       <para>Falla la instalacion de pycairo y cairosvg</para>
-     </warning>     
+      <para>Una vez instalado en nuestro directorio podemos crear un
+      lanzardor para el Pronterface.</para>
+      <para>Para completar la instalación deberíamos asegurarnos de
+      que todas las dependencias del programa están instaladas:</para>
+      <screen>
+$ sudo pip install -r requirements.txt
+      </screen>
+      <warning>
+        <para>Falla la instalacion de pycairo y cairosvg</para>
+      </warning>
+    </section>
+
+    <section>
+      <title>Slic3r</title>
+      <para>Instalamos las dependencias</para>
+      <screen>
+$ sudo cpan App::cpanminus
+$ sudo apt-get install git build-essential libgtk2.0-dev libwxgtk2.8-dev libwx-perl libmodule-build-perl \
+libnet-dbus-perl libexpat1-dev
+$ sudo apt-get install libxmu-dev freeglut3-dev libwxgtk-media2.8-dev
+$ sudo aptitude install perlmagick
+$ sudo aptitude install libopengl-perl
+$ cd ~/apps/RepRap
+$ git clone https://github.com/alexrj/Slic3r.git
+$ cd Slic3r
+$ sudo perl Build.pl
+$ sudo perl Build.pl --gui
+      </screen>
+      <para>Como de costumbre podemos crear un lanzador.</para>
+    </section>
   </section>
+
 <!-- Notes: Plugins for Rithmbox sudo add-apt-repository
      ppa:fossfreedom/rhythmbox-plugins sudo apt-get update sudo
      apt-get install rhythmbox-plugin-complete
@@ -2259,7 +2381,8 @@ Configurar yasnippets
  ~/.fonts
 
 
-
+SLIC3R
+https://github.com/alexrj/Slic3r/wiki/Running-Slic3r-from-git-on-GNU-Linux
 
 
 
@@ -2289,6 +2412,17 @@ BLENDER???
 PLONE
 http://docs.plone.org/manage/installing/installation.html#install-the-operating-system-software-and-libraries-needed-to-run-plone
 
+MariaDB
+https://mariadb.com/kb/en/mariadb/documentation/getting-started/mariadb-binary-packages/installing-mariadb-alongside-mysql/
+
+docbook to media wiki
+http://jurjenbokma.com/ApprenticesNotes/wikification_of_docbook.html
+
+http://semeb.com/dpldemo/index.php?title=Download
+
+http://www.mediawiki.org/wiki/Extension:DynamicPageList_(third-party)#Related_extensions
+http://www.mediawiki.org/wiki/Extension:CategoryLink
+http://www.mediawiki.org/wiki/Extension:DynamicPageListEngine
 
 
  -->

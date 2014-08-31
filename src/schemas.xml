@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <locatingRules xmlns="http://thaiopensource.com/ns/locating-rules/1.0">
+  <uri resource="ubuntuTrustyPostInstall.xml" uri="../schema/docbook5.rnc"/>
+  <uri resource="ubuntuTrustyPostInstall.xml" uri="../schema/docbookxi.rnc"/>
   <uri resource="ubuntuTrustyPostInstall.xml" typeId="DocBook"/>
   <uri resource="ubuntuTrustyPostInstall.xml" typeId="RELAX NG"/>
   <uri resource="ubuntuTrustyPostInstall.xml" typeId="DocBook"/>
