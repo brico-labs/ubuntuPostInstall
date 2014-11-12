@@ -170,7 +170,7 @@ $ sudo tail -f /var/log/syslog
       ver el código de producto</para>
       <para>Veremos algo parecido a esto:</para>
 
-      <screen>
+      <screen><?dbfo font-size="20pt"?>
 Feb 22 15:23:33 rasalhague kernel: [ 8664.300394] usb 2-1.2: new low-speed USB device number 4 using ehci-pci
 Feb 22 15:23:33 rasalhague kernel: [ 8664.399363] usb 2-1.2: New USB device found, idVendor=045e, idProduct=00cb
 Feb 22 15:23:33 rasalhague kernel: [ 8664.399375] usb 2-1.2: New USB device strings: Mfr=1, Product=2, SerialNumber=0
@@ -183,7 +183,7 @@ Feb 22 15:23:33 rasalhague mtp-probe: bus: 2, device: 4 was not an MTP device
       </screen>
 
       <para>La parte que nos interesa es la que dice que tenemos
-      instalado un "Microsoft Basic Optical Mouse v2.0 ", ojo que en
+      instalado un "Microsoft Basic Optical Mouse v2.0 ", ojo, que en
       mi caso el nombre de producto tiene un espacio al final y me
       llevó un rato darme cuenta.</para>
 
@@ -615,7 +615,7 @@ $ sudo aptitude install gnucash gnucash-docs
     <section>
       <title>Ejecución de fixubuntu</title>
 
-      <para>Información reciente disponible en <link>htpps://fixubuntu.com</link></para>
+      <para>Información reciente disponible en <link xl:href="htpps://fixubuntu.com/></para>
 
       <para>Basicamente desactivamos las opciones que permiten al Dash
       buscar on-line en sitios como Amazon, E-Bay o Ubuntu Shop.</para>
@@ -683,7 +683,7 @@ $ echo greeter-show-remote-login=false \
       <para>Para utilizar la red TOR, que garantiza la navegación
       anónima, descargamos el Bundle desde la página web del proyecto
       en el idioma deseado:
-      <link>https://www.torproject.org/projects/torbrowser.html.en</link></para>
+      <link xl:href="https://www.torproject.org/projects/torbrowser.html.en"/></para>
 
       <para>Descomprimimos el fichero recibido en donde queramos
       instalar (en mi caso <filename>~/apps/</filename>)</para>
@@ -713,7 +713,7 @@ $ gufw
         <title>TODO</title>
         <para>Completar esta sección con la configuración del
         cortafuegos</para>
-        <para>Más información en <link>http://debianhelp.wordpress.com/2013/11/19/to-do-list-after-installing-ubuntu-13-10-aka-saucy-salamander-os-2/</link></para>
+        <para>Más información en <link xl:href="http://debianhelp.wordpress.com/2013/11/19/to-do-list-after-installing-ubuntu-13-10-aka-saucy-salamander-os-2/"/></para>
       </note>
 
     </section>
@@ -987,7 +987,7 @@ $ sudo apt-get install gimp-plugin-registry
       más funcionalidades de dibujo a Gimp. Descargamos el paquete con
       el GPS 2.0 desde aquí:</para>
 
-      <para><link>http://www.ramonmiranda.com/2012/07/gps-20-disponible.html</link></para>
+      <para><link xl:href="http://www.ramonmiranda.com/2012/07/gps-20-disponible.html"/></para>
 
       <para>Y descomprimimos en nuestro directorio <filename>~/.gimp-2.8</filename></para>
 
@@ -1045,7 +1045,7 @@ $ sudo apt-get install mypaint mypaint-data-extras
 
       <para>Un programa para buscar inspiración a la hora de ponerse a
       dibujar. Echad una mirada a la página web
-      <link>http://al.chemy.org/gallery/</link> para entender lo que
+      <link xl:href="http://al.chemy.org/gallery/"/> para entender lo que
       digo.</para>
 
       <para>Pues como siempre, descargamos, descomprimimos en
@@ -1224,6 +1224,11 @@ cacerts = /etc/ssl/certs/ca-certificates.crt
     </section>
 
     <section>
+      <title>Bazaar</title>
+      <para>Bazaar viene instalado por defecto.</para>
+    </section>
+
+    <section>
       <title>Subversion</title>
 
       <para>No lo uso para programar pero hay veces en que te bajas
@@ -1238,12 +1243,12 @@ $ sudo apt-get install subversion
       <title>D programming language</title>
       <para>Visitamos la página e instalamos el paquete para
       Debian/Ubuntu
-      (<link>http://dlang.org/download.html</link>).</para>
+      (<link xl:href="http://dlang.org/download.html"/>).</para>
 
       <section>
         <title>DUB</title>
         <para>También conviene que nos instalemos el DUB
-        <link>http://code.dlang.org/download</link>, con este no hay que
+        <link xl:href="http://code.dlang.org/download"/>, con este no hay que
         partirse la cabeza, nos descargamos el "binary tarball" para
         linux 64 bits y lo descomprimimos en
         <filename>~/bin</filename></para>
@@ -1310,7 +1315,7 @@ $ ./build.sh
           <term>libmodern-perl-perl</term>
           <listitem>
             <para>Atajos para varios pragmas usados comunmente (ver
-            <link>http://modernperlbooks.com/books/modern_perl/</link></para>
+            <link xl:href="http://modernperlbooks.com/books/modern_perl/"/></para>
           </listitem>
         </varlistentry>
         <varlistentry>
@@ -1353,7 +1358,7 @@ $ sudo aptitude install Padre
 
       <para>Descargamos el instalador de la última versión (en el
       momento de escribir esto la 3.5.2) desde la página web
-      <link>http://squirrel-sql.sourceforge.net/#installation</link>. Le
+      <link xl:href="http://squirrel-sql.sourceforge.net/#installation"/>. Le
       damos permisos para ejecución y lo ejecutamos. El instalador ya
       se encarga de crear los lanzadores correspondientes. Si queremos
       instalarlo para todos los usuarios del sistema hay que
@@ -1361,7 +1366,7 @@ $ sudo aptitude install Padre
 
       <para>Yo lo uso sobre todo con MySQL, así que necesitamos
       descargarnos el driver para el MySQL desde la página web de
-      MySQL<link>http://dev.mysql.com/downloads/connector/j/</link> y
+      MySQL<link xl:href="http://dev.mysql.com/downloads/connector/j/"/> y
       lo descomprimimos (por ejemplo en
       <filename>~/apps</filename>)</para>
 
@@ -1395,6 +1400,11 @@ $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
       <screen>
 $ sudo gpasswd -a staff myuser
       </screen>
+      <!--
+          http://swirlstats.com/
+          http://www.ats.ucla.edu/stat/r/sk/
+          http://www.ats.ucla.edu/stat/r/modules/exploring_w_graphics.htm
+      -->
     </section>
   </section>
   <!--********** End of section: Desarrollo **********-->
@@ -1427,7 +1437,7 @@ $ sudo tasksel
 
       <para>En el momento en que instalamos la opción "LAMP Server" el
       ordenador arrancará un servidor Apache (no tienes más que
-      visitar <link>http://localhost</link> para verlo en acción) si
+      visitar <link xl:href="http://localhost"/> para verlo en acción) si
       no queremos tenerlo siempre corriendo en nuestro portatil
       tenemos que cambiar que programas arrancamos por defecto. A mi
       no me preocupa demasiado tenerlo corriendo pero si quereis
@@ -1502,7 +1512,7 @@ mysql> flush-privileges
       </screen>
 
       <para>Entramos con el navegador en
-      <link>http://localhost/concrete5</link> y finalizamos el proceso
+      <link xl:href="http://localhost/concrete5"/> y finalizamos el proceso
       de instalación.</para>
     </section>
 
@@ -1510,7 +1520,7 @@ mysql> flush-privileges
       <title>Media-wiki</title>
       <para>Descargamos el último paquete (en este momento 1.23.2)
       desde la página web
-      <link>https://www.mediawiki.org/wiki/MediaWiki</link>. Lo
+      <link xl:href="https://www.mediawiki.org/wiki/MediaWiki"/>. Lo
       descomprimimos y tenemos que dejarlo en un sitio accesible por
       apache, de momento lo dejo en
       <filename>/var/www/html/wiki</filename>.</para>
@@ -1577,7 +1587,7 @@ mysql> flush-privileges
         <para>También instalo en el portatil el paquete
         libhtml-wikiconverter-mediawiki-perl</para>
         <screen>
-$ sudo aptitude  install libhtml-wikiconverter-mediawiki-perl         
+$ sudo aptitude  install libhtml-wikiconverter-mediawiki-perl
         </screen>
       </section>
     </section>
@@ -1589,7 +1599,7 @@ $ sudo aptitude  install libhtml-wikiconverter-mediawiki-perl
 
       <para>Descargamos la última versión desde la página web de la
       aplicación
-      <link>http://www.web2py.com/init/default/download</link> (yo
+      <link xl:href="http://www.web2py.com/init/default/download"/> (yo
       descargo la versión para usuarios normales - source code)</para>
 
       <para>Como de costumbre descomprimimos en nuestro directorio
@@ -1711,9 +1721,9 @@ mysql> flush privileges
 
       <para>
         Seguimos los pasos que nos recomiendan en la propia página de
-        Drupal (<link>http://drupal.org</link>), aunque teniendo en
+        Drupal (<link xl:href="http://drupal.org"/>), aunque teniendo en
         cuenta los consejos que nos dan en Ubuntu
-        (<link>https://help.ubuntu.com/community/Drupal</link>):
+        (<link xl:href="https://help.ubuntu.com/community/Drupal"/>):
       </para>
       <itemizedlist>
         <listitem>
@@ -1750,12 +1760,12 @@ $ sudo chown www-data:www-data /var/www/drupal/sites/default/settings.php
           dejarlos en el directorio
           <filename>/var/www/drupal/profiles/standard/translations/</filename>. Podemos
           bajarlos desde aquí:
-          <link>http://ftp.drupal.org/files/translations/7.x/drupal/</link></para>
+          <link xl:href="http://ftp.drupal.org/files/translations/7.x/drupal/"/></para>
         </listitem>
         <listitem>
           <para>Una vez hecho esto comenzamos el proceso de
           instalación visitando desde nuestro navegador la
-          dirección:<link>http://localhost/drupal</link></para>
+          dirección:<link xl:href="http://localhost/drupal"/></para>
         </listitem>
         <listitem>
           <para>Escogemos la instalación standard</para>
@@ -1821,7 +1831,7 @@ sudo ./install.sh standalone
 cd /usr/local/Plone/zinstance
 sudo ./bin/plonectl start
       </screen>
-      <para>Hay que visitar el enlace <link>http://localhost:8080/</link></para>
+      <para>Hay que visitar el enlace <link xl:href="http://localhost:8080/"/></para>
       <para>Hay que apuntar la password de admin que nos da al final
       del proceso de instalación.</para>
       <para>Conviene cambiar la password de admin y al menos en mi
@@ -1830,7 +1840,24 @@ sudo ./bin/plonectl start
 
     <section>
       <title>Node.js</title>
+      <!--
+          https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server
+      -->
       <para>Instalación</para>
+      <screen>
+$ sudo apt-get update
+$ sudo apt-get install build-essential libssl-dev
+      </screen>
+      <para>Comprobamos en la página de github cual es la versión más
+      reciente y descargamos.</para>
+      <para>La instalación por defecto nos deja el nvm instalado en el
+      directorio <filename>~/.nvm</filename>, además nos configura el
+      <filename>.profile</filename> para que active el nvm.</para>
+      <para></para>
+      <screen>
+$ cd ~/tmp
+$ curl https://raw.githubusercontent.com/creationix/nvm/v0.14.0/install.sh | bash
+      </screen>
     </section>
 
 
@@ -1851,7 +1878,7 @@ sudo ./bin/plonectl start
       receta.</para>
 
 
-      <para><link> https://github.com/scottkosty/install-tl-ubuntu</link></para>
+      <para><link xl:href=" https://github.com/scottkosty/install-tl-ubuntu"/></para>
 
       <para>Finalmente instalamos el paquete auctex para editar TeX
       LaTeX desde emacs sin problemas:</para>
@@ -1862,7 +1889,7 @@ $ sudo aptitude install auctex
 
     <section>
       <title>Docbook 5</title>
-      <para>Hay un resumen describiendo varias opciones en: <link>https://help.ubuntu.com/community/DocBook</link></para>
+      <para>Hay un resumen describiendo varias opciones en: <link xl:href="https://help.ubuntu.com/community/DocBook"/></para>
       <para>Instalamos:</para>
       <screen>
 $ sudo aptitude install docbook5-xml docbook-xsl-ns xsltproc fop xmlto libxml2-utils xmlstarlet
@@ -1899,6 +1926,7 @@ $ xsltproc --output out/ubuntuTrustyPostInstall.html \
     src/ubuntuTrustyPostInstall.xml
         </screen>
       </section>
+      <!-- http://etutorials.org/Programming/Learning+xml/Chapter+1.+Introduction/ -->
     </section>
 
     <section>
@@ -1909,6 +1937,15 @@ $ sudo add-apt-repository ppa:ubuntuhandbook1/ppa
 $ sudo apt-get update
 $ sudo apt-get install scribus scribus-template icc-profiles-free
       </screen>
+    </section>
+    <section>
+      <title>Impressive</title>
+      <para>Ideal para exponer presentaciones hechas con Beamer.</para>
+      <para>Instalamos las dependencias:</para>
+      <screen>
+$ sudo aptitude install python-pygame python-opengl python-imaging pdftk poppler-utils xdg-utils mplayer     
+      </screen>
+      <para>Descargamos de la página web y descomprimimos en app como siempre.</para>
     </section>
   </section>
 
@@ -1969,7 +2006,7 @@ $ sudo usermod -a salvari -G dialout
 
 
       <para>Descargamos el programa desde la página web
-      <link>http:/arduino.cc</link></para>
+      <link xl:href="http:/arduino.cc"/></para>
 
       <para>Descomprimimos el programa en el directorio
       <filename>~/apps</filename></para>
@@ -2003,7 +2040,7 @@ $ sudo gnome-desktop-item-edit /usr/share/applications/ --create-new
       <para>La instalación del IDE Pingüino ha cambiado totalmente,
       ahora ya hay instalador para Debian y derivados.</para>
       <para>Para usarlo basta con descargarse el instalador desde aquí:
-      <link>http://sourceforge.net/projects/pinguinoide/files/linux/installer.sh/download?use_mirror=freefr</link></para>
+      <link xl:href="http://sourceforge.net/projects/pinguinoide/files/linux/installer.sh/download?use_mirror=freefr"/></para>
       <para>Después:</para>
       <screen>
 $ sudo chmod +x installer.sh
@@ -2081,7 +2118,7 @@ $ sudo aptitude install stellarium
 
       <para>El programa libre y gratuito se puede descargar desde
       aqui:
-      <link>http://www.thinkastronomy.com/M13/common/download.html</link></para>
+      <link xl:href="http://www.thinkastronomy.com/M13/common/download.html"/></para>
 
       <para>La instalación también es muy sencilla, sencillamente lo
       descomprimimos en nuestro directorio
@@ -2100,7 +2137,7 @@ $ sudo aptitude install stellarium
       galaxia y otro de nuestra galaxia y sus alrededores.</para>
       <para>El programa puede descargarse desde la web del Museo
       Americano de Historia Natural:
-      <link>http://www.amnh.org/our-research/hayden-planetarium/digital-universe/download</link>. Ojito
+      <link xl:href="http://www.amnh.org/our-research/hayden-planetarium/digital-universe/download"/>. Ojito
       que no es software libre. Es gratuito, pero si quereis usarlo
       para otra cosa distinta del uso personal hay que leerse la
       licencia.</para>
@@ -2139,7 +2176,7 @@ $ sudo aptitude install stellarium
       <filename>~/apps</filename></para>
 
       <para>Descargamos el programa desde la dirección
-      <link>https://dl.dropboxusercontent.com/u/4192826/dumpNoAuth.sql.gz</link></para>
+      <link xl:href="https://dl.dropboxusercontent.com/u/4192826/dumpNoAuth.sql.gz"/></para>
 
       <para>Cuando yo me instalé este programa (abril del 2014) me
       descargué la versión 6.0, el upgrade a 6.1 y necesitamos también
@@ -2191,12 +2228,30 @@ export LD_LIBRARY_PATH="$HOME/apps/vma/lib"
   </section>
   <!--********** End of section: Astronomía **********-->
 
-  <!--
+
   <section>
     <title>Mapas</title>
     <para>MOBAC</para>
+    <section>
+      <title>QGis</title>
+      <para>Instalado desde el propio Ubuntu.</para>
+      <para>Añadimos los siguientes orígenes de software:</para>
+      <screen>
+deb     http://qgis.org/debian trusty main
+deb-src http://qgis.org/debian trusty main
+      </screen>
+      <para>Y procedemos a instalar:</para>
+      <screen>
+$ gpg --keyserver keyserver.ubuntu.com --recv DD45F6C3
+$ gpg --export --armor DD45F6C3 | sudo apt-key add -
+
+$ sudo apt-get update
+$ sudo apt-get install qgis python-qgis
+$ sudo apt-get install qgis-plugin-grass
+      </screen>
+    </section>
   </section>
-  -->
+
   <!--********** End of section: Mapas **********-->
 
   <section>
@@ -2205,7 +2260,7 @@ export LD_LIBRARY_PATH="$HOME/apps/vma/lib"
     <section>
       <title>VirtualBox</title>
       <para>Instalación de virtual box</para>
-      <para><link>deb http://download.virtualbox.org/virtualbox/debian trusty contrib</link></para>
+      <para>deb http://download.virtualbox.org/virtualbox/debian trusty contrib</para>
       <screen>
 deb http://download.virtualbox.org/virtualbox/debian trusty contrib
 sudo apt-get update
@@ -2361,6 +2416,7 @@ fotografía
  configurar gufw
 
 blender
+BLENDER???
 
 Maps
  http://kunzuilh.blogspot.com.es/2012/07/mapas-para-oruxmaps-vi-creacion-de.html
@@ -2407,7 +2463,6 @@ sudo apt-get update
 sudo apt-get install handbrake handbrake-cli handbrake-gtk
 
 
-BLENDER???
 
 PLONE
 http://docs.plone.org/manage/installing/installation.html#install-the-operating-system-software-and-libraries-needed-to-run-plone
