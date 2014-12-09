@@ -615,7 +615,7 @@ $ sudo aptitude install gnucash gnucash-docs
     <section>
       <title>Ejecución de fixubuntu</title>
 
-      <para>Información reciente disponible en <link xl:href="htpps://fixubuntu.com/></para>
+      <para>Información reciente disponible en <link xl:href="htpps://fixubuntu.com/"/></para>
 
       <para>Basicamente desactivamos las opciones que permiten al Dash
       buscar on-line en sitios como Amazon, E-Bay o Ubuntu Shop.</para>
@@ -1420,11 +1420,11 @@ $ sudo gpasswd -a staff myuser
       fácil de instalarlo en Debian y derivados es instalar
       TASKSEL</para>
 
-      <warning>
+      <note>
         <para>La verdad es que cada vez uso más nginx y que tengo
         muchas ganas de pasarme a MariaDB y dejar MySQL, de todas
         formas como Apache y MySQL es el estadar de facto...</para>
-      </warning>
+      </note>
 
       <screen>
 $ sudo aptitude install tasksel
@@ -1981,6 +1981,16 @@ $ sudo add-apt-repository ppa:chrysn/openscad
       lanzador habrá que apuntar a
       <filename>/usr/local/bin/openscad</filename></para>
     </section>
+    <section>
+      <title>Wings</title>
+      <para>Te puedes bajar el programa de la página web <link
+      xl:href="http://www.wings3d.com/"/>, pero el programa se instala
+      donde le da la gana, concretamente en
+      <filename>~/wings-x.x.x</filename></para>
+      <para>La alternativa sería compilar el programa pero hay que
+      instalar el lenguaje Erlang y varias librerias.</para>
+      
+    </section>
   </section>
   <!--********** End of section: Diseño **********-->
 
@@ -2071,6 +2081,23 @@ ATTR{idVendor}=="04d8", ATTR{idProduct}=="900a", MODE="0660",GROUP="plugdev"
       <screen>
 $ usermod -a -G plugdev $USER
       </screen>
+      <warning>
+        <title>Última versión</title>
+        <para>Para instalar la última versión del IDE Pinguino es
+        necesario instalar la última versión de la librería
+        <filename>libstdc++6</filename>. Al menos es necesario
+        ínstalar la versión 4.9. Para ello:</para>
+        <screen>
+$ sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+$ sudo apt-get update
+$ sudo apt-get install g++-4.9
+        </screen>
+        <para>Después de instalar esta versión se puede descargar el
+        programa de instalación del IDE y ejecutarlo sin ningún
+        error.</para>
+      </warning>
+
+
     </section>
     <section>
       <title>KiCAD</title>

@@ -1,0 +1,2 @@
+#!/bin/bash
+html2wiki --dialect MediaWiki --encoding UTF-8 out/ubuntuTrustyPostInstall.xhtml > out/ubuntuTrustyPostInstall.wiki
