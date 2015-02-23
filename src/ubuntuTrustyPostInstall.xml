@@ -70,7 +70,7 @@
     la biblioteca de Calibre los tengo en /store con enlaces
     simbólicos a los mismos en home</para>
 
-    <para>Si no me equivoco cuento todo lo que hice para dejar la
+    <para>Si no me equivoco, cuento todo lo que hice para dejar la
     instalación de Ubuntu a mi gusto, aunque ya se sabe que esta tarea
     nunca acaba si te gusta trastear.</para>
 
@@ -949,9 +949,60 @@ gstreamer-tools ubuntu-restricted-extras ttf-mscorefonts-installer
    </screen>
 
    <section>
-     <title>OpenShot</title>
+     <title>FFMPEG</title>
+     <para>Instalamos ffmpeg desde el ppa recomendado para esta
+     versión de Ubuntu (en versiones posteriores vuelve a estar
+     disponible)</para>
      <screen>
-sudo add-apt-repository ppa:openshot.developers/ppa -- FALLA
+sudo apt-add-repository ppa:mc3man/trusty-media
+sudo apt-get update
+sudo apt-get install ffmpeg
+     </screen>
+     <warning>
+       <para>Sospecho que con este ppa activado ya no es conveniente
+       hacer un upgrade del sistema. O en todo caso si se quiere hacer
+       un upgrade será mejor purgar este ppa previamente.</para>
+       <para>A mi me da igual por qué normalmente prefiero hacer un
+       fresh-install, pero quedáis avisados.</para>
+     </warning>
+   </section>
+
+   <section>
+     <title>Kdenlive</title>
+     <para>Lo instalamos también desde el ppa recomendado en la página
+     oficial de la distribución:</para>
+     <screen>
+$ sudo add-apt-repository ppa:sunab/kdenlive-release
+$ sudo apt-get update
+$ sudo apt-get install kdenlive
+     </screen>
+   </section>
+
+   <section>
+     <title>Cinelerra</title>
+     <para>Tras una larga ausencia, Cinelerra vuelve a estar
+     disponible para Ubuntu en un paquete con linkado estático.</para>
+     <para>Nos lo descargamos desde la página oficial de la aplicación
+     y, como de costumbre lo instalamos en el directorio
+     <filename>~/apps</filename></para>
+
+     <para>Hay que corregir el límite SHMMAX, editando (como root) el
+     fichero <filename>/etc/sysctl.conf</filename> añadiendo la
+     línea:</para>
+     <screen>
+kernel.shmmax=2147483647
+     </screen>
+     <para>Y además activamos el cambio ejecutando:</para>
+     <screen>
+sudo sysctl -p
+     </screen>
+   </section>
+
+   <section>
+     <title>OpenShot</title>
+     <para>Ya funciona correctamente el ppa.</para>
+     <screen>
+sudo add-apt-repository ppa:openshot.developers/ppa
 sudo apt-get update
 sudo apt-get install openshot frei0r-plugins
 
@@ -1938,16 +1989,44 @@ $ sudo apt-get update
 $ sudo apt-get install scribus scribus-template icc-profiles-free
       </screen>
     </section>
+
     <section>
       <title>Impressive</title>
       <para>Ideal para exponer presentaciones hechas con Beamer.</para>
       <para>Instalamos las dependencias:</para>
       <screen>
-$ sudo aptitude install python-pygame python-opengl python-imaging pdftk poppler-utils xdg-utils mplayer     
+$ sudo aptitude install python-pygame python-opengl python-imaging pdftk poppler-utils xdg-utils mplayer
       </screen>
       <para>Descargamos de la página web y descomprimimos en app como siempre.</para>
     </section>
+
+    <section>
+      <title>Pandoc</title>
+      <para>Pandoc es una librería Haskell para traducir entre
+      diferentes formatos de markup. Con Pandoc puedes, por ejemplo,
+      convertir los fuentes de este documento (en docbook) a
+      epub (entre otros muchos).</para>
+      <para>Lo he instalado usando el paquete debian bajado de la
+      página de Github del proyecto.</para>
+    </section>
+
+    <section>
+      <title>Sphinx</title>
+      <para>Sphinx es tambien un generador de documentación en y para
+      Python.</para>
+      <para>Instalado desde Python Package Index con:</para>
+      <screen>
+$ sudo pip install sphinx
+      </screen>
+    </section>
+
+    <section>
+      <title>Emacs Muse</title>
+      <para></para>
+    </section>
   </section>
+
+  <!--********** End of section: Documentación **********-->
 
   <section>
     <title>Diseño</title>
@@ -1989,7 +2068,7 @@ $ sudo add-apt-repository ppa:chrysn/openscad
       <filename>~/wings-x.x.x</filename></para>
       <para>La alternativa sería compilar el programa pero hay que
       instalar el lenguaje Erlang y varias librerias.</para>
-      
+
     </section>
   </section>
   <!--********** End of section: Diseño **********-->
