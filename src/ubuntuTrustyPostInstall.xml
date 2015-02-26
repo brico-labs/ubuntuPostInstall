@@ -1000,11 +1000,10 @@ sudo sysctl -p
 
    <section>
      <title>OpenShot</title>
-     <para>Ya funciona correctamente el ppa.</para>
+     <para>El ppa de openshot developers sigue sin funcionar. Lo he
+     instalado directamente desde Ubuntu:</para>
      <screen>
-sudo add-apt-repository ppa:openshot.developers/ppa
-sudo apt-get update
-sudo apt-get install openshot frei0r-plugins
+$ sudo aptitude install openshot frei0r-plugins
 
      </screen>
    </section>
@@ -2020,9 +2019,39 @@ $ sudo pip install sphinx
       </screen>
     </section>
 
+    
     <section>
-      <title>Emacs Muse</title>
-      <para></para>
+      <title>Editores para Markdown</title>
+      <para>Algunos editores para usar Markdown y Pandoc.</para>
+
+      <section>
+        <title>Pandoc Emacs mode</title>
+        <para>Lo he bajado de la página web
+        <link xl:href="http://joostkremers.github.io/pandoc-mode/"/></para>
+        <para>Para dejarlo operativo he añadido las siguientes líneas a
+        mi fichero <filename>.emacs</filename></para>
+        <screen>
+          ;; (add-hook 'markdown-mode-hook 'pandoc-mode)
+          (require 'pandoc-mode)
+          (add-to-list 'auto-mode-alist '("\\.md\\'" . pandoc-mode))       
+        </screen>
+      </section>
+
+      <section>
+        <title>Haroop</title>
+        <para>Instalado bajando el paquete para Ubuntu desde su página
+        web <link xl:href="http://pad.haroopress.com/"/></para>
+      </section>
+
+      <section>
+        <title>Qute</title>
+        <para>Un editor minimalista, muy interesante. Utiliza Pandoc
+        para generar la salida en distintos formatos.</para>
+        <para>Me he bajado el binario para Linux y lo he instalado
+        como de costumbre en mi directorio
+        <filename>~/apps</filename></para>
+      </section>
+      
     </section>
   </section>
 
