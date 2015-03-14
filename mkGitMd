@@ -1,2 +1,2 @@
-#!/usr/bin/bash
+#!/bin/bash
 pandoc -f docbook -t markdown_github -o out/ubuntuTrustyPostInstall.md src/ubuntuTrustyPostInstall.xml 

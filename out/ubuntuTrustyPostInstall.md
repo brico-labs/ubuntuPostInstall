@@ -822,26 +822,12 @@ La verdad es que sólo estoy usando el emacs24, tengo que comprobar si es posibl
 
 Al margen de tener o no las dos versiones de Emacs instaladas, la última versión tiene un problema con el Trusty, no parece llevarse nada bien con el Ibus. A causa de ese problema no se pueden escribir por ejemplo: "x^2"
 
-Para soslayar el problema tendremos que establecer la variable de entorno XMODIFIERS=""
+Para soslayar el problema hay varias soluciones (Ver <http://www.emacswiki.org/emacs/DeadKeys>).
 
-Para no enredar nada más he creado el siguiente fichero `emacs` en mi directorio `~/bin`
+Lo mas facil es cambiar nuestor fichero `~/.emacs` de forma que incluya la línea:
 
-    #!/bin/bash
-    export XMODIFIERS=""
-    /usr/bin/emacs $1
+    (require 'iso-transl)
           
-
-Le damos permisos de ejecución y creamos un par de alias
-
-      $ cd ~/bin
-      $ chmod 744 emacs
-      $ ln -s emacs24 emacs
-      $ ln -s x-emacs emacs
-          
-
-Como el directorio `~/bin` de cada usuario siempre es el primero del PATH, tendrá precedencia sobre el resto de ficheros del sistema, pero no sobre los menús del sistema, si ejecutamos emacs desde el menú Developer Tools del Classic Menu o del Cairo seguiremos teniendo el problema.
-
-Para solucionar el problema tenemos que hackear el fichero de menú.
 
 > **Important**
 >
@@ -954,6 +940,7 @@ Instalamos también este programa que nos va a permitir configurar varios editor
 
     $ git clone https://github.com/Hackerpilot/DCD
     $ cd DCD
+    $ git submodule update --init
     $ ./build.sh
             
 

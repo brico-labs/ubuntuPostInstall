@@ -1168,30 +1168,15 @@ $ sudo apt-get install emacs24
       parece llevarse nada bien con el Ibus. A causa de ese problema
       no se pueden escribir por ejemplo: "x^2"</para>
 
-      <para>Para soslayar el problema tendremos que establecer la
-      variable de entorno XMODIFIERS=""</para>
+      <para>Para soslayar el problema hay varias soluciones (Ver <link
+      xl:href="http://www.emacswiki.org/emacs/DeadKeys"/>).</para>
 
-      <para>Para no enredar nada más he creado el siguiente fichero
-      <filename>emacs</filename> en mi directorio <filename>~/bin</filename></para>
+      <para>Lo mas facil es cambiar nuestor fichero
+      <filename>~/.emacs</filename> de forma que incluya la línea:</para>
       <screen>
-#!/bin/bash
-export XMODIFIERS=""
-/usr/bin/emacs $1
+(require 'iso-transl)
       </screen>
 
-      <para>Le damos permisos de ejecución y creamos un par de alias</para>
-      <screen>
-  $ cd ~/bin
-  $ chmod 744 emacs
-  $ ln -s emacs24 emacs
-  $ ln -s x-emacs emacs
-      </screen>
-      <para>Como el directorio <filename>~/bin</filename> de cada
-      usuario siempre es el primero del PATH, tendrá precedencia sobre
-      el resto de ficheros del sistema, pero no sobre los menús del
-      sistema, si ejecutamos emacs desde el menú Developer Tools del
-      Classic Menu o del Cairo seguiremos teniendo el problema.</para>
-      <para>Para solucionar el problema tenemos que hackear el fichero de menú.</para>
       <important>
         <title>TODO</title>
         <para>Describir el fichero .emacs</para>
@@ -1325,8 +1310,10 @@ $sudo apt-get install libevent-dev libssl-dev
         <screen>
 $ git clone https://github.com/Hackerpilot/DCD
 $ cd DCD
+$ git submodule update --init
 $ ./build.sh
         </screen>
+        
         <para>Una vez compilados copiamos el
         <filename>dcd-server</filename> y
         <filename>dcd-client</filename> a nuestro path, por ejemplo a
