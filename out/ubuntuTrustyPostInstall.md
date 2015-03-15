@@ -1013,6 +1013,18 @@ Para poder instalar paquetes R para todos los usuarios sin liarnos mucho lo mejo
     $ sudo gpasswd -a staff myuser
           
 
+Mongodb
+-------
+
+Motor de bases de datos no relaccionales.
+
+    $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+    $ echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse"\
+    | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
+    $ sudo aptitude update
+    $ sudo aptitude install mongodb-org
+          
+
 Desarrollo Web
 ==============
 
@@ -1270,16 +1282,6 @@ Seguimos los pasos que nos recomiendan en la propia página de Drupal (<http://d
 -   Empezará la descarga e instalación automática de módulos, acto seguido hará la importación del fichero de traducciones (en mi pc este proceso es super-lento así que paciencia)
 
 -   Por último le damos un nombre a nuestro sitio web y creamos un usuario administrador. Una vez hecho esto ya podremos ir a nuestro "nuevo sitio"
-
-Openatrium
-----------
-
-openatrium http://www.linux-magazine.com/Issues/2009/109/Open-Atrium http://tips.timscomputer.com/archives/64 https://www.linode.com/stackscripts/view/?StackScriptID=169 https://drupal.org/documentation/install/settings-file https://drupal.org/node/306267 http://reyero.net/es/drupal/bienvenido\_open\_atrium
-
--   -   
-
-Joomla
-------
 
 Plone
 -----

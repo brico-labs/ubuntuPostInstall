@@ -1443,6 +1443,18 @@ $ sudo gpasswd -a staff myuser
           http://www.ats.ucla.edu/stat/r/modules/exploring_w_graphics.htm
       -->
     </section>
+
+    <section>
+      <title>Mongodb</title>
+      <para>Motor de bases de datos no relaccionales.</para>
+      <screen>
+$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+$ echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse"\
+| sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
+$ sudo aptitude update
+$ sudo aptitude install mongodb-org
+      </screen>
+    </section>
   </section>
   <!--********** End of section: Desarrollo **********-->
 
@@ -1828,32 +1840,6 @@ $ sudo chown www-data:www-data /var/www/drupal/sites/default/settings.php
           creamos un usuario administrador. Una vez hecho esto ya podremos ir a nuestro "nuevo sitio"</para>
         </listitem>
       </itemizedlist>
-    </section>
-
-    <section>
-      <title>Openatrium</title>
-
-      <para> openatrium
- http://www.linux-magazine.com/Issues/2009/109/Open-Atrium
- http://tips.timscomputer.com/archives/64
- https://www.linode.com/stackscripts/view/?StackScriptID=169
- https://drupal.org/documentation/install/settings-file
- https://drupal.org/node/306267
- http://reyero.net/es/drupal/bienvenido_open_atrium
-      </para>
-      <itemizedlist>
-        <listitem>
-          <para></para>
-        </listitem>
-        <listitem>
-          <para></para>
-        </listitem>
-      </itemizedlist>
-    </section>
-
-    <section>
-      <title>Joomla</title>
-      <para></para>
     </section>
 
     <section>
