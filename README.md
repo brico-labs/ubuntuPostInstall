@@ -875,7 +875,23 @@ Además hacemos la configuración inicial del git:
     $ git config --global color.ui true
     $ git config --global credential.helper cache
     $ git config --global credential.helper 'cache --timeout=3600'
-          
+
+Adicionalmente instalamos también el [bash-git-promt](https://github.com/magicmonty/bash-git-prompt) que mola un montón.
+
+Seguimos las instrucciones en la página así que:
+
+``` {bash}
+cd ~
+git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt
+```
+
+Yo no lo quiero siempre activo así que en vez de hacer source desde el fichero *.bashrc* sin más, lo que hago es preparar un alias, así que en el fichero *~/.bashrc* o en el fichero *~/bash\_aliases*, depende de donde guardes tus alias, añade:
+
+``` {bash}
+alias gp='. ~/bash-git-prompt/gitprompt.sh'
+```
+
+Ahora si lo quiero activar basta con teclear **gp** en el terminal.
 
 Mercurial
 ---------
@@ -1676,6 +1692,21 @@ deb http://download.virtualbox.org/virtualbox/debian trusty contrib
 >
 > He tenido que desinstalar VirtualBox por que los drivers me dejaban el Kernel tainted y me estaban dando fallos continuos de kernel panic. Pendiente de hacer más pruebas con el virtualbox de Ubuntu.
 
+Virtualización
+==============
+
+VMware
+------
+
+Descargamos VMware Workstation Player desde la página oficial de WMware.
+
+VirtualBox
+----------
+
+Instalación de VirtualBox
+
+Descargamos el paquete para Ubuntu 64bits desde la [página wiki de VirtualBox](https://www.virtualbox.org/wiki/Linux_Downloads) Mi usuario pertenece al grupo vboxuser desde el último intento de instalar VirtualBox.
+
 Mininet: Un simulador de SDN
 ----------------------------
 
@@ -1765,3 +1796,28 @@ Instalamos las dependencias
           
 
 Como de costumbre podemos crear un lanzador.
+
+Juegos
+======
+
+Spring
+------
+
+Añadido el ppa de Spring
+
+``` {bash}
+sudo apt-add-repository ppa:spring
+sudo aptitude update
+sudo aptitude install spring
+sudo aptitude install springlobby
+```
+
+Además de instalar el spring desde el ppa descargamos los binarios desde la [wiki de spring](https://springrts.com/wiki/Download) y como de costumbre lo instalamos en *~/apps*.
+
+También he añadido el weblobby
+
+TODO
+====
+
+-   Añadir la instalación de libreplan
+

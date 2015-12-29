@@ -1157,8 +1157,30 @@ $ git config --global core.editor emacs
 $ git config --global color.ui true
 $ git config --global credential.helper cache
 $ git config --global credential.helper 'cache --timeout=3600'
-      
 \end{verbatim}
+
+Adicionalmente instalamos también el
+\href{https://github.com/magicmonty/bash-git-prompt}{bash-git-promt} que
+mola un montón.
+
+Seguimos las instrucciones en la página así que:
+
+\begin{verbatim}
+cd ~
+git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt
+\end{verbatim}
+
+Yo no lo quiero siempre activo así que en vez de hacer source desde el
+fichero \emph{.bashrc} sin más, lo que hago es preparar un alias, así
+que en el fichero \emph{\textasciitilde{}/.bashrc} o en el fichero
+\emph{\textasciitilde{}/bash\_aliases}, depende de donde guardes tus
+alias, añade:
+
+\begin{verbatim}
+alias gp='. ~/bash-git-prompt/gitprompt.sh'
+\end{verbatim}
+
+Ahora si lo quiero activar basta con teclear \textbf{gp} en el terminal.
 
 \subsection{Mercurial}\label{mercurial}
 
@@ -2240,6 +2262,21 @@ Kernel tainted y me estaban dando fallos continuos de kernel panic.
 Pendiente de hacer más pruebas con el virtualbox de Ubuntu.
 \end{quote}
 
+\section{Virtualización}\label{virtualizaciuxf3n-1}
+
+\subsection{VMware}\label{vmware}
+
+Descargamos VMware Workstation Player desde la página oficial de WMware.
+
+\subsection{VirtualBox}\label{virtualbox-1}
+
+Instalación de VirtualBox
+
+Descargamos el paquete para Ubuntu 64bits desde la
+\href{https://www.virtualbox.org/wiki/Linux_Downloads}{página wiki de
+VirtualBox} Mi usuario pertenece al grupo vboxuser desde el último
+intento de instalar VirtualBox.
+
 \subsection{Mininet: Un simulador de
 SDN}\label{mininet-un-simulador-de-sdn}
 
@@ -2340,3 +2377,30 @@ $ sudo perl Build.pl --gui
 \end{verbatim}
 
 Como de costumbre podemos crear un lanzador.
+
+\section{Juegos}\label{juegos}
+
+\subsection{Spring}\label{spring}
+
+Añadido el ppa de Spring
+
+\begin{verbatim}
+sudo apt-add-repository ppa:spring
+sudo aptitude update
+sudo aptitude install spring
+sudo aptitude install springlobby
+\end{verbatim}
+
+Además de instalar el spring desde el ppa descargamos los binarios desde
+la \href{https://springrts.com/wiki/Download}{wiki de spring} y como de
+costumbre lo instalamos en \emph{\textasciitilde{}/apps}.
+
+También he añadido el weblobby
+
+\section{TODO}\label{todo}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Añadir la instalación de libreplan
+\end{itemize}
